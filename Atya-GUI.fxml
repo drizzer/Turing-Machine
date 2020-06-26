@@ -13,7 +13,6 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -79,18 +78,29 @@
                   <Button layoutX="16.0" layoutY="48.0" mnemonicParsing="false" text="Load" />
                   <Button layoutX="157.0" layoutY="48.0" mnemonicParsing="false" text="Save" />
                   <TextField layoutX="18.0" layoutY="150.0" prefHeight="25.0" prefWidth="183.0" />
-                  <TextArea layoutX="10.0" layoutY="336.0" prefHeight="200.0" prefWidth="200.0" />
                   <Label layoutX="18.0" layoutY="133.0" prefHeight="17.0" prefWidth="80.0" text="Input :" />
                   <Button layoutX="77.0" layoutY="197.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="66.0" text="Start" />
                   <Button layoutX="150.0" layoutY="262.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="54.0" text="Pause" />
                   <Button layoutX="16.0" layoutY="262.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="54.0" text="Stop" />
                   <Label layoutX="10.0" layoutY="319.0" text="Instructions :" />
                   <Button layoutX="68.0" layoutY="95.0" mnemonicParsing="false" text="Set Alphabet" />
+                  <TableView layoutX="10.0" layoutY="343.0" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn prefWidth="40.0" text="R St" />
+                      <TableColumn prefWidth="41.0" text="R Sy" />
+                        <TableColumn prefWidth="53.0" text="W St" />
+                        <TableColumn prefWidth="30.0" text="W Sy" />
+                        <TableColumn prefWidth="31.0" text="D" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
           </children>
         </AnchorPane>
         <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
           <content>
-            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="550.0" prefWidth="443.0">
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="550.0" prefWidth="438.0">
               <children>
                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x2" wrapText="false" />
                         <AnchorPane layoutX="14.0" layoutY="232.0" prefHeight="302.0" prefWidth="419.0">
@@ -101,17 +111,17 @@
                         </AnchorPane>
                         <TableView editable="true" fixedCellSize="1.0" layoutX="6.0" layoutY="58.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="66.0" prefWidth="432.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" />
-                              <TableColumn prefWidth="75.0" />
-                              <TableColumn prefWidth="75.0" />
-                              <TableColumn prefWidth="75.0" />
-                              <TableColumn prefWidth="75.0" />
-                              <TableColumn prefWidth="75.0" />
-                              <TableColumn prefWidth="75.0" />
-                              <TableColumn prefWidth="75.0" />
-                              <TableColumn prefWidth="75.0" />
-                              <TableColumn prefWidth="75.0" />
-                              <TableColumn prefWidth="75.0" />
+                            <TableColumn prefWidth="75.0" text="#0" />
+                              <TableColumn prefWidth="75.0" text="#1" />
+                              <TableColumn prefWidth="75.0" text="#2" />
+                              <TableColumn prefWidth="75.0" text="#3" />
+                              <TableColumn prefWidth="75.0" text="#4" />
+                              <TableColumn prefWidth="75.0" text="#5" />
+                              <TableColumn prefWidth="75.0" text="#6" />
+                              <TableColumn prefWidth="75.0" text="#7" />
+                              <TableColumn prefWidth="75.0" text="#8" />
+                              <TableColumn prefWidth="75.0" text="#9" />
+                              <TableColumn prefWidth="75.0" text="#10" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -126,9 +136,24 @@
             </AnchorPane>
           </content>
         </ScrollPane>
-        <AnchorPane>
+        <AnchorPane prefHeight="550.0" prefWidth="185.0">
           <children>
             <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Stats" textAlignment="CENTER" textFill="$x2" wrapText="false" />
+                  <TableView layoutX="38.0" layoutY="182.0" prefHeight="229.0" prefWidth="146.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Cell id" />
+                      <TableColumn prefWidth="75.0" text="Visits" />
+                    </columns>
+                  </TableView>
+                  <TableView layoutX="19.0" layoutY="52.0" prefHeight="78.0" prefWidth="183.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Steps" />
+                      <TableColumn prefWidth="75.0" text="State changes" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
           </children>
         </AnchorPane>
       </items>
