@@ -11,19 +11,17 @@ import java.util.*;
 public class TuringMachine {
     /** String with all possible states (e.g. qo - q5) */
     private Set<String> StateSet = new HashSet<String>();
-    /** ??? */
+    /** contains all possible states with Transitions */
     private Set<Transition> TransitionSet;
     /** String with first state e.g. q0*/
     private String BeginState;
     /** ?? */
     private String AcceptState;
-    /** ?? */
-    private String RejectState;
     /** string with all symbols (seperator included */
     private String Tape;
     /** String with current state e.g. q3 */
     private String CurrentState;
-    /** ?? Why is currentsymbol an integer? */
+    /** index of current symbol */
     private int CurrentSymbol;
 
     /**
@@ -33,12 +31,11 @@ public class TuringMachine {
     */
 
 // Programm TuringMachine als char[][] ?? Tape als char[][]???
-    public TuringMachine(Set<String> StateSet, Set<Transition> TransitionSet, String BeginState, String AcceptState, String RejectState, String Tape, String CurrentState, int CurrentSymbol)   {
+    public TuringMachine(Set<String> StateSet, Set<Transition> TransitionSet, String BeginState, String AcceptState, String Tape, String CurrentState, int CurrentSymbol)   {
         this.StateSet = StateSet;
         this.TransitionSet = TransitionSet;
         this.BeginState = BeginState;
         this.AcceptState = AcceptState;
-        this.RejectState = RejectState;
         this.Tape = Tape;
         this.CurrentState = CurrentState;
         this.CurrentSymbol = CurrentSymbol;
@@ -136,7 +133,6 @@ public class TuringMachine {
 		{},
 
 	}
-    
     
     
 

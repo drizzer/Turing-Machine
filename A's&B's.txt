@@ -1,0 +1,22 @@
+
+//current state, current cell, new state , new cell, movement
+0 a 0 a R
+0 # 1 # R
+0 _ 0 _ R
+1 b 1 b R
+1 _ 2 _ L
+2 b 2 b L
+2 # 2 # L
+2 a 2 a L
+2 + 2 + L
+2 _ 3 _ R
+3 + 3 + R
+3 a 4 + R
+4 + 4 + R
+4 a 4 a R
+4 # 4 # R
+4 b 2 + L
+3 # 5 # R
+5 + 5 + R
+5 _ e _ N 
+
