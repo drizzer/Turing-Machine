@@ -77,14 +77,14 @@
             </Label>
                   <Button layoutX="16.0" layoutY="48.0" mnemonicParsing="false" text="Load" />
                   <Button layoutX="157.0" layoutY="48.0" mnemonicParsing="false" text="Save" />
-                  <TextField layoutX="18.0" layoutY="150.0" prefHeight="25.0" prefWidth="183.0" />
-                  <Label layoutX="18.0" layoutY="133.0" prefHeight="17.0" prefWidth="80.0" text="Input :" />
-                  <Button layoutX="77.0" layoutY="197.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="66.0" text="Start" />
-                  <Button layoutX="150.0" layoutY="262.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="54.0" text="Pause" />
-                  <Button layoutX="16.0" layoutY="262.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="54.0" text="Stop" />
-                  <Label layoutX="10.0" layoutY="319.0" text="Instructions :" />
-                  <Button layoutX="68.0" layoutY="95.0" mnemonicParsing="false" text="Set Alphabet" />
-                  <TableView layoutX="10.0" layoutY="343.0" prefHeight="200.0" prefWidth="200.0">
+                  <TextField layoutX="10.0" layoutY="210.0" prefHeight="46.0" prefWidth="183.0" />
+                  <Label layoutX="13.0" layoutY="193.0" prefHeight="17.0" prefWidth="80.0" text="Input :" />
+                  <Button layoutX="77.0" layoutY="494.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="66.0" text="Start" />
+                  <Button layoutX="151.0" layoutY="500.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="54.0" text="Pause" />
+                  <Button layoutX="14.0" layoutY="500.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="54.0" text="Stop" />
+                  <Label layoutX="15.0" layoutY="267.0" text="set state transitions :" />
+                  <Button layoutX="15.0" layoutY="153.0" mnemonicParsing="false" text="Set Alphabet" />
+                  <TableView layoutX="10.0" layoutY="287.0" prefHeight="200.0" prefWidth="200.0">
                     <columns>
                       <TableColumn prefWidth="40.0" text="R St" />
                       <TableColumn prefWidth="41.0" text="R Sy" />
@@ -96,6 +96,8 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
+                  <Button layoutX="140.0" layoutY="153.0" mnemonicParsing="false" text="set state" />
+                  <Button layoutX="13.0" layoutY="105.0" mnemonicParsing="false" text="set name" />
           </children>
         </AnchorPane>
         <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
@@ -139,13 +141,13 @@
         <AnchorPane prefHeight="550.0" prefWidth="185.0">
           <children>
             <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Stats" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                  <TableView layoutX="38.0" layoutY="182.0" prefHeight="229.0" prefWidth="146.0">
+                  <TableView layoutX="37.0" layoutY="245.0" prefHeight="229.0" prefWidth="146.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="Cell id" />
                       <TableColumn prefWidth="75.0" text="Visits" />
                     </columns>
                   </TableView>
-                  <TableView layoutX="19.0" layoutY="52.0" prefHeight="78.0" prefWidth="183.0">
+                  <TableView layoutX="19.0" layoutY="72.0" prefHeight="117.0" prefWidth="183.0">
                     <columns>
                       <TableColumn prefWidth="75.0" text="Steps" />
                       <TableColumn prefWidth="75.0" text="State changes" />
