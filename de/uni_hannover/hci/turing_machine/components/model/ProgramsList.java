@@ -1,3 +1,7 @@
+package de.uni_hannover.hci.turing_machine.components.model;
+
+import de.uni_hannover.hci.turing_machine.TuringMachine;
+
 /**
  * This class contains the programms that can be executed on the Turing machine
  * 
@@ -26,7 +30,6 @@ public final class ProgramsList {
 		newTM.addState("z4");
 		newTM.addState("z5");
 		newTM.addState("ze");
-		newTM.addState("zReject");
 
 		newTM.setStartState("z0");
 		newTM.setAcceptState("ze");
@@ -76,7 +79,6 @@ public final class ProgramsList {
 		newTM.addState("z4");
 		newTM.addState("z5");
 		newTM.addState("ze");
-		newTM.addState("zReject");
 
 		newTM.setStartState("z0");
 		newTM.setAcceptState("ze");
