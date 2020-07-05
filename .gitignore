@@ -35,3 +35,5 @@ out/
 *.iml
 *.ipr
 *.iws
+# Ignore Gradle build output directory
+build
