@@ -12,7 +12,7 @@ public class TuringMachine {
 	/** State in which the output is accepted */
 	private String AcceptState;
 
-	/** Tape content as String with all symbols (seperator included */
+	/** Tape content as String with all symbols (seperator included) */
 	private String Tape;
 	/** String with current state e.g. q3 */
 	private String CurrentState;

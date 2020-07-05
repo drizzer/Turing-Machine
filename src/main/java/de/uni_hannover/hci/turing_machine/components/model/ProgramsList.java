@@ -16,9 +16,11 @@ public final class ProgramsList {
 
 	/**
 	 * Checks if the input is correct for TM programm A's and B's.
+	 *
+	 * @return Program that checks if the two words have the same size
 	 * 
 	 * @author Lisanne Haase
-	 * @version 01.07.20
+	 * @version 02.07.2020
 	 */
 	public static TuringMachine EqualWordSize() {
 		TuringMachine newTM = new TuringMachine();
@@ -62,9 +64,11 @@ public final class ProgramsList {
 
 	/**
 	 * Checks if the input is correct for TM programm Annagramme.
-	 * 
-	 * @author Lisanne Haase
-	 * @version 01.07.20
+	 *
+	 * @return Program that checks if the two words are anagrams
+	 *
+	 * @author Mohamed El Hedi Atya
+	 * @version 05.07.20
 	 */
 	public static TuringMachine Anagram() {
 		TuringMachine newTM = new TuringMachine();
