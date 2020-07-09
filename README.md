@@ -40,7 +40,7 @@
 
 - [x] Organise project package structure
 
-- [ ] Implement Gradle build system
+- [x] Implement Gradle build system
 
 ##### - Stage 2:
 
