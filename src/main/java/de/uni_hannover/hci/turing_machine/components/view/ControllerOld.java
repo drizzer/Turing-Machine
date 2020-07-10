@@ -1,5 +1,5 @@
 
-package de.uni_hannover.hci.turing_machine.components.ui;
+package de.uni_hannover.hci.turing_machine.components.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 
-    public class Controller {
+    public class ControllerOld {
 
         public Button getLoadBtn() {
             return loadBtn;
@@ -437,8 +437,3 @@ import javafx.scene.text.Font;
             this.x1 = x1;
         }
     }
-
-
-
-
-}
