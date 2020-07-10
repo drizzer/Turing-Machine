@@ -56,6 +56,7 @@ public class TuringMachine {
 	public boolean Run(String input) {
 		CurrentState = StartState;
 		Tape = input;
+		statisticSteps = 0; //counts the steps
 
 		while (!CurrentState.equals(AcceptState)) {
 			boolean foundTransition = false;
@@ -87,8 +88,10 @@ public class TuringMachine {
 				Tape = new String(tempTape);
 				if (CurrentTransition.moveDirection == true) {
 					CurrentSymbol++;
+					statisticSteps++; //counts the steps in total
 				} else {
 					CurrentSymbol--;
+					statisticSteps++; //counts the steps in total
 				}
 
 				if (CurrentSymbol < 0)
