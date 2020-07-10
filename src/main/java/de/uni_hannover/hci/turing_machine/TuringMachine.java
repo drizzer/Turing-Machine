@@ -18,6 +18,12 @@ public class TuringMachine {
 	private String CurrentState;
 	/** Index of current symbol */
 	private int CurrentSymbol;
+	/** Counter for calls of cells */
+	private int statisticCells;
+	/** Counter for steps in total */
+	private int statisticSteps;
+	/** Counter for change of states  */
+	private int statisticChangeofstates;
 
 	class Transition {
 		String readState;
@@ -42,7 +48,11 @@ public class TuringMachine {
 		CurrentState = new String("");
 		CurrentSymbol = 0;
 	}
-
+	/**
+	* This method takes the tape and prints a new tape
+	@author Mohamed Atyas
+	@version 30.06.20
+	 */
 	public boolean Run(String input) {
 		CurrentState = StartState;
 		Tape = input;
