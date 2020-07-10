@@ -22,7 +22,7 @@
 <?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.uni_hannover.hci.turing_machine.components.ui.Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.uni_hannover.hci.turing_machine.components.ui.Controller">
    <children>
       <VBox layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="900.0">
          <children>
@@ -289,4 +289,4 @@
          </padding>
       </HBox>
    </children>
-</fx:root>
+</AnchorPane>
