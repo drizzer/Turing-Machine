@@ -24,6 +24,12 @@ public class TuringMachine {
 	private int statisticSteps;
 	/** Counter for change of states  */
 	private int statisticChangeofstates;
+	/** Counter for calls of cells */
+	private int statisticCells;
+	/** Counter for steps in total */
+	private int statisticSteps;
+	/** Counter for change of states  */
+	private int statisticChangeofstates;
 
 	class Transition {
 		String readState;
