@@ -18,18 +18,12 @@ public class TuringMachine {
 	private String CurrentState;
 	/** Index of current symbol */
 	private int CurrentSymbol;
-	/** Counter for calls of cells */
-	private int statisticCells;
+	/** Counter for calls of each cell */
+	private int[] statCells;
 	/** Counter for steps in total */
-	private int statisticSteps;
+	private int statSteps;
 	/** Counter for change of states  */
-	private int statisticChangeofstates;
-	/** Counter for calls of cells */
-	private int statisticCells;
-	/** Counter for steps in total */
-	private int statisticSteps;
-	/** Counter for change of states  */
-	private int statisticChangeofstates;
+	private int statChangeofstates;
 
 	class Transition {
 		String readState;
@@ -56,13 +50,13 @@ public class TuringMachine {
 	}
 	/**
 	* This method takes the tape and prints a new tape
-	@author Mohamed Atyas
+	@author Mohamed Atya
 	@version 30.06.20
 	 */
 	public boolean Run(String input) {
 		CurrentState = StartState;
 		Tape = input;
-		statisticSteps = 0; //counts the steps
+		statSteps = 0; //counts the steps
 
 		while (!CurrentState.equals(AcceptState)) {
 			boolean foundTransition = false;
@@ -94,10 +88,10 @@ public class TuringMachine {
 				Tape = new String(tempTape);
 				if (CurrentTransition.moveDirection == true) {
 					CurrentSymbol++;
-					statisticSteps++; //counts the steps in total
+					statSteps++; //counts the steps in total
 				} else {
 					CurrentSymbol--;
-					statisticSteps++; //counts the steps in total
+					statSteps++; //counts the steps in total
 				}
 
 				if (CurrentSymbol < 0)
