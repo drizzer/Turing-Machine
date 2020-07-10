@@ -1,5 +1,5 @@
 
-package de.uni_hannover.hci.turing_machine.components.ui;
+package de.uni_hannover.hci.turing_machine.components.view;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,6 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 
+<<<<<<< HEAD:src/main/java/de/uni_hannover/hci/turing_machine/components/ui/Controller.java
     public class Controller {
         @FXML
         private Font x1;
@@ -105,6 +106,9 @@ import javafx.scene.text.Font;
         void load(ActionEvent event) {
 
         }
+=======
+    public class ControllerOld {
+>>>>>>> b496fcd534e31764ab608fe23cf6a31246064875:src/main/java/de/uni_hannover/hci/turing_machine/components/view/ControllerOld.java
 
         @FXML
         void new_CellidVisits_txt(ActionEvent event) {
@@ -442,7 +446,14 @@ import javafx.scene.text.Font;
 
 }
 
+<<<<<<< HEAD:src/main/java/de/uni_hannover/hci/turing_machine/components/ui/Controller.java
 
 
 
 
+=======
+        public void setX1(Font x1) {
+            this.x1 = x1;
+        }
+    }
+>>>>>>> b496fcd534e31764ab608fe23cf6a31246064875:src/main/java/de/uni_hannover/hci/turing_machine/components/view/ControllerOld.java
