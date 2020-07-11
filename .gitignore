@@ -35,3 +35,25 @@ out/
 *.iml
 *.ipr
 *.iws
+# Ignore Gradle build output directory
+build
+
+##############################
+## Eclipse
+##############################
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
