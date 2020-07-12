@@ -40,7 +40,7 @@ if (JavaVersion.current().java11Compatible) {
     javafx {
         version = "8"
         modules = [ 'javafx.controls', 'javafx.fxml','javafx.base','javafx.graphics']
-        sdk = System.getenv('JAVAFX_HOME')
+        sdk = System.getenv('JAVA_HOME')
         if (sdk == null || sdk.isBlank()) {
             throw new InvalidUserDataException("JAVAFX_HOME environment variable is not set. It must be set to root folder where JAVAFX SDK is located")
         }
