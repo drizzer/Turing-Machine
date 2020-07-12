@@ -22,13 +22,13 @@
 
 - [x] [UML Diagram](https://app.lucidchart.com/invitations/accept/789d560f-ba85-424b-a47c-ca13e721600e) <-- link to shared diagram
 
-- [x] Desktop Layout (JavaFX)
+- [x] Desktop Layout (Scene Builder)
 
 - [x] [Mobile Layout](https://www.figma.com/file/tOZ8G50fi3TvbK6Da5I812/Application-Layout) <-- link to shared layout
 
 #### 2. week:
 
-- [x] Continue work on Layouts
+- [x] Continue work on layouts
 
 - [x] Main Backend implementations
 
@@ -40,21 +40,41 @@
 
 - [x] Organise project package structure
 
+- [x] Javadoc
+
 - [x] Implement Gradle build system
 
 ##### - Stage 2:
-
-- [ ] Link Backend with UI
-
-- [ ] Preview version of the Program
 
 - [ ] Implementation of manual configuration
 
 - [ ] Implementation of Save/Load
 
+- [ ] MVC Pattern
+
 #### 4. week:
 
+- [ ] Preview version of the Program
+
+- [ ] Implementation of features
+
+- [ ] Debugging
+
+#### 5. week:
+
+- [ ] Tests
+
+- [ ] Presentation
+
+- [ ] Polishing
+
 ------------------------------------------------------------------------------
+
+## SDK
+
+###### [Azul OpenJDK](https://www.azul.com/downloads/zulu-community/) :
+
+Free builds of OpenJDK – open source implementations of Java SE free to use without restrictions including JavaFX.
 
 ## Stack
 

@@ -1,8 +1,28 @@
+buildscript {
+	repositories {
+		maven {
+			url 'https://plugins.gradle.org/m2/'
+		}
+	}
+	dependencies {
+		classpath 'org.openjfx:javafx-plugin:0.0.8'
+	}
+}
 
 plugins {
     id 'java'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+repositories {
+    jcenter()
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:29.0-jre'
+    testImplementation 'junit:junit:4.13'
 }
 
 def currentOS = org.gradle.internal.os.OperatingSystem.current()
@@ -15,19 +35,16 @@ if (currentOS.isWindows()) {
     platform = 'mac'
 }
 
-repositories {
-    jcenter()
-    mavenCentral()
+if (JavaVersion.current().java11Compatible) {
+	apply plugin: 'org.openjfx.javafxplugin'
+    javafx {
+        version = "8"
+        modules = [ 'javafx.controls', 'javafx.fxml','javafx.base','javafx.graphics']
+        sdk = System.getenv('JAVAFX_HOME')
+        if (sdk == null || sdk.isBlank()) {
+            throw new InvalidUserDataException("JAVAFX_HOME environment variable is not set. It must be set to root folder where JAVAFX SDK is located")
+        }
 }
-
-dependencies {
-    implementation 'com.google.guava:guava:29.0-jre'
-    testImplementation 'junit:junit:4.13'
-}
-
-javafx {
-    version = "1.8"
-    modules = [ 'javafx.controls', 'javafx.fxml','javafx.base','javafx.graphics']
 }
 
 application {

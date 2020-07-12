@@ -6,6 +6,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+
+import javafx.event.ActionEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.event.EventHandler;
 
 public class Controller {
     // JavaFx components for the User Interface
@@ -128,11 +133,6 @@ public class Controller {
 
     @FXML
     void new_setTransition_txt(ActionEvent event) {
-
-    }
-
-    @FXML
-    void new_stepsStatechange_txt(MouseEvent event) {
 
     }
 
