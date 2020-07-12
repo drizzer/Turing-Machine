@@ -50,11 +50,11 @@
 
 - [ ] Implementation of Save/Load
 
-- [ ] MVC Pattern
+- [x] MVC Pattern
 
 #### 4. week:
 
-- [ ] Preview version of the Program
+- [x] Preview version of the Program
 
 - [ ] Implementation of features
 

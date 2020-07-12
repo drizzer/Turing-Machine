@@ -47,6 +47,17 @@ if (JavaVersion.current().java11Compatible) {
 }
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs= ["src/main/java"]
+        }
+        resources {
+            srcDirs= ["src/main/resources"]
+        }
+    }
+}
+
 application {
     mainClassName = 'de.uni_hannover.hci.turing_machine.App'
 }

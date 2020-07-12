@@ -12,7 +12,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("GUI.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI.fxml"));
         primaryStage.setTitle("Turing Machine");
         primaryStage.setScene(new Scene(root, 1280, 800));
         primaryStage.show();
