@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.control.Tooltip;
 
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
@@ -173,7 +174,15 @@ public class Controller {
 
     @FXML
     void start(ActionEvent event) {
+        start_btn.setText("Running..");
+        start_btn.setStyle("-fx-font-size : 12");
 
+        Tooltip tt = new Tooltip();
+
+        tt.setText("Work is being done");
+        tt.setStyle("-fx-font: normal bold 12 Langdon; " + "-fx-base: #AE3522; " + "-fx-text-fill: orange;");
+
+        start_btn.setTooltip(tt);
     }
 
     @FXML
