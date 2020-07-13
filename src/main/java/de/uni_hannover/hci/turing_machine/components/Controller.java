@@ -8,12 +8,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.control.Tooltip;
-
+import de.uni_hannover.hci.turing_machine.TuringMachine;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
 
-public class Controller {
+public class Controller extends TuringMachine {
     // JavaFx components for the User Interface
 
     @FXML
@@ -137,6 +137,11 @@ public class Controller {
 
     }
 
+        /**
+         * This method takes the execution of the TM on hold until the start button is pressed.
+         * @param event
+         * @return void
+         */
     @FXML
     void pause(ActionEvent event) {
 
@@ -160,16 +165,23 @@ public class Controller {
     @FXML
     void setName(ActionEvent event) {
 
+
     }
 
     @FXML
-    void setState(ActionEvent event) {
-
+    void setState(ActionEvent event) { 
+        addState(getSetState_txt().getText());
     }
 
     @FXML
     void setTransiton(ActionEvent event) {
-
+        String str = getSetTransition_txt().getText().split(", ");
+        String part1 = str[0];
+        String part2 = str[1];
+        String part3 = str[2];
+        String part4 = str[3];
+        String part5 = str[4];
+        addTransition(part1, part2, part3, part4);
     }
 
     @FXML
@@ -200,9 +212,14 @@ public class Controller {
 
     }
 
+    /**
+     * this method stops the programm completely
+     * @param event
+     * @return void
+     */
     @FXML
     void stop(ActionEvent event) {
-
+        System.exit(0);
     }
 
     // Getters & Setters
