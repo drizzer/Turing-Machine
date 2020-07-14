@@ -175,13 +175,17 @@ public class Controller extends TuringMachine {
 
     @FXML
     void setTransiton(ActionEvent event) {
-        String str = getSetTransition_txt().getText().split(", ");
+     /*   String str = getSetTransition_txt().getText().split(", ");
         String part1 = str[0];
-        String part2 = str[1];
+        char part2 = str[1].charAt(0);
         String part3 = str[2];
-        String part4 = str[3];
-        String part5 = str[4];
-        addTransition(part1, part2, part3, part4);
+        char part4 = str[3].charAt(0);
+        if(str[4] == "R"){
+            boolean part5 = false;
+        } else {
+            boolean part5 = true;
+        }
+        addTransition(part1, part2, part3, part4, part5); */
     }
 
     @FXML
