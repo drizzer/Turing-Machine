@@ -102,6 +102,10 @@ public class Controller extends TuringMachine {
 
     }
 
+    /**
+     * This method is loading an already existing TM
+     * @param event
+     */
     @FXML
     void load(ActionEvent event) {
 
@@ -147,6 +151,11 @@ public class Controller extends TuringMachine {
 
     }
 
+    /**
+     * This method saves a new TM
+     * @param event
+     * @return void
+     */
     @FXML
     void save(ActionEvent event) {
 
