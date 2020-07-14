@@ -160,12 +160,20 @@ public class Controller extends TuringMachine {
     @FXML
     void save(ActionEvent event) {
         try {
-            File f = new File("test.txt");
+            File f = new File("test.txt"); //New file is created
             boolean bool = false;
-            bool = f.createNewFile();
+            bool = f.createNewFile(); //checks if file is already there
+
         }
-        catch (Exception e) {
-            System.err.println(e);
+        catch (Exception e) { //If file already exists
+
+            Tooltip tt = new Tooltip();
+            tt.setText("TM already exists.");
+            tt.setStyle("-fx-font: normal bold 12 Langdon; " + "-fx-base: #AE3522; " + "-fx-text-fill: orange;");
+            save_btn.setTooltip(tt);
+
+            save_btn.setText("Error");
+            
         }
     
     }
