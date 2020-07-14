@@ -12,7 +12,10 @@ import de.uni_hannover.hci.turing_machine.TuringMachine;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
-import java.io.File;
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
 
 public class Controller extends TuringMachine {
     // JavaFx components for the User Interface
@@ -159,7 +162,8 @@ public class Controller extends TuringMachine {
      */
     @FXML
     void save(ActionEvent event) {
-        try {
+        try { 
+
             File f = new File("test.txt"); //New file is created
             boolean bool = false;
             bool = f.createNewFile(); //checks if file is already there
