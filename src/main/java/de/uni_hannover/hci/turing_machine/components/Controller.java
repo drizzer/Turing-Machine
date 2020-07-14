@@ -167,6 +167,7 @@ public class Controller extends TuringMachine {
             File f = new File("test.txt"); //New file is created
             boolean bool = false;
             bool = f.createNewFile(); //checks if file is already there
+           
 
         }
         catch (Exception e) { //If file already exists

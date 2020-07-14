@@ -1,4 +1,4 @@
-package de.uni_hannover.hci.turing_machine.components.io;
+package prog2.io;
 
 import java.io.File;
 import java.io.FileWriter;
