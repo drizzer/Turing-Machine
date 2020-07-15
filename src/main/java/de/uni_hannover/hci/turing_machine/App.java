@@ -6,16 +6,22 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+//import components.*;
+
+
 // VM options: --module-path %PATH_TO_FX%  --add-modules=javafx.controls,javafx.fxml
 
 public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        de.uni_hannover.hci.turing_machine.components.Controller c = new de.uni_hannover.hci.turing_machine.components.Controller();
         Parent root = FXMLLoader.load(getClass().getResource("/GUI.fxml"));
         primaryStage.setTitle("Turing Machine");
         primaryStage.setScene(new Scene(root, 1280, 800));
         primaryStage.show();
+
+       
     }
 
     public static void main(String[] args) {
