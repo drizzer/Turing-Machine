@@ -1,5 +1,11 @@
 package de.uni_hannover.hci.turing_machine.components;
 
+import de.uni_hannover.hci.turing_machine.components.model.TuringMachine;
+
+import java.lang.*;
+import java.io.*;
+import java.util.*;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
@@ -8,13 +14,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.control.Tooltip;
-import de.uni_hannover.hci.turing_machine.TuringMachine;
+
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
-import java.io.*;
-import java.lang.*;
-import java.util.*;
+
 
 
 public class Controller extends TuringMachine {

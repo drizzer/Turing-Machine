@@ -1,4 +1,4 @@
-package components.model;
+package de.uni_hannover.hci.turing_machine.components.model;
 
 import java.util.*;
 

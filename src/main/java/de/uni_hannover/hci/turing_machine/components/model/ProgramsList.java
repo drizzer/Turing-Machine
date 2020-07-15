@@ -1,4 +1,5 @@
-package components.model;
+package de.uni_hannover.hci.turing_machine.components.model;
+
 
 /**
  * This class contains the programms that can be executed on the Turing machine
