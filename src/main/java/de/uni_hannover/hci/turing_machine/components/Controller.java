@@ -8,7 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.control.Tooltip;
-import de.uni_hannover.hci.turing_machine.TuringMachine;
+import de.uni_hannover.hci.turing_machine.components.model.TuringMachine;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
@@ -26,7 +26,6 @@ public class Controller extends TuringMachine implements ActionListener {
     /**
      * Constructor vom Typ Controller
      */
-
     public Controller()
     {
     }
@@ -133,9 +132,12 @@ public class Controller extends TuringMachine implements ActionListener {
 
     @FXML
     private Color x4;
-
+/**
+ * Methods for input and buttons of GUI
+ */
     @FXML
     void acceptState(ActionEvent event) {
+        setAcceptState(acceptState_txt.getText());
 
     }
 
@@ -161,7 +163,7 @@ public class Controller extends TuringMachine implements ActionListener {
 
     @FXML
     void pause(ActionEvent event) {
-
+      
     }
 
     @FXML
@@ -189,6 +191,8 @@ public class Controller extends TuringMachine implements ActionListener {
 
     @FXML
     void setAlphabet(ActionEvent event) {
+
+        TM.setAlphabet(setAlphabet_txt.getText());
 
     }
 

@@ -3,10 +3,15 @@ package de.uni_hannover.hci.turing_machine.components.model;
 import java.util.*;
 
 public class TuringMachine {
+
+	/** Name of the TuringMachine */
+	protected String NameTM;
 	/** Set of names for all possible states (e.g. qo - q5) */
 	protected Set<String> StateSet;
 	/** Set of all existing transitions */
 	protected Set<Transition> TransitionSet;
+	/**Set of Alphabet (e.g. #, a, b) */
+	protected ArrayList<String> AlphabetSet;
 
 	/** Starting state of the program e.g. q0 */
 	protected String StartState;
@@ -20,7 +25,7 @@ public class TuringMachine {
 	/** Index of current symbol */
 	protected int CurrentSymbol;
 
-	protected class Transition {
+	public class Transition {
 		String readState;
 		char readSymbol;
 		String writeState;
@@ -42,7 +47,7 @@ public class TuringMachine {
 	 * @author Lisanne Haase
 	 * @version 30.06.20
 	 */
-	protected TuringMachine() {
+	public TuringMachine() {
 		StateSet = new HashSet<String>();
 		TransitionSet = new HashSet<Transition>();
 		StartState = new String("");
@@ -52,7 +57,7 @@ public class TuringMachine {
 		CurrentSymbol = 0;
 	}
 
-	protected boolean addState(String newState) {
+	public boolean addState(String newState) {
 		if (StateSet.contains(newState)) {
 			return false;
 		} else {
@@ -61,7 +66,7 @@ public class TuringMachine {
 		}
 	}
 
-	protected boolean setStartState(String newStartState) {
+	public boolean setStartState(String newStartState) {
 		if (StateSet.contains(newStartState)) {
 			StartState = newStartState;
 			return true;
@@ -70,7 +75,7 @@ public class TuringMachine {
 		}
 	}
 
-	protected boolean setAcceptState(String newAcceptState) {
+	public boolean setAcceptState(String newAcceptState) {
 		if (StateSet.contains(newAcceptState)) {
 			AcceptState = newAcceptState;
 			return true;
@@ -79,7 +84,12 @@ public class TuringMachine {
 		}
 	}
 
-	protected boolean addTransition(String rState, char rSymbol, String wState, char wSymbol, boolean mDirection) {
+	public void setAlphabet(String newAlphabetSet) {
+		
+		AlphabetSet.add(newAlphabetSet);
+	}
+
+	public boolean addTransition(String rState, char rSymbol, String wState, char wSymbol, boolean mDirection) {
 		if (!StateSet.contains(rState) || !StateSet.contains(wState)) {
 			return false;
 		}
