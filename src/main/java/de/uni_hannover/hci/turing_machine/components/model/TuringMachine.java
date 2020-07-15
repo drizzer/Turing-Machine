@@ -57,6 +57,18 @@ public class TuringMachine {
 		CurrentSymbol = 0;
 	}
 
+	/**
+	 *  Getter und Setter for Programm name
+	 *  */
+
+	public String getNameTM() {
+		return NameTM;
+	}
+
+	public void setNameTM(String nameTM) {
+		NameTM = nameTM;
+	}
+
 	public boolean addState(String newState) {
 		if (StateSet.contains(newState)) {
 			return false;
