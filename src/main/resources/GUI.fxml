@@ -124,7 +124,7 @@
                         <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
                      </textFill>
                   </Label>
-                  <TableView fx:id="outputTape_txt" editable="true" fixedCellSize="1.0" layoutX="5.0" layoutY="55.0" nodeOrientation="LEFT_TO_RIGHT" onSort="#new_outputTape_txt" prefHeight="75.0" prefWidth="736.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="55.0">
+                  <TableView fx:id="outputTape_txt" editable="true" fixedCellSize="1.0" layoutX="5.0" layoutY="55.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="75.0" prefWidth="736.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="55.0">
                      <columns>
                         <TableColumn prefWidth="75.0" text="#0" />
                         <TableColumn prefWidth="75.0" text="#1" />

@@ -66,7 +66,7 @@ public class TuringMachine {
 	}
 
 	public void setNameTM(String nameTM) {
-		NameTM = nameTM;
+		this.NameTM = nameTM;
 	}
 
 	public boolean addState(String newState) {

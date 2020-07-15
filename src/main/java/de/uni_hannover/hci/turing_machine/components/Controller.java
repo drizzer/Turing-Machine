@@ -191,31 +191,42 @@ public class Controller extends TuringMachine implements ActionListener {
 
     @FXML
     void setAlphabet(ActionEvent event) {
-
         TM.setAlphabet(setAlphabet_txt.getText());
-
     }
 
     @FXML
     void setName(ActionEvent event) {
-
+        TM.setNameTM(setName_txt.getText());
     }
 
     @FXML
     void setState(ActionEvent event) {
-
         TM.addState(setState_txt.getText());
-
     }
 
     @FXML
     void setTransiton(ActionEvent event) {
 
+        String[] transition = setTransition_txt.getText().split(";");
+
+        String rState = transition[0];
+        char rSymbol = setTransition_txt.getText().charAt(4);
+        String wState = transition[2];
+        char wSymbol = setTransition_txt.getText().charAt(12);
+         boolean mDirection;
+
+        if(transition[5] == "R"){
+            mDirection = true;
+        } else {
+            mDirection = false;
+        }
+
+        TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
     }
 
     @FXML
     void setstartState(ActionEvent event) {
-
+        TM.setStartState(setstartState_txt.getText());
     }
 
     @FXML
