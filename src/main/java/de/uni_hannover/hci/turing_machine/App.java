@@ -8,7 +8,6 @@ import javafx.stage.Stage;
 
 //import components.*;
 
-
 // VM options: --module-path %PATH_TO_FX%  --add-modules=javafx.controls,javafx.fxml
 
 public class App extends Application {
@@ -21,7 +20,6 @@ public class App extends Application {
         primaryStage.setScene(new Scene(root, 1280, 800));
         primaryStage.show();
 
-       
     }
 
     public static void main(String[] args) {

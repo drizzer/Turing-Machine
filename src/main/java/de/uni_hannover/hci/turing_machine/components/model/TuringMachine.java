@@ -10,7 +10,7 @@ public class TuringMachine {
 	protected Set<String> StateSet;
 	/** Set of all existing transitions */
 	protected Set<Transition> TransitionSet;
-	/**Set of Alphabet (e.g. #, a, b) */
+	/** Set of Alphabet (e.g. #, a, b) */
 	protected ArrayList<String> AlphabetSet;
 
 	/** Starting state of the program e.g. q0 */
@@ -31,6 +31,12 @@ public class TuringMachine {
 		String writeState;
 		char writeSymbol;
 		boolean moveDirection; // true is right, false is left
+
+		@Override
+		public String toString() {
+			return "Transition{" + "readState='" + readState + '\'' + ", readSymbol=" + readSymbol + ", writeState='"
+					+ writeState + '\'' + ", writeSymbol=" + writeSymbol + ", moveDirection=" + moveDirection + '}';
+		}
 
 		boolean isConflicting(String state, char symbol) {
 			if (state.equals(readState) && symbol == readSymbol) {
@@ -58,8 +64,8 @@ public class TuringMachine {
 	}
 
 	/**
-	 *  Getter und Setter for Programm name
-	 *  */
+	 * Getter und Setter for Programm name
+	 */
 
 	public String getNameTM() {
 		return NameTM;
@@ -97,7 +103,7 @@ public class TuringMachine {
 	}
 
 	public void setnewAlphabet(String newAlphabetSet) {
-		
+
 		AlphabetSet.add(newAlphabetSet);
 	}
 
