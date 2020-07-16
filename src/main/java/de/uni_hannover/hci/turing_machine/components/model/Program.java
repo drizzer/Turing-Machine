@@ -1,6 +1,10 @@
 package de.uni_hannover.hci.turing_machine.components.model;
 
+import de.uni_hannover.hci.turing_machine.components.io.Module;
+
 import java.util.*;
+
+import java.io.FileNotFoundException;
 
 public class Program extends TuringMachine {
 	/** Counter for calls of each cell */
@@ -10,13 +14,15 @@ public class Program extends TuringMachine {
 	/** Counter for change of states */
 	protected int statChangeofstates;
 
+	Module output = new Module();
+
 	/**
 	 * This method takes the tape and prints a new tape s
 	 * 
 	 * @author Mohamed Atya
 	 * @version 30.06.20
 	 */
-	public boolean launch(String input) {
+	public boolean launch(String input) throws FileNotFoundException {
 		CurrentState = StartState;
 		Tape = input;
 		statSteps = 0; // counts the steps
@@ -27,8 +33,10 @@ public class Program extends TuringMachine {
 
 			if (CurrentSymbol > 0) {
 				System.out.println(Tape.substring(0, CurrentSymbol) + " " + CurrentState + " " + Tape.substring(CurrentSymbol));
+				output.setFile("data1"); // send console output to file
 			} else {
 				System.out.println(" " + CurrentState + " " + Tape.substring(CurrentSymbol));
+				output.setFile("data1"); // auch hier
 			}
 
 			Iterator<Transition> TransitionsIterator = TransitionSet.iterator();

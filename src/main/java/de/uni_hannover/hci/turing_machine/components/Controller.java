@@ -1,5 +1,11 @@
 package de.uni_hannover.hci.turing_machine.components;
 
+import de.uni_hannover.hci.turing_machine.components.model.TuringMachine;
+
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
@@ -8,14 +14,18 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.control.Tooltip;
-import de.uni_hannover.hci.turing_machine.components.model.TuringMachine;
+
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
-import java.io.*;
-import java.lang.*;
-import java.util.*;
 import java.awt.event.ActionListener;
+
+import javafx.collections.ObservableList;
+import javafx.collections.FXCollections;
+import javafx.fxml.Initializable;
+import java.net.URL;
+import java.util.ResourceBundle;
+// import javafx.scene.control.cell.PropertyValueFactory;
 
 //import components.*;
 
@@ -213,7 +223,7 @@ public class Controller extends TuringMachine implements ActionListener {
         char rSymbol = setTransition_txt.getText().charAt(4);
         String wState = transition[2];
         char wSymbol = setTransition_txt.getText().charAt(12);
-         boolean mDirection;
+        boolean mDirection;
 
         if(transition[5] == "R"){
             mDirection = true;
@@ -222,6 +232,9 @@ public class Controller extends TuringMachine implements ActionListener {
         }
 
         TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
+        
+        getColumns().addAll
+
     }
 
     @FXML

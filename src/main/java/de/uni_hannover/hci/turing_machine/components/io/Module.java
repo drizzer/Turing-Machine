@@ -37,6 +37,5 @@ public class Module {
       System.out.println("An error occurred.");
       e.printStackTrace();
     }
-
   }
 }
