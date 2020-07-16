@@ -19,6 +19,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Polyline?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.uni_hannover.hci.turing_machine.components.Controller">
    <children>
@@ -181,16 +182,23 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <TableView fx:id="CellidVisits_txt" layoutX="382.0" layoutY="248.0" onSort="#new_CellidVisits_txt" prefHeight="286.0" prefWidth="162.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="250.0">
+                  <TableView fx:id="CellidVisits_txt" layoutX="382.0" layoutY="248.0" onSort="#new_CellidVisits_txt" prefHeight="286.0" prefWidth="170.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="210.0">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="Cell id" />
-                        <TableColumn prefWidth="72.0" text="Visits" />
+                        <TableColumn prefWidth="87.0" text="Cell id" />
+                        <TableColumn prefWidth="74.0" text="Visits" />
                      </columns>
                   </TableView>
-                  <Button fx:id="setstartState_btn" layoutX="156.0" layoutY="591.0" mnemonicParsing="false" onAction="#setstartState" text="Start State" />
-                  <Button fx:id="acceptState_btn" layoutX="156.0" layoutY="658.0" mnemonicParsing="false" onAction="#acceptState" prefHeight="31.0" prefWidth="107.0" text="Accept State" />
-                  <TextField fx:id="acceptState_txt" layoutX="60.0" layoutY="658.0" prefHeight="31.0" prefWidth="62.0" promptText="z0" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="658.0" />
-                  <TextField fx:id="setstartState_txt" layoutX="85.0" layoutY="591.0" prefHeight="31.0" prefWidth="62.0" promptText="z2" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="590.0" />
+                  <Button fx:id="setstartState_btn" layoutX="156.0" layoutY="591.0" mnemonicParsing="false" onAction="#setstartState" prefHeight="30.0" prefWidth="90.0" text="Start State" textFill="RED" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="530.0" />
+                  <Button fx:id="acceptState_btn" layoutX="156.0" layoutY="658.0" mnemonicParsing="false" onAction="#acceptState" prefHeight="30.0" prefWidth="90.0" text="Accept State" textFill="RED" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="580.0" />
+                  <TextField fx:id="acceptState_txt" layoutX="60.0" layoutY="658.0" prefHeight="30.0" prefWidth="50.0" promptText="z0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="580.0" />
+                  <TextField fx:id="setstartState_txt" layoutX="85.0" layoutY="591.0" prefHeight="30.0" prefWidth="50.0" promptText="z2" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="530.0" />
+                  <Separator layoutX="30.0" layoutY="552.0" prefHeight="3.0" prefWidth="219.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="510.0" />
+                  <Text fill="#0011ff" layoutX="26.0" layoutY="638.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="620.0" />
+                  <Text layoutX="20.0" layoutY="643.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" R St : Read state    R Sy : Read symbol W St : Write state    W Sy : Write sysmbol D : Direction" wrappingWidth="240.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="645.0">
+                     <font>
+                        <Font name="Arial Nova" size="13.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
          </children>

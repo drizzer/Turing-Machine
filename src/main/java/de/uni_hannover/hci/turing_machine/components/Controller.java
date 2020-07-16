@@ -182,7 +182,7 @@ public class Controller extends TuringMachine implements ActionListener {
     void save(ActionEvent event) {
         try {
 
-            File f = new File("test.txt"); // New file is created
+            File f = new File("./src/main/java/de/uni_hannover/hci/turing_machine/components/model/lib/saves/test.txt"); // New file is created
             boolean bool = false;
             bool = f.createNewFile(); // checks if file is already there
 
@@ -239,7 +239,7 @@ public class Controller extends TuringMachine implements ActionListener {
 
         TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
 
-        getColumns().addAll
+        // getColumns().addAll;
 
         setTransition_txt.setText(""); //empty text field
 
