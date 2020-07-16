@@ -96,7 +96,7 @@ public class TuringMachine {
 		}
 	}
 
-	public void setAlphabet(String newAlphabetSet) {
+	public void setnewAlphabet(String newAlphabetSet) {
 		
 		AlphabetSet.add(newAlphabetSet);
 	}

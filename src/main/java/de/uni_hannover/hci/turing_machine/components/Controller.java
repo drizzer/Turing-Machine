@@ -7,6 +7,7 @@ import java.lang.*;
 import java.util.*;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -29,21 +30,19 @@ import java.util.ResourceBundle;
 
 //import components.*;
 
-
 public class Controller extends TuringMachine implements ActionListener {
     // JavaFx components for the User Interface
 
     /**
      * Constructor vom Typ Controller
      */
-    public Controller()
-    {
+    public Controller() {
     }
 
     @Override
     public void actionPerformed(java.awt.event.ActionEvent e) {
         // TODO Auto-generated method stub
-        
+
     }
 
     /**
@@ -51,8 +50,6 @@ public class Controller extends TuringMachine implements ActionListener {
      */
     TuringMachine TM = new TuringMachine();
 
-
-    
     @FXML
     private Font x1;
 
@@ -92,6 +89,9 @@ public class Controller extends TuringMachine implements ActionListener {
     @FXML
     private Button editTransition_btn;
 
+    /**
+     * Variable Output State Transitions
+     */
     @FXML
     private TableView<?> transitionTable_txt;
 
@@ -120,7 +120,7 @@ public class Controller extends TuringMachine implements ActionListener {
     private TableView<?> actionsList_txt;
 
     @FXML
-    private TableView<?> stepsStateChanges_txt;
+    private TableView<String> stepsStateChanges_txt;
 
     @FXML
     private TableView<?> CellidVisits_txt;
@@ -142,12 +142,14 @@ public class Controller extends TuringMachine implements ActionListener {
 
     @FXML
     private Color x4;
-/**
- * Methods for input and buttons of GUI
- */
+
+    /**
+     * Methods for input and buttons of GUI
+     */
     @FXML
     void acceptState(ActionEvent event) {
         setAcceptState(acceptState_txt.getText());
+        acceptState_txt.setText(""); // emptys textfield
 
     }
 
@@ -173,20 +175,18 @@ public class Controller extends TuringMachine implements ActionListener {
 
     @FXML
     void pause(ActionEvent event) {
-      
+
     }
 
     @FXML
     void save(ActionEvent event) {
-        try { 
+        try {
 
-            File f = new File("test.txt"); //New file is created
+            File f = new File("test.txt"); // New file is created
             boolean bool = false;
-            bool = f.createNewFile(); //checks if file is already there
-           
+            bool = f.createNewFile(); // checks if file is already there
 
-        }
-        catch (Exception e) { //If file already exists
+        } catch (Exception e) { // If file already exists
 
             Tooltip tt = new Tooltip();
             tt.setText("TM already exists.");
@@ -194,29 +194,35 @@ public class Controller extends TuringMachine implements ActionListener {
             save_btn.setTooltip(tt);
 
             save_btn.setText("Error");
-            
+
         }
 
     }
 
     @FXML
     void setAlphabet(ActionEvent event) {
-        TM.setAlphabet(setAlphabet_txt.getText());
+        TM.setnewAlphabet(setAlphabet_txt.getText());
+        setAlphabet_txt.setText(""); // emptys textfield
     }
 
     @FXML
     void setName(ActionEvent event) {
         TM.setNameTM(setName_txt.getText());
+        setName_txt.setText(""); // emptys textfield
     }
 
     @FXML
     void setState(ActionEvent event) {
         TM.addState(setState_txt.getText());
+        setState_txt.setText(""); // emptys the Textfield
     }
 
     @FXML
     void setTransiton(ActionEvent event) {
 
+        /**
+         * saves the input of transitions in Object TM
+         */
         String[] transition = setTransition_txt.getText().split(";");
 
         String rState = transition[0];
@@ -232,14 +238,20 @@ public class Controller extends TuringMachine implements ActionListener {
         }
 
         TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
-        
+
         getColumns().addAll
+
+        setTransition_txt.setText(""); //empty text field
+
+        /**Output in Tableview state Transitions */
+       // transitionTable_txt.("idk");
 
     }
 
     @FXML
     void setstartState(ActionEvent event) {
         TM.setStartState(setstartState_txt.getText());
+        setstartState_txt.setText(""); // emptys textfield
     }
 
     @FXML
@@ -269,6 +281,7 @@ public class Controller extends TuringMachine implements ActionListener {
 
     /**
      * this method stops the programm completely
+     * 
      * @param event
      * @return void
      */
@@ -276,6 +289,4 @@ public class Controller extends TuringMachine implements ActionListener {
     void stop(ActionEvent event) {
         System.exit(0);
     }
-
 }
-
