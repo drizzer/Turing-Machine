@@ -2,6 +2,8 @@
 
 ------------------------------------------------------------------
 
+
+
 ```json
 {
     "Tutorium" : [
@@ -14,7 +16,7 @@
         "2" : "Hedi"
     ]
 }
-
+```
 
 ## Todos
 
@@ -46,9 +48,9 @@
 
 ##### - Stage 2:
 
-- [ ] Implementation of manual configuration
+- [x] Implementation of manual configuration
 
-- [ ] Implementation of Save/Load
+- [x] Implementation of Save/Load
 
 - [x] MVC Pattern
 
@@ -68,7 +70,7 @@
 
 - [ ] Polishing
 
-------------------------------------------------------------------------------
+---
 
 ## SDK
 
@@ -100,7 +102,7 @@ Free builds of OpenJDK – open source implementations of Java SE free to use wi
 
 - [JetBrains Toolbox App](https://www.jetbrains.com/toolbox-app/)
   
-  Manage your JetBrains tools easily: 
+  Manage your JetBrains tools easily:
   
   Install / Update automatically / Update the plugins together with IDE / Roll back and downgrade
   
@@ -124,4 +126,4 @@ Free builds of OpenJDK – open source implementations of Java SE free to use wi
   
   Build system for Java apps
 
---------------------------------------------------------------------------------------
+----------------
