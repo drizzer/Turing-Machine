@@ -1,5 +1,6 @@
 package de.uni_hannover.hci.turing_machine.components;
 
+import de.uni_hannover.hci.turing_machine.components.model.Program;
 import de.uni_hannover.hci.turing_machine.components.model.TuringMachine;
 
 import java.io.*;
@@ -160,6 +161,7 @@ public class Controller extends TuringMachine implements ActionListener {
 
     @FXML
     void new_CellidVisits_txt(ActionEvent event) {
+       // CellidVisits_txt.add(getstatCells()); Ouput in TableView? 
 
     }
 

@@ -6,6 +6,11 @@ import java.util.*;
 
 import java.io.FileNotFoundException;
 
+/**
+ * This class returns the tape of the TM and provides the statistic for the calls of a cell, the necessary steps and the change of states
+ * @author Lisanne Haase
+ * @version 17.07.20
+ */
 public class Program extends TuringMachine {
 	/** Counter for calls of each cell */
 	protected int[] statCells;
@@ -83,4 +88,33 @@ public class Program extends TuringMachine {
 		}
 
 	}
+
+	
+	/**
+	 * getter for calls of each cell 
+	 * @return calls of each cell
+	 */
+	
+	public int[] getstatCells(){
+		return statCells;
+	}
+
+	/**
+	 * getter for steps in total
+	 * @return steps in total
+	 */
+	
+	public int getstatSteps(){
+		return statSteps;
+	}
+
+	/**
+	 * getter for change of states.
+	 * @return change of states
+	 */
+	
+	 protected int getstatChangeofstates(){
+		return statChangeofstates;
+	} 
+	
 }
