@@ -6,11 +6,6 @@ import java.util.*;
 
 import java.io.FileNotFoundException;
 
-/**
- * This class returns the tape of the TM and provides the statistic for the calls of a cell, the necessary steps and the change of states
- * @author Lisanne Haase
- * @version 17.07.20
- */
 public class Program extends TuringMachine {
 	/** Counter for calls of each cell */
 	protected int[] statCells;
@@ -31,22 +26,27 @@ public class Program extends TuringMachine {
 		CurrentState = StartState;
 		Tape = input;
 		statSteps = 0; // counts the steps
+		int operations = 0;
 
-		while (!CurrentState.equals(AcceptState)) {
+		// Direct console output to text file
+		Module.printActions("output");
+
+		while (!CurrentState.equals(AcceptState) && operations < 80) {
 			boolean foundTransition = false;
 			Transition CurrentTransition = null;
+			operations++;
 
 			if (CurrentSymbol > 0) {
-				System.out.println(Tape.substring(0, CurrentSymbol) + " " + CurrentState + " " + Tape.substring(CurrentSymbol));
-				output.setFile("data1"); // send console output to file
+				System.out.println(Tape.substring(0, CurrentSymbol) + Tape.substring(CurrentSymbol) + " Zu: " + CurrentState);
 			} else {
-				System.out.println(" " + CurrentState + " " + Tape.substring(CurrentSymbol));
-				output.setFile("data1"); // auch hier
+				System.out.println(Tape.substring(CurrentSymbol) + " Zu: " + CurrentState);
 			}
+			// if (!nextTransition.readState.equals(CurrentState)) {}
 
 			Iterator<Transition> TransitionsIterator = TransitionSet.iterator();
 			while (TransitionsIterator.hasNext() && foundTransition == false) {
 				Transition nextTransition = TransitionsIterator.next();
+
 				if (nextTransition.readState.equals(CurrentState) && nextTransition.readSymbol == Tape.charAt(CurrentSymbol)) {
 					foundTransition = true;
 					CurrentTransition = nextTransition;
@@ -54,14 +54,16 @@ public class Program extends TuringMachine {
 			}
 
 			if (foundTransition == false) {
-				System.err.println("Kein gültiger Zustandsübergang! (Zustand=" + CurrentState + ", Symbol="
-						+ Tape.charAt(CurrentSymbol) + ")");
+				System.err
+						.println("No valid transition! (State=" + CurrentState + ", Symbol=" + Tape.charAt(CurrentSymbol) + ")");
 				return false;
+
 			} else {
 				CurrentState = CurrentTransition.writeState;
 				char[] tempTape = Tape.toCharArray();
 				tempTape[CurrentSymbol] = CurrentTransition.writeSymbol;
 				Tape = new String(tempTape);
+
 				if (CurrentTransition.moveDirection == true) {
 					CurrentSymbol++;
 					statSteps++; // counts the steps in total
@@ -76,9 +78,7 @@ public class Program extends TuringMachine {
 				while (Tape.length() <= CurrentSymbol) {
 					Tape = Tape.concat("_");
 				}
-
 			}
-
 		}
 
 		if (CurrentState.equals(AcceptState)) {
@@ -88,33 +88,4 @@ public class Program extends TuringMachine {
 		}
 
 	}
-
-	
-	/**
-	 * getter for calls of each cell 
-	 * @return calls of each cell
-	 */
-	
-	public int[] getstatCells(){
-		return statCells;
-	}
-
-	/**
-	 * getter for steps in total
-	 * @return steps in total
-	 */
-	
-	public int getstatSteps(){
-		return statSteps;
-	}
-
-	/**
-	 * getter for change of states.
-	 * @return change of states
-	 */
-	
-	 protected int getstatChangeofstates(){
-		return statChangeofstates;
-	} 
-	
 }

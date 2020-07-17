@@ -34,8 +34,8 @@ import java.util.ResourceBundle;
 public class Controller extends TuringMachine implements ActionListener {
     // JavaFx components for the User Interface
 
-    //Constructor vom Typ Controller
-     
+    // Constructor vom Typ Controller
+
     public Controller() {
     }
 
@@ -46,7 +46,7 @@ public class Controller extends TuringMachine implements ActionListener {
     }
 
     // Object Typ TuringMachine
-     
+
     TuringMachine TM = new TuringMachine();
 
     @FXML
@@ -89,7 +89,7 @@ public class Controller extends TuringMachine implements ActionListener {
     private Button editTransition_btn;
 
     // Variable Output State Transitions
-     
+
     @FXML
     private TableView transitionTable_txt;
 
@@ -161,7 +161,7 @@ public class Controller extends TuringMachine implements ActionListener {
 
     @FXML
     void new_CellidVisits_txt(ActionEvent event) {
-       // CellidVisits_txt.add(getstatCells()); Ouput in TableView? 
+        // CellidVisits_txt.add(getstatCells()); Ouput in TableView?
 
     }
 
@@ -179,10 +179,7 @@ public class Controller extends TuringMachine implements ActionListener {
     void save(ActionEvent event) {
         try {
 
-            File f = new File("./src/main/java/de/uni_hannover/hci/turing_machine/components/model/lib/saves/test.txt"); // New
-                                                                                                                         // file
-                                                                                                                         // is
-                                                                                                                         // created
+            File f = new File("./src/main/java/de/uni_hannover/hci/turing_machine/components/model/lib/saves/test.txt"); // New file is created
             boolean bool = false;
             bool = f.createNewFile(); // checks if file is already there
 
@@ -221,7 +218,7 @@ public class Controller extends TuringMachine implements ActionListener {
     void setTransiton(ActionEvent event) {
 
         // saves the input of transitions in Object TM
-         
+
         String[] transition = setTransition_txt.getText().split(";");
 
         String rState = transition[0];
