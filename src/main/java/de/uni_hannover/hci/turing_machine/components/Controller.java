@@ -33,9 +33,8 @@ import java.util.ResourceBundle;
 public class Controller extends TuringMachine implements ActionListener {
     // JavaFx components for the User Interface
 
-    /**
-     * Constructor vom Typ Controller
-     */
+    //Constructor vom Typ Controller
+     
     public Controller() {
     }
 
@@ -45,9 +44,8 @@ public class Controller extends TuringMachine implements ActionListener {
 
     }
 
-    /**
-     * Object Typ TuringMachine
-     */
+    // Object Typ TuringMachine
+     
     TuringMachine TM = new TuringMachine();
 
     @FXML
@@ -89,11 +87,10 @@ public class Controller extends TuringMachine implements ActionListener {
     @FXML
     private Button editTransition_btn;
 
-    /**
-     * Variable Output State Transitions
-     */
+    // Variable Output State Transitions
+     
     @FXML
-    private TableView<?> transitionTable_txt;
+    private TableView transitionTable_txt;
 
     @FXML
     private TextField input_txt;
@@ -143,9 +140,7 @@ public class Controller extends TuringMachine implements ActionListener {
     @FXML
     private Color x4;
 
-    /**
-     * Methods for input and buttons of GUI
-     */
+    // Methods for input and buttons of GUI
     @FXML
     void acceptState(ActionEvent event) {
         setAcceptState(acceptState_txt.getText());
@@ -223,9 +218,8 @@ public class Controller extends TuringMachine implements ActionListener {
     @FXML
     void setTransiton(ActionEvent event) {
 
-        /**
-         * saves the input of transitions in Object TM
-         */
+        // saves the input of transitions in Object TM
+         
         String[] transition = setTransition_txt.getText().split(";");
 
         String rState = transition[0];
@@ -246,8 +240,8 @@ public class Controller extends TuringMachine implements ActionListener {
 
         setTransition_txt.setText(""); // empty text field
 
-        /** Output in Tableview state Transitions */
-        // transitionTable_txt.("idk");
+        // Output in Tableview state Transitions, wie erhält man Output in Tableview?
+        /* transitionTable_txt.???(TM.toString()); */
 
     }
 
