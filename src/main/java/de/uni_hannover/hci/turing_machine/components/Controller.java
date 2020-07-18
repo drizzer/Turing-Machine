@@ -222,12 +222,16 @@ public class Controller extends TuringMachine implements ActionListener {
 
         // saves the input of transitions in Object TM
 
-        String[] transition = setTransition_txt.getText().split("; ");
+        String temp2 = setTransition_txt.getText();
+
+        setTransition_txt.setText("");
+
+        String[] transition = temp2.split("; ");
 
         String rState = transition[0];
-        char rSymbol = setTransition_txt.getText().charAt(4);
+        char rSymbol = temp2.charAt(4);
         String wState = transition[2];
-        char wSymbol = setTransition_txt.getText().charAt(12);
+        char wSymbol = temp2.charAt(12);
         boolean mDirection;
 
         if (transition[5] == "R") {
@@ -237,7 +241,7 @@ public class Controller extends TuringMachine implements ActionListener {
         }
 
         TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
-        setTransition_txt.setText(""); // empty text field
+        //setTransition_txt.setText(""); // empty text field
         // adds Transitions in transitionTable_txt
         transitionTable_txt.setText(TM.toString());
     }
