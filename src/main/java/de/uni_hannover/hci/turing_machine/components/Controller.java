@@ -224,6 +224,8 @@ public class Controller extends TuringMachine implements ActionListener {
 
         String temp2 = setTransition_txt.getText();
 
+        transitionTable_txt.setText(temp2);
+
         setTransition_txt.setText("");
 
         String[] transition = temp2.split("; ");
@@ -243,7 +245,7 @@ public class Controller extends TuringMachine implements ActionListener {
         TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
       
         //Transitoins auflisten
-        transitionTable_txt.setText(TM.toString());
+       // transitionTable_txt.setText(temp2);
     }
 
     @FXML
