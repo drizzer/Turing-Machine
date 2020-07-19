@@ -1,54 +1,91 @@
 package de.uni_hannover.hci.turing_machine.components.io;
 
-import java.io.File;
 import java.io.FileWriter;
-import java.io.PrintStream;
 import java.util.Formatter;
+import java.io.PrintStream;
 
-import java.io.IOException;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Module {
+  public static FileWriter myWriter;
   public static Formatter formatter;
-  public static File file;
 
+  /**
+   * Directing the console output and saves the input in a file
+   * 
+   * @version v0.4
+   * @param fileName
+   * @throws FileNotFoundException
+   */
   public static void printActions(String fileName) throws FileNotFoundException {
 
     try {
-      PrintStream console = new PrintStream("./src/main/java/de/uni_hannover/hci/turing_machine/components/io/" + fileName + ".txt");
+      PrintStream console = new PrintStream(
+          "./src/main/java/de/uni_hannover/hci/turing_machine/components/io/" + fileName + ".txt");
       System.setOut(console); // konsole inhalt in Objekt console speichern
+
     } catch (FileNotFoundException fx) {
       System.out.println(fx);
     }
   }
 
-  public static void createFile(String fileName, String newText) {
+  /**
+   * Creates a new file
+   * 
+   * @param fileName
+   * @param newText
+   */
+  public static void createFile(String fileName) {
     try {
-      FileWriter myWriter = new FileWriter(fileName + ".txt");
-      myWriter.write(newText);
-      myWriter.close();
+      myWriter = new FileWriter(
+          "./src/main/java/de/uni_hannover/hci/turing_machine/components/model/lib/saves/" + fileName + ".txt");
+      myWriter.write(fileName + "\n\n");
 
     } catch (IOException e) {
-      System.out.println("An error occurred.");
+      System.out.println("Could not create file.");
       e.printStackTrace();
     }
   }
 
-  public static void addText(String fileName, String newText) throws IOException {
+  /**
+   * Appends text to a file
+   * 
+   * @param fileName
+   * @param newText
+   * @throws IOException
+   */
+  public static void addText(String newText) throws IOException {
     try {
-      FileWriter myWriter = new FileWriter(fileName + ".txt");
       myWriter.append(newText);
-      myWriter.close();
 
     } catch (IOException e) {
-      System.out.println("An error occurred.");
+      System.out.println("Could not add text to file.");
       e.printStackTrace();
     }
   }
 
+  /**
+   * Closes the FileWriter object
+   * 
+   * @throws IOException
+   */
+  public static void closeWriter() throws IOException {
+    try {
+      myWriter.append("\n\n" + "End");
+      myWriter.close();
+
+    } catch (IOException e) {
+      System.out.println("Could not close file.");
+      e.printStackTrace();
+    }
+  }
+
+
+  
   public static void openFile(String fileName) {
     try {
-      formatter = new Formatter("./" + fileName + ".txt");
+      formatter = new Formatter(fileName + ".txt");
     } catch (Exception e) {
       System.out.println("Formatter Error");
     }

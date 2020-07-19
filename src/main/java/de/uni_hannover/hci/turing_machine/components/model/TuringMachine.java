@@ -1,8 +1,10 @@
 package de.uni_hannover.hci.turing_machine.components.model;
 
 import java.util.*;
+
 /**
  * This class provides Methods to store the information of the TM
+ * 
  * @author Mohamed Atya
  * @version 05.07.20
  */
@@ -31,6 +33,7 @@ public class TuringMachine {
 
 	/**
 	 * This class provides the transitions of the TM
+	 * 
 	 * @author Lisanne Haase
 	 * @version 16.07.20
 	 */
@@ -43,6 +46,7 @@ public class TuringMachine {
 
 		/**
 		 * This method returns the current transition into a string
+		 * 
 		 * @version 16.07.20
 		 * @author Mohamed Atya
 		 */
@@ -79,6 +83,7 @@ public class TuringMachine {
 
 	/**
 	 * Getter for Programm name
+	 * 
 	 * @return name of TM
 	 */
 	public String getNameTM() {
@@ -87,6 +92,7 @@ public class TuringMachine {
 
 	/**
 	 * Setter for Programm name
+	 * 
 	 * @param string (Name of TM)
 	 */
 	public void setNameTM(String nameTM) {
@@ -94,10 +100,11 @@ public class TuringMachine {
 	}
 
 	/**
-	 * This method adds a new state in the stateSet.
-	 * If the added state if already in the stateSet it returns false
+	 * This method adds a new state in the stateSet. If the added state if already
+	 * in the stateSet it returns false
+	 * 
 	 * @param String newState
-	 * @return boolean 
+	 * @return boolean
 	 */
 	public boolean addState(String newState) {
 		if (StateSet.contains(newState)) {
@@ -109,9 +116,9 @@ public class TuringMachine {
 	}
 
 	/**
-	 * This method defines the StartState.
-	 * If the StartState is not in the stateSet it returns false.
-	 * The StartState has to be included in the stateSet.
+	 * This method defines the StartState. If the StartState is not in the stateSet
+	 * it returns false. The StartState has to be included in the stateSet.
+	 * 
 	 * @param newStartState
 	 * @return boolean
 	 */
@@ -125,9 +132,10 @@ public class TuringMachine {
 	}
 
 	/**
-	 * This method defines the acceptState.
-	 * If the acceptState is not in the stateSet it returns false.
-	 * The acceptState has to be included in the stateSet.
+	 * This method defines the acceptState. If the acceptState is not in the
+	 * stateSet it returns false. The acceptState has to be included in the
+	 * stateSet.
+	 * 
 	 * @param acceptState
 	 * @return boolean
 	 */
@@ -142,7 +150,8 @@ public class TuringMachine {
 
 	/**
 	 * This method stores the alphabet in a set.
-	 * @param String 
+	 * 
+	 * @param String
 	 */
 	public void setnewAlphabet(String newAlphabetSet) {
 
@@ -150,8 +159,9 @@ public class TuringMachine {
 	}
 
 	/**
-	 * This method adds a state transition to the TransitionSet.
-	 * If the state transition contains states, which don't exist, it returns false.
+	 * This method adds a state transition to the TransitionSet. If the state
+	 * transition contains states, which don't exist, it returns false.
+	 * 
 	 * @param rState
 	 * @param rSymbol
 	 * @param wState
@@ -190,6 +200,4 @@ public class TuringMachine {
 		}
 	}
 
-	
 }
-

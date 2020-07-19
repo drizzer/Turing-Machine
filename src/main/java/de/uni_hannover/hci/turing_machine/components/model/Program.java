@@ -1,11 +1,12 @@
 package de.uni_hannover.hci.turing_machine.components.model;
 
-import de.uni_hannover.hci.turing_machine.components.Controller;
 import de.uni_hannover.hci.turing_machine.components.io.Module;
+import de.uni_hannover.hci.turing_machine.components.view.Print;
 
 import java.util.*;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Program extends TuringMachine {
 	/** Counter for calls of each cell */
@@ -31,34 +32,34 @@ public class Program extends TuringMachine {
 	 * public int sieben = 0;
 	 */
 
-	Module output = new Module();
-
 	/**
 	 * This method takes the tape and prints a new tape s
 	 * 
 	 * @author Mohamed Atya
 	 * @version 30.06.20
+	 * @throws IOException
 	 */
-	public boolean launch(String input) throws FileNotFoundException { //input = input_txt
+	public boolean launch(String input) throws IOException, FileNotFoundException { // input = input_txt
 		CurrentState = StartState;
 		Tape = input;
 		statSteps = 0; // counts the steps
 		statChangeofstates = 0;
 		int operations = 0;
 
-	/*	for (int i = 0; i < 6; i++) { // Nummerierung Cell ID's von 0 bis 6
-			statCells[i][0] = i + 1;
-		} */
+		/*
+		 * for (int i = 0; i < 6; i++) { // Nummerierung Cell ID's von 0 bis 6
+		 * statCells[i][0] = i + 1; }
+		 */
 
-		// Direct console output to text file
-		Module.printActions("output");
+		Module.printActions("output"); // Direct console output to text file
+		Print.generateConfig("EqualWordSize"); // create configuration text file for the turing machine program
 
 		while (!CurrentState.equals(AcceptState) && operations < 80) {
 			boolean foundTransition = false;
 			Transition CurrentTransition = null;
 			operations++;
 
-			if (CurrentSymbol > 0) {
+			if (CurrentSymbol > 0) { // add pipes to show head
 				System.out.println(Tape.substring(0, CurrentSymbol) + Tape.substring(CurrentSymbol) + " Zu: " + CurrentState);
 			} else {
 				System.out.println(Tape.substring(CurrentSymbol) + " Zu: " + CurrentState);
@@ -106,29 +107,29 @@ public class Program extends TuringMachine {
 				 * 6: statCells[i][1] = sieben;
 				 */
 			}
-			
+
 			if (CurrentTransition.moveDirection == true) {
 				CurrentSymbol++;
 				statSteps++; // counts the steps in total
-				
+
 			} else {
 				CurrentSymbol--;
 				statSteps++; // counts the steps in total
 			}
-			
+
 			if (CurrentSymbol < 0)
-			CurrentSymbol = 0;
-			
+				CurrentSymbol = 0;
+
 			while (Tape.length() <= CurrentSymbol) {
 				Tape = Tape.concat("_");
 			}
-			
+
 		}
-			if (CurrentState.equals(AcceptState)) {
-				return true;
-			} else {
-				return false;
-			}
+		if (CurrentState.equals(AcceptState)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

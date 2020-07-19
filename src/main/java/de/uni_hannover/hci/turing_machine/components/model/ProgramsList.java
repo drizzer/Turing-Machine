@@ -40,7 +40,7 @@ public final class ProgramsList extends Program {
 
 		newTM.addTransition("z2", 'b', "z2", 'b', false);
 		newTM.addTransition("z2", '#', "z2", '#', false);
-		newTM.addTransition("z2", 'a', "z3", 'a', false); // die war z2
+		newTM.addTransition("z2", 'a', "z2", 'a', false);
 		newTM.addTransition("z2", '+', "z2", '+', false);
 		newTM.addTransition("z2", '_', "z3", '_', true);
 
