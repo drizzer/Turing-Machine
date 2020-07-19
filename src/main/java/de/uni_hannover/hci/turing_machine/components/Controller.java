@@ -199,7 +199,7 @@ public class Controller extends TuringMachine implements ActionListener {
     void setName(ActionEvent event) {
         TM.setNameTM(setName_txt.getText());
         setName_txt.setText(""); // emptys textfield
-        actionsList_txt.setText(TM.getNameTM());
+        
     }
 
     @FXML
@@ -241,8 +241,8 @@ public class Controller extends TuringMachine implements ActionListener {
         }
 
         TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
-        //setTransition_txt.setText(""); // empty text field
-        // adds Transitions in transitionTable_txt
+      
+        //Transitoins auflisten
         transitionTable_txt.setText(TM.toString());
     }
 
