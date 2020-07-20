@@ -1,14 +1,20 @@
 package de.uni_hannover.hci.turing_machine.components.io;
 
+import de.uni_hannover.hci.turing_machine.components.view.Print;
+
 import java.io.FileWriter;
 import java.util.Formatter;
+import java.util.Scanner;
 import java.io.PrintStream;
+import java.io.File;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Module {
   public static FileWriter myWriter;
+  public static Scanner scanner;
+
   public static Formatter formatter;
 
   /**
@@ -81,8 +87,30 @@ public class Module {
     }
   }
 
+  public static void openFile(String fileName) {
+    try {
+      scanner = new Scanner(new File(fileName));
+    } catch (Exception e) {
+      System.out.println("Could not find file");
+    }
+  }
 
-  
+  public static void readFile() throws IOException {
+    //while(scanner.hasNext()) {
+      String title = scanner.next();
+      String alphabet = scanner.next();
+      
+      Module.createFile(title);
+      Module.addText(alphabet);
+      
+      //}
+    }
+    
+    public static void closeFile() {
+      scanner.close();
+    }
+    /*
+
   public static void openFile(String fileName) {
     try {
       formatter = new Formatter(fileName + ".txt");
@@ -94,5 +122,5 @@ public class Module {
   public static void addAlphabet(String alphabet) {
     formatter.format("%s%s%s", alphabet);
   }
-
+*/
 }

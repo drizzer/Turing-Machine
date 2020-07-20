@@ -15,8 +15,10 @@ public class Print extends Controller {
 
     Module.createFile(programName);
 
+    Module.addText("#, a, b, +");
+
     //Iterator SetTransition
-    Module.addText("z0");
+    Module.addText("\n\nz0");
     Module.addText("\nz1");
     Module.addText("\nz2");
     Module.addText("\nz3");
