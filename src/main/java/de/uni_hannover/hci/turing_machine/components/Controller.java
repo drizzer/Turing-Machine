@@ -35,6 +35,7 @@ import javafx.collections.FXCollections;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 // import javafx.scene.control.cell.PropertyValueFactory;
 
 //import components.*;
@@ -242,7 +243,7 @@ public class Controller extends TuringMachine implements ActionListener {
     }
 
     @FXML
-    void start(ActionEvent event) throws IOException, FileNotFoundException {
+    void start(ActionEvent event) throws IOException, FileNotFoundException, InterruptedException {
         start_btn.setText("Running..");
         start_btn.setStyle("-fx-font-size : 12");
 
@@ -273,11 +274,21 @@ public class Controller extends TuringMachine implements ActionListener {
         while(x.hasNextLine()) {
             String s = x.nextLine();
             outputTape_txt.setText(s);
+            wait(1000);
         }
 
         x.close(); 
 
     }
+
+    public static void wait(int ms){
+        try {
+             Thread.sleep(ms);
+        }
+        catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+}
 
     @FXML
     void pause(ActionEvent event) {
