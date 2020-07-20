@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.uni_hannover.hci.turing_machine.components.Controller">
+   <children>
+      <MenuBar>
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open…" />
+                  <Menu mnemonicParsing="false" text="Open Recent" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Save As…" />
+                  <MenuItem mnemonicParsing="false" text="Revert" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Preferences…" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Undo" />
+                  <MenuItem mnemonicParsing="false" text="Redo" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Cut" />
+                  <MenuItem mnemonicParsing="false" text="Copy" />
+                  <MenuItem mnemonicParsing="false" text="Paste" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Select All" />
+                  <MenuItem mnemonicParsing="false" text="Unselect All" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <HBox fx:id="mainBox" prefHeight="759.0" prefWidth="1280.0">
+         <children>
+            <AnchorPane fx:id="config_pane" prefHeight="753.0" prefWidth="258.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="11.0" layoutY="4.0" minWidth="60.0" style="&#10;" text="Config" textAlignment="CENTER" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0">
+                     <font>
+                        <Font size="18.0" fx:id="x1" />
+                     </font>
+                     <textFill>
+                        <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
+                     </textFill>
+                  </Label>
+                  <Button fx:id="load_btn" layoutX="16.0" layoutY="35.0" mnemonicParsing="false" onAction="#load" prefHeight="35.0" prefWidth="80.0" text="Load" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="45.0" />
+                  <Button fx:id="save_btn" layoutX="153.0" layoutY="35.0" mnemonicParsing="false" onAction="#save" prefHeight="35.0" prefWidth="80.0" text="Save" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="45.0" />
+                  <Label layoutX="2.0" layoutY="74.0" text="Name" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="90.0" />
+                  <TextField fx:id="setName_txt" layoutX="15.0" layoutY="90.0" prefHeight="30.0" prefWidth="180.0" promptText="Anagram" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="110.0" />
+                  <Button fx:id="setName_btn" layoutX="15.0" layoutY="70.0" mnemonicParsing="false" onAction="#setName" prefHeight="30.0" prefWidth="50.0" text="Set" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="110.0" />
+                  <Label layoutX="12.0" layoutY="84.0" text="Alphabet" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="150.0" />
+                  <TextField fx:id="setAlphabet_txt" layoutX="15.0" layoutY="131.0" prefHeight="30.0" prefWidth="180.0" promptText="#, a, b" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="170.0" />
+                  <Button fx:id="setAlphabet_btn" layoutX="15.0" layoutY="200.0" mnemonicParsing="false" onAction="#setAlphabet" prefHeight="30.0" prefWidth="50.0" text="Set" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="170.0" />
+                  <Label layoutX="22.0" layoutY="94.0" text="State" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="210.0" />
+                  <TextField fx:id="setState_txt" layoutX="30.0" layoutY="245.0" prefHeight="30.0" prefWidth="150.0" promptText="z1" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="230.0" />
+                  <Button fx:id="setState_btn" layoutX="182.0" layoutY="155.0" mnemonicParsing="false" onAction="#setState" prefHeight="30.0" prefWidth="85.0" text="Add state" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="230.0" />
+                  <Label layoutX="20.0" layoutY="220.0" text="Transtion" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="270.0" />
+                  <TextField fx:id="setTransition_txt" layoutX="-5.0" layoutY="278.0" prefHeight="30.0" prefWidth="150.0" promptText="0, a, 1, +, R" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="290.0" />
+                  <Button fx:id="setTransition_btn" layoutX="208.0" layoutY="293.0" mnemonicParsing="false" onAction="#setTransiton" prefHeight="30.0" prefWidth="40.0" text="Add" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="290.0" />
+                  <Button fx:id="editTransition_btn" layoutX="182.0" layoutY="320.0" mnemonicParsing="false" onAction="#editTransiton" prefHeight="30.0" prefWidth="40.0" text="Edit" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="290.0" />
+                  <Separator layoutX="39.0" layoutY="329.0" prefWidth="200.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="330.0" />
+                  <Label layoutX="17.0" layoutY="333.0" text="State transitions" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="333.0" />
+                  <TextField fx:id="input_txt" layoutX="10.0" layoutY="655.0" prefHeight="50.0" prefWidth="235.0" promptText="ex: aaa#bbb, 1011#0111..." AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="10.0" />
+                  <Button fx:id="stop_btn" layoutX="13.0" layoutY="587.0" mnemonicParsing="false" onAction="#stop" prefHeight="30.0" prefWidth="60.0" text="Stop" AnchorPane.bottomAnchor="15.0" />
+                  <Button fx:id="start_btn" defaultButton="true" layoutX="96.0" layoutY="587.0" mnemonicParsing="false" onAction="#start" prefHeight="40.0" prefWidth="70.0" text="Start" AnchorPane.bottomAnchor="8.0">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="pause_btn" layoutX="183.0" layoutY="594.0" mnemonicParsing="false" onAction="#pause" prefHeight="30.0" prefWidth="60.0" text="Pause" AnchorPane.bottomAnchor="15.0" />
+                  <TextArea fx:id="transitionTable_txt" layoutX="13.0" layoutY="375.0" prefHeight="264.0" prefWidth="229.0" />
+                  <Text layoutX="16.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="R St  |  R Sy  |  W St  |  W Sy  |  D" wrappingWidth="229.00001525878906" />
+               </children>
+            </AnchorPane>
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="753.0" prefWidth="749.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" style="&#10;" text="Tape" textAlignment="CENTER" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0">
+                     <font>
+                        <Font size="18.0" fx:id="x1" />
+                     </font>
+                     <textFill>
+                        <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
+                     </textFill>
+                  </Label>
+                  <Button fx:id="stepBack_btn" layoutX="18.0" layoutY="179.0" mnemonicParsing="false" onAction="#stepBack" prefHeight="40.0" prefWidth="90.0" text="Step back" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="150.0" />
+                  <Button fx:id="stepForward_btn" layoutX="644.0" layoutY="179.0" mnemonicParsing="false" onAction="#stepForward" prefHeight="40.0" prefWidth="90.0" text="Step forward" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0" />
+                  <Label layoutX="18.0" layoutY="216.0" text="Details :" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="216.0" />
+                  <TextArea fx:id="actionsList_txt" layoutX="18.0" layoutY="233.0" prefHeight="500.0" prefWidth="711.0" />
+                  <TextArea fx:id="outputTape_txt" layoutX="11.0" layoutY="46.0" prefHeight="75.0" prefWidth="723.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="753.0" prefWidth="270.0">
+               <children>
+                  <Label alignment="CENTER" font="$x1" layoutX="22.0" layoutY="14.0" style="&#10;" text="Stats" textAlignment="CENTER" textFill="$x2" wrapText="false" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0" />
+                  <Button fx:id="setstartState_btn" layoutX="156.0" layoutY="591.0" mnemonicParsing="false" onAction="#setstartState" prefHeight="30.0" prefWidth="90.0" text="Start State" textFill="RED" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="530.0" />
+                  <Button fx:id="acceptState_btn" layoutX="156.0" layoutY="658.0" mnemonicParsing="false" onAction="#acceptState" prefHeight="30.0" prefWidth="90.0" text="Accept State" textFill="RED" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="580.0" />
+                  <TextField fx:id="acceptState_txt" layoutX="60.0" layoutY="658.0" prefHeight="30.0" prefWidth="50.0" promptText="z0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="580.0" />
+                  <TextField fx:id="setstartState_txt" layoutX="85.0" layoutY="591.0" prefHeight="30.0" prefWidth="50.0" promptText="z2" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="530.0" />
+                  <Separator layoutX="30.0" layoutY="552.0" prefHeight="3.0" prefWidth="219.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="510.0" />
+                  <Text fill="#0011ff" layoutX="26.0" layoutY="638.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="620.0" />
+                  <Text layoutX="20.0" layoutY="643.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" R St : Read state    R Sy : Read symbol W St : Write state    W Sy : Write sysmbol D : Direction" wrappingWidth="240.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="645.0">
+                     <font>
+                        <Font name="Arial Nova" size="13.0" />
+                     </font>
+                  </Text>
+                  <TextArea fx:id="StateChanges_txt" layoutX="21.0" layoutY="72.0" prefHeight="17.0" prefWidth="98.0" />
+                  <TextArea fx:id="steps_txt" layoutX="136.0" layoutY="72.0" prefHeight="35.0" prefWidth="98.0" />
+                  <TextArea fx:id="CellidVisits_txt" layoutX="65.0" layoutY="168.0" prefHeight="325.0" prefWidth="131.0" />
+                  <Text layoutX="65.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cell ID    |      Visits" wrappingWidth="130.99998474121094" />
+                  <Text layoutX="25.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State Changes" wrappingWidth="90.0" />
+                  <Text layoutX="136.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Steps" />
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+      <HBox id="HBox" alignment="BOTTOM_CENTER" prefHeight="20.0" prefWidth="1280.0" spacing="5.0">
+         <children>
+            <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+               <font>
+                  <Font size="11.0" fx:id="x3" />
+               </font>
+               <textFill>
+                  <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
+               </textFill>
+            </Label>
+            <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
+            <Label maxWidth="-1.0" text="Right status" HBox.hgrow="NEVER">
+               <font>
+                  <Font size="11.0" fx:id="x3" />
+               </font>
+               <textFill>
+                  <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
+               </textFill>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>
