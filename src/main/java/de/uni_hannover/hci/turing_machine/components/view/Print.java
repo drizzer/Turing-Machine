@@ -2,15 +2,20 @@ package de.uni_hannover.hci.turing_machine.components.view;
 
 import java.io.IOException;
 
+import de.uni_hannover.hci.turing_machine.components.Controller;
 import de.uni_hannover.hci.turing_machine.components.io.Module;
+import de.uni_hannover.hci.turing_machine.components.model.TuringMachine;
 
-public class Print {
+public class Print extends Controller {
   Module file = new Module();
 
   public static void generateConfig(String programName) throws IOException {
 
+    String Name = TM.getNameTM();
+
     Module.createFile(programName);
 
+    //Iterator SetTransition
     Module.addText("z0");
     Module.addText("\nz1");
     Module.addText("\nz2");

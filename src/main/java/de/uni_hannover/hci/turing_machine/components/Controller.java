@@ -10,6 +10,7 @@ import java.util.*;
 
 import javafx.stage.Stage;
 import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -32,6 +33,7 @@ import java.awt.event.ActionListener;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 // import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -41,7 +43,10 @@ public class Controller extends TuringMachine implements ActionListener {
     // JavaFx components for the User Interface
 
     private Stage primaryStage;
-    private Program TM = new Program(); // Object Typ Program
+    public static Program TM = new Program(); // Object Typ Program
+
+    Date date = new Date();
+    SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
 
     public Controller() {
     }
@@ -263,13 +268,17 @@ public class Controller extends TuringMachine implements ActionListener {
     @FXML
     void load(ActionEvent event) {
         FileChooser file_chooser = new FileChooser();
+        file_chooser.setTitle("Load program");
+        file_chooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Text Files", "*.txt"),
+            new FileChooser.ExtensionFilter("Turing Machine Files", "*.turm"));
         EventHandler<ActionEvent> openEvent = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 // get the file selected
                 File file = file_chooser.showOpenDialog(primaryStage);
 
                 if (file != null) {
-                    actionsList_txt.setText(file.getAbsolutePath() + "  selected");
+                    actionsList_txt.setText(file.getAbsolutePath() + "  loaded");
                 }
 
             }
@@ -281,13 +290,20 @@ public class Controller extends TuringMachine implements ActionListener {
     void save(ActionEvent event) {
 
         FileChooser file_chooser = new FileChooser();
-        EventHandler<ActionEvent> openEvent = new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent event) {
-                // get the file selected
+        file_chooser.setTitle("Save program");
+        file_chooser.setInitialFileName("Program " + dateFormatter.format(date));
+        file_chooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Text Files", "*.txt"),
+            new FileChooser.ExtensionFilter("Turing Machine Files", "*.turm"));
+
+            EventHandler<ActionEvent> openEvent = new EventHandler<ActionEvent>() {
+                public void handle(ActionEvent event) {
+                    // get the file selected
+                // file_chooser.setSelectedExtensionFilter();
                 File file = file_chooser.showSaveDialog(primaryStage);
 
                 if (file != null) {
-                    actionsList_txt.setText(file.getAbsolutePath() + "  selected");
+                    actionsList_txt.setText(file.getAbsolutePath() + "  saved");
                 }
 
             }

@@ -13,7 +13,7 @@ public class TuringMachine {
 	/** Name of the TuringMachine */
 	protected String NameTM;
 	/** Set of names for all possible states (e.g. qo - q5) */
-	protected Set<String> StateSet;
+	public Set<String> StateSet;
 	/** Set of all existing transitions */
 	protected Set<Transition> TransitionSet;
 	/** Set of Alphabet (e.g. #, a, b) */
