@@ -45,6 +45,8 @@ public class Controller extends TuringMachine implements ActionListener {
     private Stage primaryStage;
     public static Program TM = new Program(); // Object Typ Program
 
+    public static Scanner x; //for start Method
+
     Date date = new Date();
     SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
 
@@ -258,6 +260,23 @@ public class Controller extends TuringMachine implements ActionListener {
         steps_txt.setText(Integer.toString(TM.statSteps));
         StateChanges_txt.setText(Integer.toString(TM.statChangeofstates));
         // Output Cell ID & Visits statistics ????
+
+        //Output Tape
+
+        try {
+            x = new Scanner(new File("./src/main/java/de/uni_hannover/hci/turing_machine/components/io/output.txt"));
+
+        } catch (Exception e) {
+            outputTape_txt.setText("Fehler: Datei nicht auslesbar.");
+        }
+
+        while(x.hasNextLine()) {
+            String s = x.nextLine();
+            outputTape_txt.setText(s);
+        }
+
+        x.close(); 
+
     }
 
     @FXML
