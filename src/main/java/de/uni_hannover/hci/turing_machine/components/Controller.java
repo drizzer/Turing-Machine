@@ -241,15 +241,10 @@ public class Controller extends TuringMachine implements ActionListener, Initial
             mDirection = false;
         }
        TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
-        // Transitoins auflisten
-<<<<<<< HEAD
+
         actionsList_txt.appendText("\n" + temp2);
-    }
 
-    @FXML
-    void editTransiton(ActionEvent event) {
-
-=======
+        // Transitoins auflisten
 
         TS.setone(transition[0]);
 
@@ -260,6 +255,13 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         TS.setfour(transition[3]);
 
         TS.setfive(transition[4]);
+    }
+
+    @FXML
+    void editTransiton(ActionEvent event) {
+
+
+
 
         ObservableList<Transit> info = FXCollections.observableArrayList();
 
@@ -267,7 +269,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
         transitionTable_txt.setItems(info);
         
->>>>>>> 1ff9608dd12c6a3c0cf826494fc92eebb7908fc7
+
     }
 
 
