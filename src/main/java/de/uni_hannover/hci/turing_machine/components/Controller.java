@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
@@ -24,6 +25,8 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.beans.property.SimpleStringProperty;
+
 
 import javafx.scene.input.MouseEvent;
 import javafx.event.ActionEvent;
@@ -35,21 +38,40 @@ import javafx.collections.FXCollections;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
+
+//Kopie 
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 // import javafx.scene.control.cell.PropertyValueFactory;
 
 //import components.*;
 
-public class Controller extends TuringMachine implements ActionListener {
+public class Controller extends TuringMachine implements ActionListener, Initializable {
+
+    
     // JavaFx components for the User Interface
 
     private Stage primaryStage;
     public static Program TM; // Object Typ Program
+
+    Transit TS; //Für Tableview
 
     Date date = new Date();
     SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
 
     public Controller() {
     }
+
+    
 
     // setter method for stage variable
     public void setPrimaryStage(Stage primaryStage) {
@@ -146,7 +168,7 @@ public class Controller extends TuringMachine implements ActionListener {
     private Color x4;
 
     @FXML
-    private TableView<?> transitionTable_txt;
+    private TableView<Transit> transitionTable_txt;
 
     @FXML
     private TextArea actionsList_txt;
@@ -218,16 +240,70 @@ public class Controller extends TuringMachine implements ActionListener {
         } else {
             mDirection = false;
         }
-
-        TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
+       TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
         // Transitoins auflisten
+<<<<<<< HEAD
         actionsList_txt.appendText("\n" + temp2);
     }
 
     @FXML
     void editTransiton(ActionEvent event) {
 
+=======
+
+        TS.setone(transition[0]);
+
+        TS.settwo(transition[1]);
+
+        TS.setthree(transition[2]);
+
+        TS.setfour(transition[3]);
+
+        TS.setfive(transition[4]);
+
+        ObservableList<Transit> info = FXCollections.observableArrayList();
+
+        info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(), TS.getfive()));
+
+        transitionTable_txt.setItems(info);
+        
+>>>>>>> 1ff9608dd12c6a3c0cf826494fc92eebb7908fc7
     }
+
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        TableColumn<Transit, String> RSt = new TableColumn<>("RSt");
+        RSt.setMinWidth(50);
+        TableColumn<Transit, String> RSy = new TableColumn<>("RSy");
+        RSy.setMinWidth(50);
+        TableColumn<Transit, String> ST = new TableColumn<>("ST");
+        ST.setMinWidth(50);
+        TableColumn<Transit, String> WSy = new TableColumn<>("WSy");
+        WSy.setMinWidth(50);
+        TableColumn<Transit, String> D = new TableColumn<>("D");
+        D.setMinWidth(50);
+
+        transitionTable_txt.getColumns().addAll(RSt, RSy, ST, WSy, D);
+
+        ObservableList<Transit> info = FXCollections.observableArrayList(); //Fehler
+
+      //  info.add(new Transit("Test", "Tests", "abc", "zu", "tt"));
+        
+      //  info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(), TS.getfive())); //Fehler
+
+     /*   RSt.setCellValueFactory(new PropertyValueFactory<>("one"));
+        RSy.setCellValueFactory(new PropertyValueFactory<>("two"));
+        ST.setCellValueFactory(new PropertyValueFactory<>("three"));
+        WSy.setCellValueFactory(new PropertyValueFactory<>("four"));
+        D.setCellValueFactory(new PropertyValueFactory<>("five")); */
+
+        transitionTable_txt.setItems(info); //Fehler
+        
+    }
+
 
     @FXML
     void setstartState(ActionEvent event) { // ! GUT
