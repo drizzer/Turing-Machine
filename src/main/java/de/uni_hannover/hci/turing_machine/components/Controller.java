@@ -187,6 +187,7 @@ public class Controller extends TuringMachine implements ActionListener {
     void setName(ActionEvent event) {
         TM.setNameTM(setName_txt.getText());
         setName_txt.setText(""); // emptys textfield
+        actionsList_txt.setText(TM.getNameTM());
 
     }
 
