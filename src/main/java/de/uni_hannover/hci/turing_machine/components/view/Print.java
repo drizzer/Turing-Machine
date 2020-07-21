@@ -4,16 +4,15 @@ import java.io.IOException;
 
 import de.uni_hannover.hci.turing_machine.components.Controller;
 import de.uni_hannover.hci.turing_machine.components.io.Module;
-import de.uni_hannover.hci.turing_machine.components.model.TuringMachine;
 
 public class Print extends Controller {
   Module file = new Module();
 
   public static void generateConfig(String programName) throws IOException {
 
-    String Name = TM.getNameTM();
+    String name = TM.getNameTM();
 
-    Module.createFile(programName);
+    Module.createFile(name);
 
     Module.addText("#, a, b, +");
 

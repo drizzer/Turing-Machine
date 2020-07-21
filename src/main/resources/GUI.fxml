@@ -135,7 +135,10 @@
                   <Button fx:id="stepForward_btn" layoutX="644.0" layoutY="179.0" mnemonicParsing="false" onAction="#stepForward" prefHeight="40.0" prefWidth="90.0" text="Step forward" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0" />
                   <Label layoutX="18.0" layoutY="216.0" text="Details :" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="216.0" />
                   <TextArea fx:id="actionsList_txt" layoutX="18.0" layoutY="233.0" prefHeight="500.0" prefWidth="711.0" />
-                  <TextArea fx:id="outputTape_txt" layoutX="11.0" layoutY="46.0" prefHeight="75.0" prefWidth="723.0" />
+                  <TextArea fx:id="outputTape_txt" layoutX="11.0" layoutY="46.0" prefHeight="75.0" prefWidth="723.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font></TextArea>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="753.0" prefWidth="270.0">

@@ -14,23 +14,25 @@ public class TuringMachine {
 	protected String NameTM;
 	/** Set of names for all possible states (e.g. qo - q5) */
 	public Set<String> StateSet;
+
 	/** Set of all existing transitions */
 	protected Set<Transition> TransitionSet;
+
 	/** Set of Alphabet (e.g. #, a, b) */
 	protected ArrayList<String> AlphabetSet;
-
+	
 	/** Starting state of the program e.g. q0 */
 	protected String StartState;
 	/** State in which the output is accepted */
 	protected String AcceptState;
-
+	
 	/** Tape content as String with all symbols (seperator included) */
 	protected String Tape;
 	/** String with current state e.g. q3 */
 	protected String CurrentState;
 	/** Index of current symbol */
 	protected int CurrentSymbol;
-
+	
 	/**
 	 * This class provides the transitions of the TM
 	 * 
@@ -43,20 +45,21 @@ public class TuringMachine {
 		String writeState;
 		char writeSymbol;
 		boolean moveDirection; // true is right, false is left
-
+		
 		/**
 		 * This method returns the current transition into a string
 		 * 
 		 * @version 16.07.20
 		 * @author Mohamed Atya
 		 */
+
 		@Override
 		public String toString() {
 			return "Transition{" + "readState='" + readState + '\'' + ", readSymbol=" + readSymbol + ", writeState='"
 					+ writeState + '\'' + ", writeSymbol=" + writeSymbol + ", moveDirection=" + moveDirection + '}';
-		}
+				}
 
-		boolean isConflicting(String state, char symbol) {
+				boolean isConflicting(String state, char symbol) {
 			if (state.equals(readState) && symbol == readSymbol) {
 				return true;
 			} else {
@@ -64,7 +67,7 @@ public class TuringMachine {
 			}
 		}
 	}
-
+	
 	/**
 	 * This constructor provides an empty TM.
 	 * 
@@ -80,7 +83,7 @@ public class TuringMachine {
 		CurrentState = new String("");
 		CurrentSymbol = 0;
 	}
-
+	
 	/**
 	 * Getter for Programm name
 	 * 
@@ -114,7 +117,7 @@ public class TuringMachine {
 			return true;
 		}
 	}
-
+	
 	/**
 	 * This method defines the StartState. If the StartState is not in the stateSet
 	 * it returns false. The StartState has to be included in the stateSet.
@@ -130,7 +133,7 @@ public class TuringMachine {
 			return false;
 		}
 	}
-
+	
 	/**
 	 * This method defines the acceptState. If the acceptState is not in the
 	 * stateSet it returns false. The acceptState has to be included in the
@@ -150,18 +153,22 @@ public class TuringMachine {
 
 	/**
 	 * This method stores the alphabet in a set.
-	 * 
+	 *
 	 * @param String
 	 */
 	public void setnewAlphabet(String newAlphabetSet) {
-
+		
 		AlphabetSet.add(newAlphabetSet);
 	}
-
+	
+	public String getAlphabetSet() {
+		return AlphabetSet.toArray().toString();
+	}
+	
 	/**
 	 * This method adds a state transition to the TransitionSet. If the state
 	 * transition contains states, which don't exist, it returns false.
-	 * 
+	 *
 	 * @param rState
 	 * @param rSymbol
 	 * @param wState
@@ -173,19 +180,19 @@ public class TuringMachine {
 		if (!StateSet.contains(rState) || !StateSet.contains(wState)) {
 			return false;
 		}
-
+		
 		boolean conflict = false;
 		Iterator<Transition> TransitionsIterator = TransitionSet.iterator();
 
 		while (TransitionsIterator.hasNext() && conflict == false) {
-
+			
 			Transition nextTransition = TransitionsIterator.next();
-
+			
 			if (nextTransition.isConflicting(rState, rSymbol)) {
 				conflict = true;
 			}
 		}
-
+		
 		if (conflict == true) {
 			return false;
 		} else {
@@ -199,5 +206,9 @@ public class TuringMachine {
 			return true;
 		}
 	}
-
+	/*
+	public ArrayList TransitionSet() {
+		return TransitionSet.list();
+	}
+*/
 }

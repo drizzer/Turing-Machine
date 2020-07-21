@@ -43,7 +43,7 @@ public class Controller extends TuringMachine implements ActionListener {
     // JavaFx components for the User Interface
 
     private Stage primaryStage;
-    public static Program TM = new Program(); // Object Typ Program
+    public static Program TM; // Object Typ Program
 
     Date date = new Date();
     SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
@@ -165,36 +165,28 @@ public class Controller extends TuringMachine implements ActionListener {
 
     // Methods for input and buttons of GUI
     @FXML
-    void acceptState(ActionEvent event) {
-        setAcceptState(acceptState_txt.getText());
-        acceptState_txt.setText(""); // emptys textfield
-    }
-
-    @FXML
-    void editTransiton(ActionEvent event) {
+    void setName(ActionEvent event) { // ! GUT
+        TM.setNameTM(setName_txt.getText());
+        setName_txt.setText(""); // emptys textfield
+        actionsList_txt.setText(TM.getNameTM() + "\n");
 
     }
 
     @FXML
-    void setAlphabet(ActionEvent event) {
+    void setAlphabet(ActionEvent event) { // TODO check übernahme
         String temp = setAlphabet_txt.getText();
         setAlphabet_txt.setText(""); // emptys textfield
         TM.setnewAlphabet(setAlphabet_txt.getText());
         setTransition_txt.setText(temp); // empty text field
+        actionsList_txt.appendText(TM.getAlphabetSet());
     }
 
     @FXML
-    void setName(ActionEvent event) {
-        TM.setNameTM(setName_txt.getText());
-        setName_txt.setText(""); // emptys textfield
-        actionsList_txt.setText(TM.getNameTM());
-
-    }
-
-    @FXML
-    void setState(ActionEvent event) {
-        TM.addState(setState_txt.getText());
+    void setState(ActionEvent event) { // ! GUT
+        String state = setState_txt.getText();
+        TM.addState(state);
         setState_txt.setText(""); // emptys the Textfield
+        actionsList_txt.appendText("\n" + state);
     }
 
     /**
@@ -207,15 +199,13 @@ public class Controller extends TuringMachine implements ActionListener {
      * @return transitionset
      */
     @FXML
-    void setTransiton(ActionEvent event) {
+    void setTransiton(ActionEvent event) { // TODO check übernahme
         // saves the input of transitions in Object TM
         String temp2 = setTransition_txt.getText();
-
         // transitionTable_txt.setText(temp2);
-
         setTransition_txt.setText("");
 
-        String[] transition = temp2.split("; ");
+        String[] transition = temp2.split(", ");
 
         String rState = transition[0];
         char rSymbol = temp2.charAt(4);
@@ -231,13 +221,28 @@ public class Controller extends TuringMachine implements ActionListener {
 
         TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
         // Transitoins auflisten
-        // transitionTable_txt.setText(temp2);
+        actionsList_txt.appendText("\n" + temp2);
     }
 
     @FXML
-    void setstartState(ActionEvent event) {
-        TM.setStartState(setstartState_txt.getText());
+    void editTransiton(ActionEvent event) {
+
+    }
+
+    @FXML
+    void setstartState(ActionEvent event) { // ! GUT
+        String startState = setstartState_txt.getText();
+        TM.setStartState(startState);
         setstartState_txt.setText(""); // emptys textfield
+        actionsList_txt.appendText("\n" + startState );
+    }
+
+    @FXML
+    void acceptState(ActionEvent event) {
+        String acceptState = acceptState_txt.getText();
+        setAcceptState(acceptState);
+        acceptState_txt.setText(""); // emptys textfield
+        actionsList_txt.appendText("\n" + acceptState );
     }
 
     @FXML
@@ -250,14 +255,16 @@ public class Controller extends TuringMachine implements ActionListener {
         tt.setStyle("-fx-font: normal bold 12 Langdon; " + "-fx-base: #AE3522; " + "-fx-text-fill: orange;");
         start_btn.setTooltip(tt);
 
-        Program TM1 = ProgramsList.EqualWordSize();
-        boolean done = TM1.launch("aaa#bbb");
+
+        TM = ProgramsList.EqualWordSize();
+        String input = input_txt.getText();
+        boolean done = TM.launch(input);
 
         // TM.launch(input_txt.getText());
 
         // Output state changes & steps statistics
-        steps_txt.setText(Integer.toString(TM.statSteps));
-        StateChanges_txt.setText(Integer.toString(TM.statChangeofstates));
+        //steps_txt.setText(Integer.toString(TM.statSteps));
+        //StateChanges_txt.setText(Integer.toString(TM.statChangeofstates));
         // Output Cell ID & Visits statistics ????
     }
 
@@ -270,9 +277,8 @@ public class Controller extends TuringMachine implements ActionListener {
     void load(ActionEvent event) {
         FileChooser file_chooser = new FileChooser();
         file_chooser.setTitle("Load program");
-        file_chooser.getExtensionFilters().addAll(
-            new FileChooser.ExtensionFilter("Text Files", "*.txt"),
-            new FileChooser.ExtensionFilter("Turing Machine Files", "*.turm"));
+        file_chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"),
+                new FileChooser.ExtensionFilter("Turing Machine Files", "*.turm"));
         EventHandler<ActionEvent> openEvent = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent event) {
                 // get the file selected
@@ -293,13 +299,12 @@ public class Controller extends TuringMachine implements ActionListener {
         FileChooser file_chooser = new FileChooser();
         file_chooser.setTitle("Save program");
         file_chooser.setInitialFileName("Program " + dateFormatter.format(date));
-        file_chooser.getExtensionFilters().addAll(
-            new FileChooser.ExtensionFilter("Text Files", "*.txt"),
-            new FileChooser.ExtensionFilter("Turing Machine Files", "*.turm"));
+        file_chooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"),
+                new FileChooser.ExtensionFilter("Turing Machine Files", "*.turm"));
 
-            EventHandler<ActionEvent> openEvent = new EventHandler<ActionEvent>() {
-                public void handle(ActionEvent event) {
-                    // get the file selected
+        EventHandler<ActionEvent> openEvent = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent event) {
+                // get the file selected
                 // file_chooser.setSelectedExtensionFilter();
                 File file = file_chooser.showSaveDialog(primaryStage);
 
@@ -310,19 +315,16 @@ public class Controller extends TuringMachine implements ActionListener {
             }
         };
         save_btn.setOnAction(openEvent);
-/*
-        try {
-            File f = new File("./src/main/java/de/uni_hannover/hci/turing_machine/components/model/lib/saves/test.txt");
-            boolean bool = false;
-            bool = f.createNewFile(); // checks if file is already there
-        } catch (Exception e) { // If file already exists
-            Tooltip tt = new Tooltip();
-            tt.setText("TM already exists.");
-            tt.setStyle("-fx-font: normal bold 12 Langdon; " + "-fx-base: #AE3522; " + "-fx-text-fill: orange;");
-            save_btn.setTooltip(tt);
-            save_btn.setText("Error");
-        }
-        */
+        /*
+         * try { File f = new File(
+         * "./src/main/java/de/uni_hannover/hci/turing_machine/components/model/lib/saves/test.txt"
+         * ); boolean bool = false; bool = f.createNewFile(); // checks if file is
+         * already there } catch (Exception e) { // If file already exists Tooltip tt =
+         * new Tooltip(); tt.setText("TM already exists.");
+         * tt.setStyle("-fx-font: normal bold 12 Langdon; " + "-fx-base: #AE3522; " +
+         * "-fx-text-fill: orange;"); save_btn.setTooltip(tt);
+         * save_btn.setText("Error"); }
+         */
     }
 
     @FXML

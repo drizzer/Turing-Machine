@@ -53,11 +53,11 @@ public class Program extends TuringMachine {
 
 		Module.printActions("output"); // Direct console output to text file
 		Print.generateConfig("EqualWordSize"); // create configuration text file for the turing machine program
-/*
-		Module.openFile("./src/main/java/de/uni_hannover/hci/turing_machine/components/model/lib/saves/EqualWordSize.txt");
-		Module.readFile();
-		Module.closeFile();
-*/
+		/*
+		 * Module.openFile(
+		 * "./src/main/java/de/uni_hannover/hci/turing_machine/components/model/lib/saves/EqualWordSize.txt"
+		 * ); Module.readFile(); Module.closeFile();
+		 */
 		while (!CurrentState.equals(AcceptState) && operations < 80) {
 			boolean foundTransition = false;
 			Transition CurrentTransition = null;
