@@ -8,7 +8,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -89,13 +88,6 @@
                   <TextField fx:id="setTransition_txt" layoutX="-5.0" layoutY="278.0" prefHeight="30.0" prefWidth="150.0" promptText="0, a, 1, +, R" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="290.0" />
                   <Button fx:id="setTransition_btn" layoutX="208.0" layoutY="293.0" mnemonicParsing="false" onAction="#setTransiton" prefHeight="30.0" prefWidth="40.0" text="Add" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="290.0" />
                   <TableView fx:id="transitionTable_txt" layoutX="8.0" layoutY="358.0" prefHeight="275.0" prefWidth="245.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="355.0">
-                     <columns>
-                        <TableColumn prefWidth="40.0" text="R St" />
-                        <TableColumn prefWidth="41.0" text="R Sy" />
-                        <TableColumn prefWidth="53.0" text="W St" />
-                        <TableColumn prefWidth="30.0" text="W Sy" />
-                        <TableColumn prefWidth="31.0" text="D" />
-                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
