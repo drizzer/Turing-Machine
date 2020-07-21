@@ -65,6 +65,8 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
     Transit TS; //Für Tableview
 
+    public static Scanner x; //for start Method
+
     Date date = new Date();
     SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
 
@@ -257,21 +259,6 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         TS.setfive(transition[4]);
     }
 
-    @FXML
-    void editTransiton(ActionEvent event) {
-
-
-
-
-        ObservableList<Transit> info = FXCollections.observableArrayList();
-
-        info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(), TS.getfive()));
-
-        transitionTable_txt.setItems(info);
-        
-
-    }
-
 
 
     @Override
@@ -305,6 +292,30 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         transitionTable_txt.setItems(info); //Fehler
         
     }
+
+
+
+
+
+
+    @FXML
+    void editTransiton(ActionEvent event) {
+
+
+
+
+        ObservableList<Transit> info = FXCollections.observableArrayList();
+
+        info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(), TS.getfive()));
+
+        transitionTable_txt.setItems(info);
+        
+
+    }
+
+
+
+
 
 
     @FXML
@@ -344,6 +355,22 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         //steps_txt.setText(Integer.toString(TM.statSteps));
         //StateChanges_txt.setText(Integer.toString(TM.statChangeofstates));
         // Output Cell ID & Visits statistics ????
+
+        
+
+        try {
+            x = new Scanner(new File("./src/main/java/de/uni_hannover/hci/turing_machine/components/io/output.txt"));
+
+        } catch (Exception e) {
+            outputTape_txt.setText("Fehler: Datei nicht auslesbar.");
+        }
+
+        while(x.hasNextLine()) {
+            String s = x.nextLine();
+            outputTape_txt.setText(s);
+        }
+
+        x.close(); 
     }
 
     @FXML
