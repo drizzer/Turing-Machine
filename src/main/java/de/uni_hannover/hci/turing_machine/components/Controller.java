@@ -61,7 +61,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     // JavaFx components for the User Interface
 
     private Stage primaryStage;
-    public static Program TM; // Object Typ Program
+    public static Program TM = new Program(); // Object Typ Program
 
     Transit TS; //Für Tableview
 
@@ -232,12 +232,12 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         String[] transition = temp2.split(", ");
 
         String rState = transition[0];
-        char rSymbol = temp2.charAt(4);
+        char rSymbol = transition[1].toCharArray()[0];
         String wState = transition[2];
-        char wSymbol = temp2.charAt(12);
+        char wSymbol = transition[3].toCharArray()[0];
         boolean mDirection;
 
-        if (transition[5] == "R") {
+            if (transition[4] == "R") {
             mDirection = true;
         } else {
             mDirection = false;
@@ -247,16 +247,10 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         actionsList_txt.appendText("\n" + temp2);
 
         // Transitoins auflisten
+        TS = new Transit(transition[0], transition[1], transition[2], transition[3], transition[4]);
 
-        TS.setone(transition[0]);
+        transitionTable_txt.getItems().addAll(TS); //Fehler
 
-        TS.settwo(transition[1]);
-
-        TS.setthree(transition[2]);
-
-        TS.setfour(transition[3]);
-
-        TS.setfive(transition[4]);
     }
 
 
@@ -279,17 +273,17 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
         ObservableList<Transit> info = FXCollections.observableArrayList(); //Fehler
 
-      //  info.add(new Transit("Test", "Tests", "abc", "zu", "tt"));
-        
-      //  info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(), TS.getfive())); //Fehler
+        info.add(new Transit("0", "1", "1", "0", "R"));
 
-     /*   RSt.setCellValueFactory(new PropertyValueFactory<>("one"));
-        RSy.setCellValueFactory(new PropertyValueFactory<>("two"));
-        ST.setCellValueFactory(new PropertyValueFactory<>("three"));
-        WSy.setCellValueFactory(new PropertyValueFactory<>("four"));
-        D.setCellValueFactory(new PropertyValueFactory<>("five")); */
+//        info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(), TS.getfive())); //Fehler
 
-        transitionTable_txt.setItems(info); //Fehler
+        RSt.setCellValueFactory(new PropertyValueFactory<>("RSt"));
+        RSy.setCellValueFactory(new PropertyValueFactory<>("RSy"));
+        ST.setCellValueFactory(new PropertyValueFactory<>("ST"));
+        WSy.setCellValueFactory(new PropertyValueFactory<>("WSy"));
+        D.setCellValueFactory(new PropertyValueFactory<>("D"));
+
+        transitionTable_txt.getItems().addAll(info); //Fehler
         
     }
 
