@@ -9,9 +9,9 @@ package de.uni_hannover.hci.turing_machine.components.model;
  */
 
 public final class ProgramsList extends Program {
-	private ProgramsList() { 
+	private ProgramsList() {
 		// constructor der der controller als parameter übernimmt
-		
+
 	}
 
 	/**

@@ -94,31 +94,26 @@ public class Module {
   }
 
   public static void readFile() throws IOException {
-    //while(scanner.hasNext()) {
-      String title = scanner.next();
-      String alphabet = scanner.next();
-      
-      Module.createFile(title);
-      Module.addText(alphabet);
-      
-      //}
-    }
-    
-    public static void closeFile() {
-      scanner.close();
-    }
-    /*
+    // while(scanner.hasNext()) {
+    String title = scanner.next();
+    String alphabet = scanner.next();
 
-  public static void openFile(String fileName) {
-    try {
-      formatter = new Formatter(fileName + ".txt");
-    } catch (Exception e) {
-      System.out.println("Formatter Error");
-    }
+    Module.createFile(title);
+    Module.addText(alphabet);
+
+    // }
   }
 
-  public static void addAlphabet(String alphabet) {
-    formatter.format("%s%s%s", alphabet);
+  public static void closeFile() {
+    scanner.close();
   }
-*/
+  /*
+   * 
+   * public static void openFile(String fileName) { try { formatter = new
+   * Formatter(fileName + ".txt"); } catch (Exception e) {
+   * System.out.println("Formatter Error"); } }
+   * 
+   * public static void addAlphabet(String alphabet) { formatter.format("%s%s%s",
+   * alphabet); }
+   */
 }

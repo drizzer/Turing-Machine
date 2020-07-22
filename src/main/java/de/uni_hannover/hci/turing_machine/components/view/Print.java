@@ -13,7 +13,7 @@ public class Print extends Controller {
 
     Module.addText("#, a, b, +");
 
-    //Iterator SetTransition
+    // Iterator SetTransition
     Module.addText("\n\nz0");
     Module.addText("\nz1");
     Module.addText("\nz2");

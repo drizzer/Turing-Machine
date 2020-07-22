@@ -20,19 +20,19 @@ public class TuringMachine {
 
 	/** Set of Alphabet (e.g. #, a, b) */
 	protected ArrayList<String> AlphabetSet;
-	
+
 	/** Starting state of the program e.g. q0 */
 	protected String StartState;
 	/** State in which the output is accepted */
 	protected String AcceptState;
-	
+
 	/** Tape content as String with all symbols (seperator included) */
 	protected String Tape;
 	/** String with current state e.g. q3 */
 	protected String CurrentState;
 	/** Index of current symbol */
 	protected int CurrentSymbol;
-	
+
 	/**
 	 * This class provides the transitions of the TM
 	 * 
@@ -45,7 +45,7 @@ public class TuringMachine {
 		String writeState;
 		char writeSymbol;
 		boolean moveDirection; // true is right, false is left
-		
+
 		/**
 		 * This method returns the current transition into a string
 		 * 
@@ -57,9 +57,9 @@ public class TuringMachine {
 		public String toString() {
 			return "Transition{" + "readState='" + readState + '\'' + ", readSymbol=" + readSymbol + ", writeState='"
 					+ writeState + '\'' + ", writeSymbol=" + writeSymbol + ", moveDirection=" + moveDirection + '}';
-				}
+		}
 
-				boolean isConflicting(String state, char symbol) {
+		boolean isConflicting(String state, char symbol) {
 			if (state.equals(readState) && symbol == readSymbol) {
 				return true;
 			} else {
@@ -69,97 +69,10 @@ public class TuringMachine {
 
 	}
 
-
 	/**
 	 * Klasse für Output Tableview
 	 */
-	public class Transit{
 
-	/*	private String one;
-		private String two;
-		private String three;
-		private String four;
-		private String five; */
-
-
-		public SimpleStringProperty one;
-		public SimpleStringProperty two;
-		public SimpleStringProperty three;
-		public SimpleStringProperty four;
-		public SimpleStringProperty five;
-	
-		public Transit(String one, String two, String three, String four, String five) {
-			this.one = new SimpleStringProperty(one);
-			this.two = new SimpleStringProperty(two);
-			this.three = new SimpleStringProperty(three);
-			this.four = new SimpleStringProperty(four);
-			this.five = new SimpleStringProperty(five);
-		} 
-
-	/*	public Transit(String one, String two, String three, String four, String five) {
-			this.one = one;
-			this.two = two;
-			this.three = three;
-			this.four = four;
-			this.five = five;
-
-		} */
-
-		//getter und settter
-
-		public String getone() {
-			//return one;
-			return one.get();
-		}
-
-		public void setone(String one) {
-			//this.one = one;
-			this.one.set(one);
-		}
-
-		public String gettwo() {
-			//return two;
-			return two.get();
-		}
-
-		public void settwo(String two) {
-			//this.two = two;
-			this.two.set(two);
-		}
-
-		public String getthree() {
-			//return three;
-			return three.get();
-		}
-
-		public void setthree(String three) {
-			//this.three = three;
-			this.three.set(three);
-		}
-
-		public String getfour() {
-			//return four;
-			return four.get();
-		}
-
-		public void setfour(String four) {
-			//this.four = four;
-			this.four.set(four);
-		}
-
-		public String getfive() {
-			//return five;
-			return five.get();
-		}
-
-		public void setfive(String five) {
-			//this.five = five;
-			this.five.set(five);
-		}
-
-
-	}
-	
 	/**
 	 * This constructor provides an empty TM.
 	 * 
@@ -175,7 +88,7 @@ public class TuringMachine {
 		CurrentState = new String("");
 		CurrentSymbol = 0;
 	}
-	
+
 	/**
 	 * Getter for Programm name
 	 * 
@@ -209,7 +122,7 @@ public class TuringMachine {
 			return true;
 		}
 	}
-	
+
 	/**
 	 * This method defines the StartState. If the StartState is not in the stateSet
 	 * it returns false. The StartState has to be included in the stateSet.
@@ -225,7 +138,7 @@ public class TuringMachine {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * This method defines the acceptState. If the acceptState is not in the
 	 * stateSet it returns false. The acceptState has to be included in the
@@ -251,11 +164,11 @@ public class TuringMachine {
 	public void setAlphabetSet(String newAlphabetSet) {
 		AlphabetSet.add(newAlphabetSet);
 	}
-	
+
 	public String getAlphabetSet() {
 		return AlphabetSet.toArray().toString();
 	}
-	
+
 	/**
 	 * This method adds a state transition to the TransitionSet. If the state
 	 * transition contains states, which don't exist, it returns false.
@@ -271,19 +184,19 @@ public class TuringMachine {
 		if (!StateSet.contains(rState) || !StateSet.contains(wState)) {
 			return false;
 		}
-		
+
 		boolean conflict = false;
 		Iterator<Transition> TransitionsIterator = TransitionSet.iterator();
 
 		while (TransitionsIterator.hasNext() && conflict == false) {
-			
+
 			Transition nextTransition = TransitionsIterator.next();
-			
+
 			if (nextTransition.isConflicting(rState, rSymbol)) {
 				conflict = true;
 			}
 		}
-		
+
 		if (conflict == true) {
 			return false;
 		} else {
@@ -298,8 +211,6 @@ public class TuringMachine {
 		}
 	}
 	/*
-	public ArrayList TransitionSet() {
-		return TransitionSet.list();
-	}
-*/
+	 * public ArrayList TransitionSet() { return TransitionSet.list(); }
+	 */
 }

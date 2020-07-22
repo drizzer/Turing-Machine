@@ -5,6 +5,7 @@ import de.uni_hannover.hci.turing_machine.components.model.Program;
 import de.uni_hannover.hci.turing_machine.components.model.TuringMachine;
 import de.uni_hannover.hci.turing_machine.components.io.Module;
 import de.uni_hannover.hci.turing_machine.components.view.Print;
+import de.uni_hannover.hci.turing_machine.components.model.Transit;
 
 import java.io.*;
 import java.lang.*;
@@ -185,6 +186,37 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     @FXML
     private TextArea CellidVisits_txt;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        TableColumn<Transit, String> RSt = new TableColumn<>("RSt");
+        RSt.setMinWidth(50);
+        TableColumn<Transit, String> RSy = new TableColumn<>("RSy");
+        RSy.setMinWidth(50);
+        TableColumn<Transit, String> ST = new TableColumn<>("ST");
+        ST.setMinWidth(50);
+        TableColumn<Transit, String> WSy = new TableColumn<>("WSy");
+        WSy.setMinWidth(50);
+        TableColumn<Transit, String> D = new TableColumn<>("D");
+        D.setMinWidth(50);
+
+        transitionTable_txt.getColumns().addAll(RSt, RSy, ST, WSy, D);
+
+        ObservableList<Transit> info = FXCollections.observableArrayList(new Transit("0", "1", "1", "0", "R")); // Fehler
+
+        // info.add(new Transit("0", "1", "1", "0", "R"));
+
+        // info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(),
+        // TS.getfive())); //Fehler
+
+        RSt.setCellValueFactory(new PropertyValueFactory<>("RSt"));
+        RSy.setCellValueFactory(new PropertyValueFactory<>("RSy"));
+        ST.setCellValueFactory(new PropertyValueFactory<>("ST"));
+        WSy.setCellValueFactory(new PropertyValueFactory<>("WSy"));
+        D.setCellValueFactory(new PropertyValueFactory<>("D"));
+
+        transitionTable_txt.getItems().addAll(info); // Fehler
+    }
+
     // Methods for input and buttons of GUI
     @FXML
     void setName(ActionEvent event) { // ! GUT
@@ -247,64 +279,13 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
         // Transitoins auflisten
         TS = new Transit(transition[0], transition[1], transition[2], transition[3], transition[4]);
-<<<<<<< Updated upstream
 
+        // actionsList_txt.setText(TS.getone() + TS.gettwo() + TS.getthree() +
+        // TS.getfour() + TS.getfive());
+        transitionTable_txt.getItems().addAll(TS); // Fügt Linien hinzu
 
-        actionsList_txt.setText(TS.getone() + TS.gettwo() + TS.getthree() + TS.getfour() + TS.getfive());
-        transitionTable_txt.getItems().addAll(TS); //Fügt Linien hinzu
+        // transitionTable_txt.getItems().addAll(info);
 
-        //transitionTable_txt.getItems().addAll(info);
-
-
-=======
-        transitionTable_txt.getItems().addAll(TS);
->>>>>>> Stashed changes
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        TableColumn<Transit, String> RSt = new TableColumn<>("RSt");
-        RSt.setMinWidth(50);
-        TableColumn<Transit, String> RSy = new TableColumn<>("RSy");
-        RSy.setMinWidth(50);
-        TableColumn<Transit, String> ST = new TableColumn<>("ST");
-        ST.setMinWidth(50);
-        TableColumn<Transit, String> WSy = new TableColumn<>("WSy");
-        WSy.setMinWidth(50);
-        TableColumn<Transit, String> D = new TableColumn<>("D");
-        D.setMinWidth(50);
-
-        transitionTable_txt.getColumns().addAll(RSt, RSy, ST, WSy, D);
-<<<<<<< Updated upstream
-
-        ObservableList<Transit> info = FXCollections.observableArrayList(new Transit("0", "1", "1", "0", "R")); //Fehler
-
-      //  info.add(new Transit("0", "1", "1", "0", "R"));
-
-      //  info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(), TS.getfive())); //Fehler
-
-=======
-        ObservableList<Transit> info = FXCollections.observableArrayList(); // Fehler
-        info.add(new Transit("0", "1", "1", "0", "R"));
-
-        // info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(),
-        // TS.getfive())); //Fehler
->>>>>>> Stashed changes
-        RSt.setCellValueFactory(new PropertyValueFactory<>("RSt"));
-        RSy.setCellValueFactory(new PropertyValueFactory<>("RSy"));
-        ST.setCellValueFactory(new PropertyValueFactory<>("ST"));
-        WSy.setCellValueFactory(new PropertyValueFactory<>("WSy"));
-        D.setCellValueFactory(new PropertyValueFactory<>("D"));
-<<<<<<< Updated upstream
-
-
-
-
-      //  transitionTable_txt.getItems().addAll(info); //Fehler
-        
-=======
-        transitionTable_txt.getItems().addAll(info); // Fehler
->>>>>>> Stashed changes
     }
 
     @FXML
@@ -351,8 +332,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         // StateChanges_txt.setText(Integer.toString(TM.statChangeofstates));
         // Output Cell ID & Visits statistics ????
 
-
-		Print.generateConfig(TM.getNameTM()); // create configuration text file for the turing machine program
+        Print.generateConfig(TM.getNameTM()); // create configuration text file for the turing machine program
 
         try {
             x = new Scanner(new File("./src/main/java/de/uni_hannover/hci/turing_machine/components/io/output.txt"));
