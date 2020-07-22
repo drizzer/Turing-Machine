@@ -31,54 +31,54 @@ public class Transit {
    * }
    */
 
-  // getter und settter
+  // getter und setter
 
-  public String getone() {
+  public String getOne() {
     // return one;
     return one.get();
   }
 
-  public void setone(String one) {
+  public void setOne(String one) {
     // this.one = one;
     this.one.set(one);
   }
 
-  public String gettwo() {
+  public String getTwo() {
     // return two;
     return two.get();
   }
 
-  public void settwo(String two) {
+  public void setTwo(String two) {
     // this.two = two;
     this.two.set(two);
   }
 
-  public String getthree() {
+  public String getThree() {
     // return three;
     return three.get();
   }
 
-  public void setthree(String three) {
+  public void setThree(String three) {
     // this.three = three;
     this.three.set(three);
   }
 
-  public String getfour() {
+  public String getFour() {
     // return four;
     return four.get();
   }
 
-  public void setfour(String four) {
+  public void setFour(String four) {
     // this.four = four;
     this.four.set(four);
   }
 
-  public String getfive() {
+  public String getFive() {
     // return five;
     return five.get();
   }
 
-  public void setfive(String five) {
+  public void setFive(String five) {
     // this.five = five;
     this.five.set(five);
   }

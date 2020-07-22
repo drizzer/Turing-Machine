@@ -92,7 +92,7 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button fx:id="editTransition_btn" layoutX="182.0" layoutY="320.0" mnemonicParsing="false" onAction="#editTransiton" prefHeight="30.0" prefWidth="40.0" text="Edit" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="290.0" />
+                  <Button fx:id="editTransition_btn" layoutX="182.0" layoutY="320.0" mnemonicParsing="false" onAction="#editTransition" prefHeight="30.0" prefWidth="40.0" text="Edit" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="290.0" />
                   <Separator layoutX="39.0" layoutY="329.0" prefWidth="200.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="330.0" />
                   <Label layoutX="17.0" layoutY="333.0" text="State transitions" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="333.0">
                      <font>

@@ -11,7 +11,6 @@ import java.util.*;
 
 import javafx.stage.Stage;
 import javafx.stage.FileChooser;
-import javafx.stage.FileChooser.ExtensionFilter;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,11 +24,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-import javafx.beans.property.SimpleStringProperty;
 
 
-import javafx.scene.input.MouseEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import java.awt.event.ActionListener;
@@ -41,16 +37,6 @@ import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 
 //Kopie 
-import java.net.URL;
-import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 // import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -64,7 +50,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     private Stage primaryStage;
     public static Program TM = new Program(); // Object Typ Program
 
-    Transit TS; //Für Tableview
+//    Transit TS; //Für Tableview
 
     public static Scanner x; //for start Method
 
@@ -249,17 +235,16 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         actionsList_txt.appendText("\n" + temp2);
 
         // Transitoins auflisten
-        TS = new Transit(transition[0], transition[1], transition[2], transition[3], transition[4]);
+        Transit ts = new Transit(transition[0], transition[1], transition[2], transition[3], transition[4]);
 
 
-        actionsList_txt.setText(TS.getone() + TS.gettwo() + TS.getthree() + TS.getfour() + TS.getfive());
+        actionsList_txt.setText(ts.getOne() + ts.getTwo() + ts.getThree() + ts.getFour() + ts.getFive());
        
        
-        final ObservableList<Transit> info = FXCollections.observableArrayList(new Transit("0", "1", "1", "0", "R"));
+        final ObservableList<Transit> info = FXCollections.observableArrayList(ts);
        // transitionTable_txt.setItems(info);
         transitionTable_txt.getItems().addAll(info);
-        transitionTable_txt.setItems(info);
-      // "Test".setPromptText("First Name");
+//        transitionTable_txt.setItems(info);
     
 
 
@@ -271,7 +256,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     public void initialize(URL location, ResourceBundle resources) {
 
 
-        transitionTable_txt.getItems().addAll(TS); //Fügt Linien hinzu
+//        transitionTable_txt.getItems().addAll(TS); //Fügt Linien hinzu
         transitionTable_txt.setEditable(true);
 
         //Überschriften hinzufügen
@@ -314,16 +299,16 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
 
     @FXML
-    void editTransiton(ActionEvent event) {
+    void editTransition(ActionEvent event) {
 
 
 
 
-        ObservableList<Transit> info = FXCollections.observableArrayList();
-
-        info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(), TS.getfive()));
-
-        transitionTable_txt.setItems(info);
+//        ObservableList<Transit> info = FXCollections.observableArrayList();
+//
+//        info.add(new Transit(TS.getOne(), TS.getTwo(), TS.getThree(), TS.getFour(), TS.getFive()));
+//
+//        transitionTable_txt.setItems(info);
         
 
     }

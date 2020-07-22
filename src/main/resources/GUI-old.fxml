@@ -86,7 +86,7 @@
                   <Label layoutX="20.0" layoutY="220.0" text="Transtion" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="270.0" />
                   <TextField fx:id="setTransition_txt" layoutX="-5.0" layoutY="278.0" prefHeight="30.0" prefWidth="150.0" promptText="0, a, 1, +, R" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="290.0" />
                   <Button fx:id="setTransition_btn" layoutX="208.0" layoutY="293.0" mnemonicParsing="false" onAction="#setTransiton" prefHeight="30.0" prefWidth="40.0" text="Add" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="290.0" />
-                  <Button fx:id="editTransition_btn" layoutX="182.0" layoutY="320.0" mnemonicParsing="false" onAction="#editTransiton" prefHeight="30.0" prefWidth="40.0" text="Edit" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="290.0" />
+                  <Button fx:id="editTransition_btn" layoutX="182.0" layoutY="320.0" mnemonicParsing="false" onAction="#editTransition" prefHeight="30.0" prefWidth="40.0" text="Edit" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="290.0" />
                   <Separator layoutX="39.0" layoutY="329.0" prefWidth="200.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="330.0" />
                   <Label layoutX="17.0" layoutY="333.0" text="State transitions" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="333.0" />
                   <TextField fx:id="input_txt" layoutX="10.0" layoutY="655.0" prefHeight="50.0" prefWidth="235.0" promptText="ex: aaa#bbb, 1011#0111..." AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="10.0" />
