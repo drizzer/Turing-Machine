@@ -76,6 +76,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
     
 
+
     // setter method for stage variable
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -252,13 +253,14 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
 
         actionsList_txt.setText(TS.getone() + TS.gettwo() + TS.getthree() + TS.getfour() + TS.getfive());
-        transitionTable_txt.getItems().addAll(TS); //Fügt Linien hinzu
-
+       
+       
         final ObservableList<Transit> info = FXCollections.observableArrayList(new Transit("0", "1", "1", "0", "R"));
+       // transitionTable_txt.setItems(info);
+        transitionTable_txt.getItems().addAll(info);
         transitionTable_txt.setItems(info);
-       // transitionTable_txt.getItems().addAll(info);
-
       // "Test".setPromptText("First Name");
+    
 
 
     }
@@ -268,7 +270,11 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
+        transitionTable_txt.getItems().addAll(TS); //Fügt Linien hinzu
         transitionTable_txt.setEditable(true);
+
+        //Überschriften hinzufügen
         TableColumn<Transit, String> RSt = new TableColumn<>("RSt");
         RSt.setMinWidth(50);
         TableColumn<Transit, String> RSy = new TableColumn<>("RSy");
@@ -278,7 +284,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         TableColumn<Transit, String> WSy = new TableColumn<>("WSy");
         WSy.setMinWidth(50);
         TableColumn<Transit, String> D = new TableColumn<>("D");
-        D.setMinWidth(50);
+        D.setMinWidth(35);
 
         transitionTable_txt.getColumns().addAll(RSt, RSy, ST, WSy, D);
 
@@ -294,10 +300,11 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         WSy.setCellValueFactory(new PropertyValueFactory<Transit, String>("four"));
         D.setCellValueFactory(new PropertyValueFactory<Transit, String>("five"));
 
-        transitionTable_txt.setEditable(true);
+        transitionTable_txt.setEditable(true); //Tableview kann verändert werden
 
       //  transitionTable_txt.getItems().addAll(TS);
       // transitionTable_txt.getItems(info); //Fehler
+      
         
     }
 
