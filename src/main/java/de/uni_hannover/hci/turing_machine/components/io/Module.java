@@ -1,7 +1,5 @@
 package de.uni_hannover.hci.turing_machine.components.io;
 
-import de.uni_hannover.hci.turing_machine.components.view.Print;
-
 import java.io.FileWriter;
 import java.util.Formatter;
 import java.util.Scanner;

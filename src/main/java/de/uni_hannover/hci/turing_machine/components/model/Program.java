@@ -1,12 +1,9 @@
 package de.uni_hannover.hci.turing_machine.components.model;
 
-import de.uni_hannover.hci.turing_machine.components.io.Module;
-import de.uni_hannover.hci.turing_machine.components.view.Print;
-
+import java.io.FileNotFoundException;
 import java.util.*;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import de.uni_hannover.hci.turing_machine.components.io.Module;
 
 public class Program extends TuringMachine {
 	/** Counter for calls of each cell */
@@ -37,9 +34,11 @@ public class Program extends TuringMachine {
 	 * 
 	 * @author Mohamed Atya
 	 * @version 30.06.20
-	 * @throws IOException
+	 * 
+	 * @param String input
+	 * @throws FileNotFoundException
 	 */
-	public boolean launch(String input) throws IOException, FileNotFoundException { // input = input_txt
+	public boolean launch(String input) throws FileNotFoundException { // input = input_txt
 		CurrentState = StartState;
 		Tape = input;
 		statSteps = 0; // counts the steps
@@ -51,13 +50,14 @@ public class Program extends TuringMachine {
 		 * statCells[i][0] = i + 1; }
 		 */
 
-		Module.printActions("output"); // Direct console output to text file
-		Print.generateConfig("EqualWordSize"); // create configuration text file for the turing machine program
-		/*
+/*
 		 * Module.openFile(
 		 * "./src/main/java/de/uni_hannover/hci/turing_machine/components/model/lib/saves/EqualWordSize.txt"
 		 * ); Module.readFile(); Module.closeFile();
 		 */
+
+		Module.printActions("output"); // Direct console output to text file
+		
 		while (!CurrentState.equals(AcceptState) && operations < 80) {
 			boolean foundTransition = false;
 			Transition CurrentTransition = null;

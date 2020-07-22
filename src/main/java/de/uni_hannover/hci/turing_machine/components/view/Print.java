@@ -6,11 +6,8 @@ import de.uni_hannover.hci.turing_machine.components.Controller;
 import de.uni_hannover.hci.turing_machine.components.io.Module;
 
 public class Print extends Controller {
-  Module file = new Module();
 
-  public static void generateConfig(String programName) throws IOException {
-
-    String name = TM.getNameTM();
+  public static void generateConfig(String name) throws IOException {
 
     Module.createFile(name);
 

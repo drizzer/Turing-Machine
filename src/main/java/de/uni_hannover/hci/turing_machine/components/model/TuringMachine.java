@@ -1,9 +1,6 @@
 package de.uni_hannover.hci.turing_machine.components.model;
 
 import java.util.*;
-import javafx.fxml.Initializable;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.ObservableList;
 
 /**
  * This class provides Methods to store the information of the TM
@@ -251,8 +248,7 @@ public class TuringMachine {
 	 *
 	 * @param String
 	 */
-	public void setnewAlphabet(String newAlphabetSet) {
-		
+	public void setAlphabetSet(String newAlphabetSet) {
 		AlphabetSet.add(newAlphabetSet);
 	}
 	
