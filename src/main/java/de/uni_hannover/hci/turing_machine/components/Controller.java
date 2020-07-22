@@ -249,7 +249,12 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         // Transitoins auflisten
         TS = new Transit(transition[0], transition[1], transition[2], transition[3], transition[4]);
 
-        transitionTable_txt.getItems().addAll(TS); //Fehler
+
+        actionsList_txt.setText(TS.getone() + TS.gettwo() + TS.getthree() + TS.getfour() + TS.getfive());
+        transitionTable_txt.getItems().addAll(TS); //Fügt Linien hinzu
+
+        //transitionTable_txt.getItems().addAll(info);
+
 
     }
 
@@ -271,11 +276,11 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
         transitionTable_txt.getColumns().addAll(RSt, RSy, ST, WSy, D);
 
-        ObservableList<Transit> info = FXCollections.observableArrayList(); //Fehler
+        ObservableList<Transit> info = FXCollections.observableArrayList(new Transit("0", "1", "1", "0", "R")); //Fehler
 
-        info.add(new Transit("0", "1", "1", "0", "R"));
+      //  info.add(new Transit("0", "1", "1", "0", "R"));
 
-//        info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(), TS.getfive())); //Fehler
+      //  info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(), TS.getfive())); //Fehler
 
         RSt.setCellValueFactory(new PropertyValueFactory<>("RSt"));
         RSy.setCellValueFactory(new PropertyValueFactory<>("RSy"));
@@ -283,7 +288,10 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         WSy.setCellValueFactory(new PropertyValueFactory<>("WSy"));
         D.setCellValueFactory(new PropertyValueFactory<>("D"));
 
-        transitionTable_txt.getItems().addAll(info); //Fehler
+
+
+
+      //  transitionTable_txt.getItems().addAll(info); //Fehler
         
     }
 
