@@ -3,8 +3,6 @@ package de.uni_hannover.hci.turing_machine.components;
 import de.uni_hannover.hci.turing_machine.components.model.ProgramsList;
 import de.uni_hannover.hci.turing_machine.components.model.Program;
 import de.uni_hannover.hci.turing_machine.components.model.TuringMachine;
-import de.uni_hannover.hci.turing_machine.components.io.Module;
-import de.uni_hannover.hci.turing_machine.components.view.Print;
 import de.uni_hannover.hci.turing_machine.components.model.Transit;
 
 import java.io.*;
@@ -29,6 +27,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.beans.property.SimpleStringProperty;
+
 
 import javafx.scene.input.MouseEvent;
 import javafx.event.ActionEvent;
@@ -59,20 +58,23 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Controller extends TuringMachine implements ActionListener, Initializable {
 
+    
     // JavaFx components for the User Interface
 
     private Stage primaryStage;
     public static Program TM = new Program(); // Object Typ Program
 
-    Transit TS; // Für Tableview
+    Transit TS; //Für Tableview
 
-    public static Scanner x; // for start Method
+    public static Scanner x; //for start Method
 
     Date date = new Date();
     SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
 
     public Controller() {
     }
+
+    
 
     // setter method for stage variable
     public void setPrimaryStage(Stage primaryStage) {
@@ -186,37 +188,6 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     @FXML
     private TextArea CellidVisits_txt;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        TableColumn<Transit, String> RSt = new TableColumn<>("RSt");
-        RSt.setMinWidth(50);
-        TableColumn<Transit, String> RSy = new TableColumn<>("RSy");
-        RSy.setMinWidth(50);
-        TableColumn<Transit, String> ST = new TableColumn<>("ST");
-        ST.setMinWidth(50);
-        TableColumn<Transit, String> WSy = new TableColumn<>("WSy");
-        WSy.setMinWidth(50);
-        TableColumn<Transit, String> D = new TableColumn<>("D");
-        D.setMinWidth(50);
-
-        transitionTable_txt.getColumns().addAll(RSt, RSy, ST, WSy, D);
-
-        ObservableList<Transit> info = FXCollections.observableArrayList(new Transit("0", "1", "1", "0", "R")); // Fehler
-
-        // info.add(new Transit("0", "1", "1", "0", "R"));
-
-        // info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(),
-        // TS.getfive())); //Fehler
-
-        RSt.setCellValueFactory(new PropertyValueFactory<>("RSt"));
-        RSy.setCellValueFactory(new PropertyValueFactory<>("RSy"));
-        ST.setCellValueFactory(new PropertyValueFactory<>("ST"));
-        WSy.setCellValueFactory(new PropertyValueFactory<>("WSy"));
-        D.setCellValueFactory(new PropertyValueFactory<>("D"));
-
-        transitionTable_txt.getItems().addAll(info); // Fehler
-    }
-
     // Methods for input and buttons of GUI
     @FXML
     void setName(ActionEvent event) { // ! GUT
@@ -227,14 +198,11 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     }
 
     @FXML
-    void setAlphabet(ActionEvent event) {
+    void setAlphabet(ActionEvent event) { // TODO check übernahme
         String temp = setAlphabet_txt.getText();
-        setAlphabet_txt.setText("");
-
-        String[] alphabet = temp.split(", ");
-        for (String symbol : alphabet) {
-            TM.setAlphabetSet(symbol);
-        }
+        setAlphabet_txt.setText(""); // emptys textfield
+        TM.setAlphabetSet(setAlphabet_txt.getText());
+        setTransition_txt.setText(temp); // empty text field
         actionsList_txt.appendText(TM.getAlphabetSet());
     }
 
@@ -242,7 +210,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     void setState(ActionEvent event) { // ! GUT
         String state = setState_txt.getText();
         TM.addState(state);
-        setState_txt.setText("");
+        setState_txt.setText(""); // emptys the Textfield
         actionsList_txt.appendText("\n" + state);
     }
 
@@ -256,11 +224,13 @@ public class Controller extends TuringMachine implements ActionListener, Initial
      * @return transitionset
      */
     @FXML
-    void setTransiton(ActionEvent event) { // ! GUT
-        String temp = setTransition_txt.getText();
+    void setTransiton(ActionEvent event) { // TODO check übernahme
+        // saves the input of transitions in Object TM
+        String temp2 = setTransition_txt.getText();
+        // transitionTable_txt.setText(temp2);
         setTransition_txt.setText("");
 
-        String[] transition = temp.split(", ");
+        String[] transition = temp2.split(", ");
 
         String rState = transition[0];
         char rSymbol = transition[1].toCharArray()[0];
@@ -268,39 +238,100 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         char wSymbol = transition[3].toCharArray()[0];
         boolean mDirection;
 
-        if (transition[4] == "R") {
+            if (transition[4] == "R") {
             mDirection = true;
         } else {
             mDirection = false;
         }
+       TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
 
-        TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
-        actionsList_txt.appendText("\n" + temp);
+        actionsList_txt.appendText("\n" + temp2);
 
         // Transitoins auflisten
         TS = new Transit(transition[0], transition[1], transition[2], transition[3], transition[4]);
 
-        // actionsList_txt.setText(TS.getone() + TS.gettwo() + TS.getthree() +
-        // TS.getfour() + TS.getfive());
-        transitionTable_txt.getItems().addAll(TS); // Fügt Linien hinzu
 
-        // transitionTable_txt.getItems().addAll(info);
+        actionsList_txt.setText(TS.getone() + TS.gettwo() + TS.getthree() + TS.getfour() + TS.getfive());
+        transitionTable_txt.getItems().addAll(TS); //Fügt Linien hinzu
+
+        final ObservableList<Transit> info = FXCollections.observableArrayList(new Transit("0", "1", "1", "0", "R"));
+        transitionTable_txt.setItems(info);
+       // transitionTable_txt.getItems().addAll(info);
+
+      // "Test".setPromptText("First Name");
+
 
     }
+
+
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        transitionTable_txt.setEditable(true);
+        TableColumn<Transit, String> RSt = new TableColumn<>("RSt");
+        RSt.setMinWidth(50);
+        TableColumn<Transit, String> RSy = new TableColumn<>("RSy");
+        RSy.setMinWidth(50);
+        TableColumn<Transit, String> ST = new TableColumn<>("ST");
+        ST.setMinWidth(50);
+        TableColumn<Transit, String> WSy = new TableColumn<>("WSy");
+        WSy.setMinWidth(50);
+        TableColumn<Transit, String> D = new TableColumn<>("D");
+        D.setMinWidth(50);
+
+        transitionTable_txt.getColumns().addAll(RSt, RSy, ST, WSy, D);
+
+       // ObservableList<Transit> info = FXCollections.observableArrayList(new Transit("0", "1", "1", "0", "R")); //Fehler
+
+      //  info.add(new Transit("0", "1", "1", "0", "R"));
+
+      //  info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(), TS.getfive())); //Fehler
+
+        RSt.setCellValueFactory(new PropertyValueFactory<Transit, String>("one"));
+        RSy.setCellValueFactory(new PropertyValueFactory<Transit, String>("two"));
+        ST.setCellValueFactory(new PropertyValueFactory<Transit, String>("three"));
+        WSy.setCellValueFactory(new PropertyValueFactory<Transit, String>("four"));
+        D.setCellValueFactory(new PropertyValueFactory<Transit, String>("five"));
+
+        transitionTable_txt.setEditable(true);
+
+      //  transitionTable_txt.getItems().addAll(TS);
+      // transitionTable_txt.getItems(info); //Fehler
+        
+    }
+
+
+
+
+
 
     @FXML
     void editTransiton(ActionEvent event) {
+
+
+
+
         ObservableList<Transit> info = FXCollections.observableArrayList();
+
         info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(), TS.getfive()));
+
         transitionTable_txt.setItems(info);
+        
+
     }
+
+
+
+
+
 
     @FXML
     void setstartState(ActionEvent event) { // ! GUT
         String startState = setstartState_txt.getText();
         TM.setStartState(startState);
         setstartState_txt.setText(""); // emptys textfield
-        actionsList_txt.appendText("\n" + startState);
+        actionsList_txt.appendText("\n" + startState );
     }
 
     @FXML
@@ -308,7 +339,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         String acceptState = acceptState_txt.getText();
         setAcceptState(acceptState);
         acceptState_txt.setText(""); // emptys textfield
-        actionsList_txt.appendText("\n" + acceptState);
+        actionsList_txt.appendText("\n" + acceptState );
     }
 
     @FXML
@@ -321,6 +352,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         tt.setStyle("-fx-font: normal bold 12 Langdon; " + "-fx-base: #AE3522; " + "-fx-text-fill: orange;");
         start_btn.setTooltip(tt);
 
+
         TM = ProgramsList.EqualWordSize();
         String input = input_txt.getText();
         boolean done = TM.launch(input);
@@ -328,11 +360,11 @@ public class Controller extends TuringMachine implements ActionListener, Initial
         // TM.launch(input_txt.getText());
 
         // Output state changes & steps statistics
-        // steps_txt.setText(Integer.toString(TM.statSteps));
-        // StateChanges_txt.setText(Integer.toString(TM.statChangeofstates));
+        //steps_txt.setText(Integer.toString(TM.statSteps));
+        //StateChanges_txt.setText(Integer.toString(TM.statChangeofstates));
         // Output Cell ID & Visits statistics ????
 
-        Print.generateConfig(TM.getNameTM()); // create configuration text file for the turing machine program
+        
 
         try {
             x = new Scanner(new File("./src/main/java/de/uni_hannover/hci/turing_machine/components/io/output.txt"));
@@ -341,12 +373,12 @@ public class Controller extends TuringMachine implements ActionListener, Initial
             outputTape_txt.setText("Fehler: Datei nicht auslesbar.");
         }
 
-        while (x.hasNextLine()) {
+        while(x.hasNextLine()) {
             String s = x.nextLine();
             outputTape_txt.setText(s);
         }
 
-        x.close();
+        x.close(); 
     }
 
     @FXML
@@ -430,3 +462,4 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     }
 
 }
+
