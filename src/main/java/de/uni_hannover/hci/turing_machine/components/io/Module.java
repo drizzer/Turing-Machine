@@ -114,7 +114,7 @@ public class Module {
   }
 
   public static String buffReader(String fileName) throws FileNotFoundException, IOException {
-
+  
     FileReader file = new FileReader(fileName); //Weg zur Datei
     BufferedReader reader = new BufferedReader(file);
 
@@ -138,3 +138,4 @@ public class Module {
    * alphabet); }
    */
 }
+
