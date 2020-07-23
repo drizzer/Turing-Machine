@@ -125,8 +125,10 @@ Free builds of OpenJDK – open source implementations of Java SE free to use wi
   Build system for Java apps
 
 ----------------
+
 Anmerkungen von Anton:
 Fehlende Mindestanforderungen bis Freitag:
+
 - einen Branch der Final heißt erstellen und in diesem eine .Jar hinterlegen eures Programmes
 - die Jar würde ich schon gern noch vor eurer Präsentation testen
 - der finale Bericht, da eignet sich vieles aus dieser Readme 
