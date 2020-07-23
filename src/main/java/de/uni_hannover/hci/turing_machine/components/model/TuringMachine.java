@@ -13,12 +13,10 @@ public class TuringMachine {
   protected String NameTM;
   /** Set of names for all possible states (e.g. qo - q5) */
   public Set<String> StateSet;
-
   /** Set of all existing transitions */
-  protected Set<Transition> TransitionSet;
-
+  protected Set<Transition> TransitionSet; //empty
   /** Set of Alphabet (e.g. #, a, b) */
-  protected ArrayList<String> AlphabetSet;
+  protected ArrayList<String> AlphabetSet; //empty
 
   /** Starting state of the program e.g. q0 */
   protected String StartState;
@@ -218,11 +216,13 @@ public class TuringMachine {
       return false;
     } else {
       Transition newTransition = new Transition();
+
       newTransition.readState = rState;
       newTransition.readSymbol = rSymbol;
       newTransition.writeState = wState;
       newTransition.writeSymbol = wSymbol;
       newTransition.moveDirection = mDirection;
+
       TransitionSet.add(newTransition);
       return true;
     }

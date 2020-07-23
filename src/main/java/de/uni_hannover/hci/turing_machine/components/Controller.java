@@ -65,9 +65,12 @@ public class Controller extends TuringMachine implements ActionListener, Initial
   }
 
   @Override
-  public void actionPerformed(java.awt.event.ActionEvent e) {
-    // TODO Auto-generated method stub
-
+  public void actionPerformed(java.awt.event.ActionEvent e)  {
+    /*try {
+      Thread.sleep(30);
+    } catch(InterruptedException ex) {
+      ex.printStackTrace();
+    };*/
   }
 
   @FXML
@@ -289,16 +292,19 @@ public class Controller extends TuringMachine implements ActionListener, Initial
   void setAlphabet(ActionEvent event) { // TODO check übernahme
     String temp = setAlphabet_txt.getText();
     setAlphabet_txt.setText(temp);
-    /*
+
     String[] alphabetArray = temp.split(", ");
 
-    ArrayList<String> alphabetArrayList = new ArrayList<String>(Arrays.asList(alphabetArray));
-    alphabetArrayList.addAll(Arrays.asList(alphabetArray));
+ /*   ArrayList<String> alphabetArrayList = new ArrayList<String>(Arrays.asList(alphabetArray));
+    boolean isAdded = alphabetArrayList.addAll(Arrays.asList(alphabetArray));
 
-    for (String alpha : alphabetArrayList ) {
-    TM.setAlphabetSet(alpha); 
-    }
-    */
+    if (isAdded) {
+      for (String alpha : alphabetArrayList ) {
+      TM.setAlphabetSet(alpha); }
+    } else {
+        setAlphabet_txt.setText("Error");
+      }*/
+
   }
 
   @FXML
@@ -338,7 +344,10 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     }
 
     // saves the input of transitions in Object TM
-    TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
+    boolean isAdded = TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
+
+    // if(isAdded) {}
+
     // Transitoins auflisten
     Transit ts = new Transit(
       transition[0],
@@ -412,7 +421,8 @@ public class Controller extends TuringMachine implements ActionListener, Initial
   void setAcceptState(ActionEvent event) { // TODO check übernahme
     String acceptState = acceptState_txt.getText();
     acceptState_txt.setText(acceptState);
-    setAcceptState(acceptState);
+    TM.setAcceptState(acceptState);
+
 
     actionsList_txt.appendText("\n" + acceptState);
   }
