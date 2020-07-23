@@ -8,6 +8,8 @@ import javafx.scene.image.Image;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.io.BufferedReader; //Scanner
+import java.io.FileReader;
 
 // VM options: --module-path %PATH_TO_FX%  --add-modules=javafx.controls,javafx.fxml
 
@@ -22,9 +24,9 @@ public class App extends Application {
             Controller controller = (Controller) loader.getController(); // getting instance of the controller
             controller.setPrimaryStage(primaryStage); // set stage
             primaryStage.setTitle("Turing Machine");
-            primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("/icon.png")));
+            primaryStage.getIcons().add(new Image(this.getClass().getResourceAsStream("/icon.png"))); //Bild GUI
             Scene scene = new Scene(root, 1280, 800);
-            scene.getStylesheets().addAll(this.getClass().getResource("/style.css").toExternalForm());
+            scene.getStylesheets().addAll(this.getClass().getResource("/style.css").toExternalForm()); //Style Bild
             primaryStage.setScene(scene);
             primaryStage.show();
 

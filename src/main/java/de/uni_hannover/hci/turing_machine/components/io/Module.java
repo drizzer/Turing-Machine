@@ -8,6 +8,8 @@ import java.io.PrintStream;
 import java.util.logging.Logger;
 import java.util.Formatter;
 import java.util.Scanner;
+import java.io.BufferedReader; //Scanner
+import java.io.FileReader;
 
 
 public class Module {
@@ -109,6 +111,22 @@ public class Module {
 
   public static void closeFile() {
     scanner.close();
+  }
+
+  public static String buffReader(String fileName) throws FileNotFoundException, IOException {
+
+    FileReader file = new FileReader(fileName); //Weg zur Datei
+    BufferedReader reader = new BufferedReader(file);
+
+    String text = "";
+    String line = reader.readLine(); //liest Reihe nach Reihe
+    while(line != null){
+
+        text += line + "\n";       //erste Reihe von Datei wird in test gespeichert
+        line = reader.readLine();
+    }
+      return text;
+    
   }
   /*
    *

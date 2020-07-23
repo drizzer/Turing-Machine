@@ -17,6 +17,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import java.io.BufferedReader; //Scanner
+import java.io.FileReader;
 
 import java.awt.event.ActionListener;
 
@@ -233,6 +235,8 @@ public class Controller extends TuringMachine implements ActionListener, Initial
       }
     };
     load_btn.setOnAction(openEvent);
+
+   
   }
 
   @FXML
@@ -445,6 +449,13 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     //StateChanges_txt.setText(Integer.toString(TM.statChangeofstates));
     // Output Cell ID & Visits statistics ????
 
+    String details = Module.buffReader("./src/main/java/de/uni_hannover/hci/turing_machine/components/io/output.turm");
+
+    actionsList_txt.setText(details);
+
+
+   /*
+
     try {
       x =
         new Scanner(
@@ -461,7 +472,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
       outputTape_txt.setText(s);
     }
 
-    x.close();
+    x.close(); */
   }
 
   @FXML
