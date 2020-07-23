@@ -1,0 +1,63 @@
+buildscript {
+	repositories {
+		maven {
+			url 'https://plugins.gradle.org/m2/'
+		}
+	}
+	dependencies {
+		classpath 'org.openjfx:javafx-plugin:0.0.8'
+	}
+}
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    jcenter()
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:29.0-jre'
+    testImplementation 'junit:junit:4.13'
+}
+
+def currentOS = org.gradle.internal.os.OperatingSystem.current()
+def platform
+if (currentOS.isWindows()) {
+    platform = 'win'
+} else if (currentOS.isLinux()) {
+    platform = 'linux'
+} else if (currentOS.isMacOsX()) {
+    platform = 'mac'
+}
+
+if (JavaVersion.current().java11Compatible) {
+	apply plugin: 'org.openjfx.javafxplugin'
+    javafx {
+        version = "8"
+        modules = [ 'javafx.controls', 'javafx.fxml','javafx.base','javafx.graphics']
+        sdk = System.getenv('JAVA_HOME')
+        if (sdk == null || sdk.isBlank()) {
+            throw new InvalidUserDataException("JAVAFX_HOME environment variable is not set. It must be set to root folder where JAVAFX SDK is located")
+        }
+}
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs= ["src/main/java"]
+        }
+        resources {
+            srcDirs= ["src/main/resources"]
+        }
+    }
+}
+
+application {
+    mainClassName = 'de.uni_hannover.hci.turing_machine.App'
+}

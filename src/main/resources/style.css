@@ -1,0 +1,7 @@
+/* This file defines specific layout propreties */
+
+/* center the text on the tape */
+.text-area:centered .text {
+  -fx-text-alignment: center ;
+}
+
