@@ -69,7 +69,7 @@ public class Module {
    */
   public static void addText(String newText) throws IOException {
     try {
-      myWriter.append(newText);
+      myWriter.append("\n" + newText);
     } catch (IOException e) {
       System.out.println("Could not add text to file.");
       e.printStackTrace();
@@ -91,30 +91,24 @@ public class Module {
     }
   }
 
-  public static void openFile(String fileName) {
-    try {
-      scanner = new Scanner(new File(fileName));
-    } catch (Exception e) {
-      System.out.println("Could not find file");
-    }
-  }
-
-  public static void readFile() throws IOException {
-    // while(scanner.hasNext()) {
-    String title = scanner.next();
-    String alphabet = scanner.next();
-
-    Module.createFile(title);
-    Module.addText(alphabet);
-    // }
-  }
-
-  public static void closeFile() {
-    scanner.close();
-  }
-
   public static String buffReader(String fileName) throws FileNotFoundException, IOException {
   
+    FileReader file = new FileReader(fileName); //Weg zur Datei
+    BufferedReader reader = new BufferedReader(file);
+
+    String text = "";
+    String line = reader.readLine(); //liest Reihe nach Reihe
+    while((line = reader.readLine()) != null){
+      line = reader.readLine();
+
+        text += line + "\n";       //erste Reihe von Datei wird in test gespeichert
+    }
+      return text;
+    
+  }
+/*
+  public static String buffReaderLoad(String fileName) {
+
     FileReader file = new FileReader(fileName); //Weg zur Datei
     BufferedReader reader = new BufferedReader(file);
 
@@ -126,8 +120,8 @@ public class Module {
         line = reader.readLine();
     }
       return text;
-    
-  }
+
+  } */
   /*
    *
    * public static void openFile(String fileName) { try { formatter = new

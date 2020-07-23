@@ -11,6 +11,7 @@ import java.io.*;
 import java.lang.*;
 import java.util.*;
 import java.net.URL;
+
 import java.text.SimpleDateFormat;
 
 import javafx.collections.FXCollections;
@@ -239,6 +240,9 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     };
     load_btn.setOnAction(openEvent);
 
+    //file.getText();
+
+
    
   }
 
@@ -463,9 +467,6 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
     actionsList_txt.setText(details);
 
-
-   /*
-
     try {
       x =
         new Scanner(
@@ -482,7 +483,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
       outputTape_txt.setText(s);
     }
 
-    x.close(); */
+    x.close(); 
   }
 
   @FXML

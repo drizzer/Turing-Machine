@@ -12,13 +12,13 @@ public class Print extends Controller {
     Module.addText("#, a, b, +");
 
     // Iterator SetTransition
-    Module.addText("\n\nz0");
-    Module.addText("\nz1");
-    Module.addText("\nz2");
-    Module.addText("\nz3");
-    Module.addText("\nz4");
-    Module.addText("\nz5");
-    Module.addText("\nze");
+    Module.addText("\nz0");
+    Module.addText("z1");
+    Module.addText("z2");
+    Module.addText("z3");
+    Module.addText("z4");
+    Module.addText("z5");
+    Module.addText("ze");
 
     Module.addText("\n\nz0");
     Module.addText("\nze");
