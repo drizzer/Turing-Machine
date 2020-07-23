@@ -51,11 +51,12 @@ public class Program extends TuringMachine {
 
     Module.printActions("output"); // Direct console output to text file
 
-    while (!CurrentState.equals(AcceptState) && operations < 80) {
+    while (!CurrentState.equals(AcceptState) && operations < 100 && !CurrentState.equals(RejectState)) {
       boolean foundTransition = false;
       Transition CurrentTransition = null;
       operations++;
 
+      
       if (CurrentSymbol > 0) { // add pipes to show head
         System.out.println(
           Tape.substring(0, CurrentSymbol) +

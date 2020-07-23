@@ -36,13 +36,13 @@ public final class ProgramsList extends Program {
     newTM.addTransition("z0", '#', "z1", '#', true);
     newTM.addTransition("z0", ' ', "z0", ' ', true);
     newTM.addTransition("z1", 'b', "z1", 'b', true);
-    newTM.addTransition("z1", '_', "z2", '_', false); // loop here
+    newTM.addTransition("z1", ' ', "z2", ' ', false); // loop here
 
     newTM.addTransition("z2", 'b', "z2", 'b', false);
     newTM.addTransition("z2", '#', "z2", '#', false);
     newTM.addTransition("z2", 'a', "z2", 'a', false);
     newTM.addTransition("z2", '+', "z2", '+', false);
-    newTM.addTransition("z2", '_', "z3", '_', true);
+    newTM.addTransition("z2", ' ', "z3", ' ', true);
 
     newTM.addTransition("z3", '+', "z3", '+', true);
     newTM.addTransition("z3", 'a', "z4", '+', true);
@@ -51,9 +51,9 @@ public final class ProgramsList extends Program {
     newTM.addTransition("z4", '#', "z4", '#', true);
     newTM.addTransition("z4", 'b', "z2", '+', false);
 
-    newTM.addTransition("z4", '#', "z5", '+', true);
+    newTM.addTransition("z3", '#', "z5", '#', true);
     newTM.addTransition("z5", '+', "z5", '+', true);
-    newTM.addTransition("z5", '_', "ze", '_', true); // muss nicht mehr bewegen, boolean nicht geeignet
+    newTM.addTransition("z5", ' ', "ze", ' ', true); // muss nicht mehr bewegen, boolean nicht geeignet
 
     return newTM;
   }

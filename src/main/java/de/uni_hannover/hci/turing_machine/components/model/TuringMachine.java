@@ -23,6 +23,7 @@ public class TuringMachine
   protected String StartState;
   /** State in which the output is accepted */
   protected String AcceptState;
+  protected String RejectState;
 
   /** Tape content as String with all symbols (seperator included) */
   protected String Tape;
@@ -51,25 +52,6 @@ public class TuringMachine
      * @author Mohamed Atya
      */
 
-    @Override
-    public String toString() {
-      return (
-        "Transition{" +
-        "readState='" +
-        readState +
-        '\'' +
-        ", readSymbol=" +
-        readSymbol +
-        ", writeState='" +
-        writeState +
-        '\'' +
-        ", writeSymbol=" +
-        writeSymbol +
-        ", moveDirection=" +
-        moveDirection +
-        '}'
-      );
-    }
 
     boolean isConflicting(String state, char symbol) {
       if (state.equals(readState) && symbol == readSymbol) {
@@ -95,6 +77,7 @@ public class TuringMachine
     TransitionSet = new HashSet<Transition>();
     StartState = new String("");
     AcceptState = new String("");
+    RejectState = new String("");
     Tape = new String("");
     CurrentState = new String("");
     CurrentSymbol = 0;

@@ -243,9 +243,73 @@ public class Controller extends TuringMachine implements ActionListener, Initial
           Scanner myReader = new Scanner(file);
           while (myReader.hasNextLine()) {
             
-            String nameTM = myReader.nextLine();
+            String nameTM = myReader.nextLine(); //1. Name of TM loads
             setName_txt.setText(nameTM);
+            TM.setNameTM(nameTM);
+
+            String temp = myReader.nextLine(); //2. Zeile überspringen
+
+            String alph = myReader.nextLine(); //3. alphabet of TM loads
+            setAlphabet_txt.setText(alph);
+            TM.setAlphabetSet(alph);
+
+            String temp2 = myReader.nextLine(); //4. Zeile überspringen
             
+            while (myReader.nextLine() != "null") { // 5. bis x Zeile, Zustände speichern
+              String state = myReader.nextLine();
+              TM.addState(state);
+              statesList_txt.appendText(state + " - ");
+             // String temp3 = myReader.nextLine(); //Müssen wir Zeile überspringen?
+            }
+
+            String staState = myReader.nextLine(); //StartState speichern
+            TM.setStartState(staState);
+
+            String accState = myReader.nextLine(); //AcceptState speichern
+            TM.setAcceptState(accState);
+
+            String temp3 = myReader.nextLine();   //Leerzeile überspringen
+
+            while(myReader.nextLine() != "null") {  //Transitions hinzufügen
+              String tran = myReader.nextLine();
+
+    
+              String[] transition = tran.split(", ");
+              
+              String rState = transition[0];
+              char rSymbol = transition[1].toCharArray()[0];
+              String wState = transition[2];
+              char wSymbol = transition[3].toCharArray()[0];
+              boolean mDirection;
+              
+              if (transition[4] == "R") {
+                mDirection = true;
+              } else {
+                mDirection = false;
+              }
+
+              // saves the input of transitions in Object TM
+              boolean isAdded = TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
+
+            //Tableview
+
+            Transit ts = new Transit(
+            transition[0],
+            transition[1],
+            transition[2],
+            transition[3],
+            transition[4]
+            );
+      
+            actionsList_txt.setText(
+              ts.getOne() + ts.getTwo() + ts.getThree() + ts.getFour() + ts.getFive()
+              );
+
+            final ObservableList<Transit> info = FXCollections.observableArrayList(ts);
+            transitionTable_txt.getItems().addAll(info);
+
+            actionsList_txt.appendText("\n" + temp);
+            }
 
 
           }
@@ -485,7 +549,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
     start_btn.setTooltip(tt);
 
-    TM = ProgramsList.EqualWordSize();
+    TM = ProgramsList.Anagram();
     String input = input_txt.getText();
     boolean done = TM.launch(input);
 
