@@ -91,6 +91,10 @@ public class Module {
     }
   }
 
+
+  /**
+   * This method puts the Output of the console in a String
+   */
   public static String buffReader(String fileName) throws FileNotFoundException, IOException {
   
     FileReader file = new FileReader(fileName); //Weg zur Datei

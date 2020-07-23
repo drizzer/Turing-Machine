@@ -235,10 +235,43 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
         if (file != null) {
           actionsList_txt.setText(file.getAbsolutePath() + "  loaded");
+
+        } 
+
+        try {
+
+          Scanner myReader = new Scanner(file);
+          while (myReader.hasNextLine()) {
+            
+            String nameTM = myReader.nextLine();
+            setName_txt.setText(nameTM);
+            
+
+
+          }
+          
+        } catch (Exception e) {
+          System.out.println("Error");
         }
+
+        
+
       }
     };
     load_btn.setOnAction(openEvent);
+    
+
+
+    
+
+
+    //Frage: Was ist die Variable der Textdatei? Mit variableDatei.readLine(); kann man auf Strings zugreifen
+/*
+    BufferedReader reader = new BufferedReader(new FileReader(file.getName()));
+    String currentLine = reader.readLine();
+    reader.close();
+
+    actionsList_txt.setText(currentLine); */
 
     //file.getText();
 
@@ -481,6 +514,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     while (x.hasNextLine()) {
       String s = x.nextLine();
       outputTape_txt.setText(s);
+     // Thread.sleep(4000);
     }
 
     x.close(); 

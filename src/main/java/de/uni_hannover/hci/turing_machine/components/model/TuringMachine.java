@@ -8,7 +8,8 @@ import java.util.*;
  * @author Mohamed Atya
  * @version 05.07.20
  */
-public class TuringMachine {
+public class TuringMachine 
+{
   /** Name of the TuringMachine */
   protected String NameTM;
   /** Set of names for all possible states (e.g. qo - q5) */
