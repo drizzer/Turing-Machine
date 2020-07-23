@@ -1,14 +1,12 @@
 package de.uni_hannover.hci.turing_machine.components.view;
 
-import java.io.IOException;
-
 import de.uni_hannover.hci.turing_machine.components.Controller;
 import de.uni_hannover.hci.turing_machine.components.io.Module;
+import java.io.IOException;
 
 public class Print extends Controller {
 
   public static void generateConfig(String name) throws IOException {
-
     Module.createFile(name);
 
     Module.addText("#, a, b, +");
@@ -40,5 +38,4 @@ public class Print extends Controller {
     // ...noch nicht fertig
     Module.closeWriter();
   }
-
 }

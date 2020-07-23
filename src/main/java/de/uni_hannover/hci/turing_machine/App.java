@@ -21,7 +21,9 @@ public class App extends Application {
             Controller controller = (Controller) loader.getController(); // getting instance of the controller
             controller.setPrimaryStage(primaryStage); // set stage
             primaryStage.setTitle("Turing Machine");
-            primaryStage.setScene(new Scene(root, 1280, 800));
+            Scene scene = new Scene(root, 1280, 800);
+            scene.getStylesheets().addAll(this.getClass().getResource("/style.css").toExternalForm());
+            primaryStage.setScene(scene);
             primaryStage.show();
 
         } catch (Exception e) {

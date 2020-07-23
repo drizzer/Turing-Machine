@@ -8,9 +8,11 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -56,7 +58,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+                  <MenuItem mnemonicParsing="false" text="About Turing Machine" />
                </items>
             </Menu>
          </menus>
@@ -65,7 +67,7 @@
          <children>
             <AnchorPane fx:id="config_pane" prefHeight="753.0" prefWidth="258.0">
                <children>
-                  <Label alignment="CENTER" layoutX="11.0" layoutY="4.0" minWidth="60.0" style="&#10;" text="Config" textAlignment="CENTER" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0">
+                  <Label alignment="CENTER" layoutX="11.0" layoutY="4.0" minWidth="60.0" style="&#10;" text="Configuration" textAlignment="CENTER" wrapText="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0">
                      <font>
                         <Font size="18.0" fx:id="x1" />
                      </font>
@@ -87,30 +89,30 @@
                   <Label layoutX="20.0" layoutY="220.0" text="Transtion" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="270.0" />
                   <TextField fx:id="setTransition_txt" layoutX="-5.0" layoutY="278.0" prefHeight="30.0" prefWidth="150.0" promptText="0, a, 1, +, R" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="290.0" />
                   <Button fx:id="setTransition_btn" layoutX="208.0" layoutY="293.0" mnemonicParsing="false" onAction="#setTransiton" prefHeight="30.0" prefWidth="40.0" text="Add" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="290.0" />
-                  <TableView fx:id="transitionTable_txt" layoutX="8.0" layoutY="358.0" prefHeight="275.0" prefWidth="245.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="355.0">
+                  <TableView fx:id="transitionTable_txt" layoutX="7.0" layoutY="470.0" prefHeight="275.0" prefWidth="245.0" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="470.0">
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
                   <Button fx:id="editTransition_btn" layoutX="182.0" layoutY="320.0" mnemonicParsing="false" onAction="#editTransition" prefHeight="30.0" prefWidth="40.0" text="Edit" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="290.0" />
-                  <Separator layoutX="39.0" layoutY="329.0" prefWidth="200.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="330.0" />
-                  <Label layoutX="17.0" layoutY="333.0" text="State transitions" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="333.0">
+                  <Separator layoutX="30.0" layoutY="386.0" prefWidth="200.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="386.0" />
+                  <Label layoutX="17.0" layoutY="333.0" text="State transitions" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="450.0">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font></Label>
-                  <TextField fx:id="input_txt" alignment="CENTER" layoutX="10.0" layoutY="655.0" prefHeight="50.0" prefWidth="245.0" promptText="ex: aaa#bbb, 1011#0111..." AnchorPane.bottomAnchor="55.0" AnchorPane.leftAnchor="10.0">
+                  <Label layoutX="60.0" layoutY="333.0" text="States" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="390.0">
                      <font>
-                        <Font size="16.0" />
-                     </font></TextField>
-                  <Button fx:id="stop_btn" layoutX="14.0" layoutY="708.0" mnemonicParsing="false" onAction="#stop" prefHeight="30.0" prefWidth="60.0" text="Stop" AnchorPane.bottomAnchor="15.0" />
-                  <Button fx:id="start_btn" defaultButton="true" layoutX="99.0" layoutY="705.0" mnemonicParsing="false" onAction="#start" prefHeight="40.0" prefWidth="70.0" text="Start" AnchorPane.bottomAnchor="8.0">
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                     <font>
-                        <Font size="14.0" />
-                     </font></Button>
-                  <Button fx:id="pause_btn" layoutX="189.0" layoutY="708.0" mnemonicParsing="false" onAction="#pause" prefHeight="30.0" prefWidth="60.0" text="Pause" AnchorPane.bottomAnchor="15.0" />
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="statesList_txt" layoutX="8.0" layoutY="393.0" prefHeight="30.0" prefWidth="245.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="410.0" />
+                  <TextField fx:id="startState_txt" layoutX="22.0" layoutY="335.0" prefHeight="30.0" prefWidth="50.0" promptText="z2" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="350.0" />
+                  <Button fx:id="setStartState_btn" layoutX="74.0" layoutY="335.0" mnemonicParsing="false" onAction="#setStartState" prefHeight="30.0" prefWidth="40.0" text="Add" textFill="RED" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="350.0" />
+                  <TextField fx:id="acceptState_txt" layoutX="131.0" layoutY="333.0" prefHeight="30.0" prefWidth="40.0" promptText="z0" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="350.0" />
+                  <Label layoutX="30.0" layoutY="230.0" text="Start state" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="330.0" />
+                  <Button fx:id="setAcceptState_btn" layoutX="194.0" layoutY="349.0" mnemonicParsing="false" onAction="#setAcceptState" prefHeight="30.0" prefWidth="40.0" text="Add" textFill="RED" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="350.0" />
+                  <Separator layoutX="135.0" layoutY="355.0" orientation="VERTICAL" prefHeight="20.0" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="355.0" />
+                  <Label layoutX="153.0" layoutY="322.0" text="Accept state" AnchorPane.leftAnchor="160.0" AnchorPane.topAnchor="330.0" />
                </children>
             </AnchorPane>
             <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="753.0" prefWidth="749.0">
@@ -123,34 +125,56 @@
                         <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
                      </textFill>
                   </Label>
-                  <Button fx:id="stepBack_btn" layoutX="18.0" layoutY="179.0" mnemonicParsing="false" onAction="#stepBack" prefHeight="40.0" prefWidth="90.0" text="Step back" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="150.0" />
-                  <Button fx:id="stepForward_btn" layoutX="644.0" layoutY="179.0" mnemonicParsing="false" onAction="#stepForward" prefHeight="40.0" prefWidth="90.0" text="Step forward" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0" />
-                  <Label layoutX="18.0" layoutY="216.0" text="Details :" AnchorPane.leftAnchor="18.0" AnchorPane.topAnchor="216.0" />
-                  <TextArea fx:id="actionsList_txt" layoutX="18.0" layoutY="233.0" prefHeight="500.0" prefWidth="711.0" />
-                  <TextArea fx:id="outputTape_txt" layoutX="11.0" layoutY="46.0" prefHeight="75.0" prefWidth="723.0">
+                  <Button fx:id="stepBack_btn" layoutX="18.0" layoutY="179.0" mnemonicParsing="false" onAction="#stepBack" prefHeight="35.0" prefWidth="100.0" text="Step back" AnchorPane.leftAnchor="525.0" AnchorPane.topAnchor="150.0" />
+                  <Button fx:id="stepForward_btn" layoutX="644.0" layoutY="179.0" mnemonicParsing="false" onAction="#stepForward" prefHeight="35.0" prefWidth="100.0" text="Step forward" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0" />
+                  <Label layoutX="18.0" layoutY="216.0" text="Details :" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="215.0" />
+                  <TextArea fx:id="actionsList_txt" layoutX="18.0" layoutY="233.0" prefHeight="510.0" prefWidth="720.0" AnchorPane.leftAnchor="15.0">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="13.0" />
                      </font></TextArea>
+                  <TextArea fx:id="outputTape_txt" layoutX="11.0" layoutY="46.0" prefHeight="60.0" prefWidth="720.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="40.0">
+                     <font>
+                        <Font size="25.0" />
+                     </font></TextArea>
+                  <TextField fx:id="input_txt" alignment="CENTER" layoutX="217.0" layoutY="175.0" prefHeight="40.0" prefWidth="245.0" promptText="ex: aaa#bbb, 1011#0111..." AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="180.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font></TextField>
+                  <Button fx:id="start_btn" defaultButton="true" layoutX="250.0" layoutY="130.0" mnemonicParsing="false" onAction="#start" prefHeight="40.0" prefWidth="100.0" text="Start" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="130.0">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Button fx:id="stop_btn" layoutX="374.0" layoutY="130.0" mnemonicParsing="false" onAction="#stop" prefHeight="40.0" prefWidth="100.0" text="Stop" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="130.0">
+                     <effect>
+                        <Blend />
+                     </effect></Button>
+                  <TextField fx:id="operations_txt" layoutX="74.0" layoutY="165.0" prefHeight="40.0" prefWidth="70.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="160.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+                  <Text layoutX="75.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Operations (default = 100)" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="140.0" />
+                  <Button fx:id="operations_btn" layoutX="122.0" layoutY="167.0" mnemonicParsing="false" onAction="#setOperations" prefHeight="30.0" prefWidth="50.0" text="Set" textFill="RED" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="165.0" />
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="753.0" prefWidth="270.0">
                <children>
                   <Label alignment="CENTER" font="$x1" layoutX="22.0" layoutY="14.0" style="&#10;" text="Stats" textAlignment="CENTER" textFill="$x2" wrapText="false" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0" />
-                  <Button fx:id="setstartState_btn" layoutX="156.0" layoutY="591.0" mnemonicParsing="false" onAction="#setstartState" prefHeight="30.0" prefWidth="90.0" text="Start State" textFill="RED" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="530.0" />
-                  <Button fx:id="acceptState_btn" layoutX="156.0" layoutY="658.0" mnemonicParsing="false" onAction="#acceptState" prefHeight="30.0" prefWidth="90.0" text="Accept State" textFill="RED" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="580.0" />
-                  <TextField fx:id="acceptState_txt" layoutX="60.0" layoutY="658.0" prefHeight="30.0" prefWidth="50.0" promptText="z0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="580.0" />
-                  <TextField fx:id="setstartState_txt" layoutX="85.0" layoutY="591.0" prefHeight="30.0" prefWidth="50.0" promptText="z2" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="530.0" />
-                  <Separator layoutX="30.0" layoutY="552.0" prefHeight="3.0" prefWidth="219.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="510.0" />
-                  <Text fill="#0011ff" layoutX="26.0" layoutY="638.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Help" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="620.0" />
-                  <Text layoutX="20.0" layoutY="643.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" R St : Read state    R Sy : Read symbol W St : Write state    W Sy : Write sysmbol D : Direction" wrappingWidth="240.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="645.0">
+                  <Separator layoutX="40.0" layoutY="470.0" prefHeight="3.0" prefWidth="170.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="470.0" />
+                  <Text fill="#0011ff" layoutX="15.0" layoutY="640.5791015625" strokeType="OUTSIDE" strokeWidth="0.0" text="Help" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="627.0">
+                     <font>
+                        <Font name="Arial" size="15.0" />
+                     </font></Text>
+                  <Text layoutX="15.0" layoutY="535.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" R St : Read state     R Sy : Read symbol W St : Write state    W Sy : Write sysmbol D : Direction" wrappingWidth="240.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="650.0">
                      <font>
                         <Font name="Arial Nova" size="13.0" />
                      </font>
                   </Text>
-                  <TextArea fx:id="StateChanges_txt" layoutX="44.0" layoutY="72.0" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="55.0" AnchorPane.topAnchor="70.0" />
+                  <TextArea fx:id="StateChanges_txt" layoutX="44.0" layoutY="72.0" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="70.0" />
                   <TextArea fx:id="steps_txt" layoutX="148.0" layoutY="72.0" prefHeight="40.0" prefWidth="40.0" AnchorPane.leftAnchor="165.0" AnchorPane.topAnchor="70.0" />
-                  <TextArea fx:id="CellidVisits_txt" layoutX="65.0" layoutY="168.0" prefHeight="325.0" prefWidth="131.0" />
-                  <Text layoutX="65.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="   Cell ID     |     Visits" wrappingWidth="130.99998474121094" />
                   <Text layoutX="33.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State Changes" wrappingWidth="90.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="50.0">
                      <font>
                         <Font size="13.0" />
@@ -159,13 +183,24 @@
                      <font>
                         <Font size="13.0" />
                      </font></Text>
+                  <TableView fx:id="statChangeOfState_txt" layoutX="35.0" layoutY="168.0" prefHeight="300.0" prefWidth="150.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="150.0">
+                    <columns>
+                      <TableColumn minWidth="0.0" prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+                  <Text fill="#ff5e00" layoutX="61.0" layoutY="720.0" strokeType="OUTSIDE" strokeWidth="0.0" text="# : Tape separator" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="700.0">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
          </children>
       </HBox>
       <HBox id="HBox" alignment="BOTTOM_CENTER" prefHeight="20.0" prefWidth="1280.0" spacing="5.0">
          <children>
-            <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
+            <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Leibniz Universität Hannover" HBox.hgrow="ALWAYS">
                <font>
                   <Font size="11.0" fx:id="x3" />
                </font>
@@ -174,7 +209,7 @@
                </textFill>
             </Label>
             <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-            <Label maxWidth="-1.0" text="Right status" HBox.hgrow="NEVER">
+            <Label maxWidth="-1.0" text="Lisanne Haase - Hedi Attia" HBox.hgrow="NEVER">
                <font>
                   <Font size="11.0" fx:id="x3" />
                </font>
