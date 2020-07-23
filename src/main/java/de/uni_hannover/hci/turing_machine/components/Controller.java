@@ -549,7 +549,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
     start_btn.setTooltip(tt);
 
-    TM = ProgramsList.Anagram();
+    TM = ProgramsList.EqualWordSize();
     String input = input_txt.getText();
     boolean done = TM.launch(input);
 

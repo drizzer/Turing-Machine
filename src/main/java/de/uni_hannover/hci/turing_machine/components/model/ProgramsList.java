@@ -53,7 +53,7 @@ public final class ProgramsList extends Program {
 
     newTM.addTransition("z3", '#', "z5", '#', true);
     newTM.addTransition("z5", '+', "z5", '+', true);
-    newTM.addTransition("z5", ' ', "ze", ' ', true); // muss nicht mehr bewegen, boolean nicht geeignet
+    newTM.addTransition("z5", ' ', "ze", ' ', true); // muss nicht mehr bewegen
 
     return newTM;
   }
