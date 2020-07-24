@@ -29,9 +29,9 @@ public class Module {
     throws FileNotFoundException {
     try {
       PrintStream console = new PrintStream(
-        "./src/main/java/de/uni_hannover/hci/turing_machine/components/io/" +
+        "./" +
         fileName +
-        ".turm"
+        ".txt"
       );
       System.setOut(console); // konsole inhalt in Objekt console speichern
     } catch (FileNotFoundException fx) {
@@ -49,7 +49,7 @@ public class Module {
     try {
       myWriter =
         new FileWriter(
-          "./src/main/java/de/uni_hannover/hci/turing_machine/components/model/lib/saves/" +
+          "./" +
           fileName +
           ".turm"
         );

@@ -490,10 +490,16 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     );
 
     start_btn.setTooltip(tt);
+    if (TM.getNameTM().equals("Anagram")) {
+      TM = ProgramsList.Anagram();
+    } else {
+      TM = ProgramsList.EqualWordSize();
+    }
 
-    TM = ProgramsList.EqualWordSize();
     String input = input_txt.getText();
     boolean done = TM.launch(input);
+
+
 
 
 
@@ -504,7 +510,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     //StateChanges_txt.setText(Integer.toString(TM.statChangeofstates));
     // Output Cell ID & Visits statistics ????
 
-    String details = Module.buffReader("./src/main/java/de/uni_hannover/hci/turing_machine/components/io/output.turm");
+    String details = Module.buffReader("./output.txt");
 
     actionsList_txt.setText(details);
 
@@ -512,7 +518,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
       x =
         new Scanner(
           new File(
-            "./src/main/java/de/uni_hannover/hci/turing_machine/components/io/output.turm"
+            "./output.txt"
           )
         );
     } catch (Exception e) {
