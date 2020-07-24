@@ -4,6 +4,12 @@ import de.uni_hannover.hci.turing_machine.components.Controller;
 import de.uni_hannover.hci.turing_machine.components.io.Module;
 import java.io.IOException;
 
+/**
+ * This class generates configuration files (.turm) for the TM Program.
+ * @version Mohamed Atya
+ * @version v0.6
+ */
+
 public class Print extends Controller {
 
   public static void generateConfig(String name) throws IOException {

@@ -13,6 +13,10 @@ import java.io.FileReader;
 
 // VM options: --module-path %PATH_TO_FX%  --add-modules=javafx.controls,javafx.fxml
 
+/**
+ * entry point for the java.fx application
+ */
+
 public class App extends Application {
     Controller controller = new Controller();
 

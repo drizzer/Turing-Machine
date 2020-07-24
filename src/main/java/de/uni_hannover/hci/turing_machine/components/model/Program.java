@@ -4,6 +4,11 @@ import de.uni_hannover.hci.turing_machine.components.io.Module;
 import java.io.FileNotFoundException;
 import java.util.*;
 
+/**
+ * This class provides the program for the TM and prints the tape.
+ * @author Mohamed Atya
+ * @version v0.6
+ */
 public class Program extends TuringMachine {
   /** Counter for calls of each cell */
   public int[][] statCells;

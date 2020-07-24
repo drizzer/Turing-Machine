@@ -42,6 +42,11 @@ import javafx.scene.text.Font;
 
 import javafx.css.PseudoClass;
 
+/**
+ * Controller class for the GUI.fxml 
+ * @author Lisanne Haase
+ * @version v0.6
+ */
 
 public class Controller extends TuringMachine implements ActionListener, Initializable {
   // JavaFx components for the User Interface

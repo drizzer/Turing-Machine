@@ -11,7 +11,11 @@ import java.util.Scanner;
 import java.io.BufferedReader; //Scanner
 import java.io.FileReader;
 
-
+/**
+ * This class provides methods for creating, reading and closing a file.
+ * @author Mohamed Atya
+ * @version v0.6
+ */
 public class Module {
   public static FileWriter myWriter;
   public static Scanner scanner;

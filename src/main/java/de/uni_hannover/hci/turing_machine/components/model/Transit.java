@@ -2,6 +2,11 @@ package de.uni_hannover.hci.turing_machine.components.model;
 
 import javafx.beans.property.SimpleStringProperty;
 
+/**
+ * This class provides getters and setters for the tableview Output (TransitionSet)
+ * @author Lisanne Haase
+ * @version v0.6
+ */
 public class Transit {
   public SimpleStringProperty one;
   public SimpleStringProperty two;
