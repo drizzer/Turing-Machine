@@ -18,7 +18,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import java.io.BufferedReader; //Scanner
+import java.io.BufferedReader;
 import java.io.FileReader;
 
 import java.awt.event.ActionListener;
@@ -47,10 +47,8 @@ public class Controller extends TuringMachine implements ActionListener, Initial
   // JavaFx components for the User Interface
 
   private Stage primaryStage;
-  public static Program TM = new Program(); // Object Typ Program
-
-  //    Transit TS; //Für Tableview
-
+  public static Program TM = new Program(); // Object Typ Program 
+  public Transit TS; //Für Tableview
   public static Scanner x; //for start Method
 
   PseudoClass centered = PseudoClass.getPseudoClass("centered"); // custom CSS pseudoclass for the text area
@@ -181,28 +179,21 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    //        transitionTable_txt.getItems().addAll(TS); //Fügt Linien hinzu
     transitionTable_txt.setEditable(true);
 
     //Überschriften hinzufügen
-    TableColumn<Transit, String> RSt = new TableColumn<>("RSt");
+    TableColumn<Transit, String> RSt = new TableColumn<>("R St");
     RSt.setMinWidth(50);
-    TableColumn<Transit, String> RSy = new TableColumn<>("RSy");
+    TableColumn<Transit, String> RSy = new TableColumn<>("R Sy");
     RSy.setMinWidth(50);
-    TableColumn<Transit, String> WSt = new TableColumn<>("WSt");
+    TableColumn<Transit, String> WSt = new TableColumn<>("W St");
     WSt.setMinWidth(50);
-    TableColumn<Transit, String> WSy = new TableColumn<>("WSy");
+    TableColumn<Transit, String> WSy = new TableColumn<>("W Sy");
     WSy.setMinWidth(50);
     TableColumn<Transit, String> D = new TableColumn<>("D");
     D.setMinWidth(35);
 
     transitionTable_txt.getColumns().addAll(RSt, RSy, WSt, WSy, D);
-
-    // ObservableList<Transit> info = FXCollections.observableArrayList(new Transit("0", "1", "1", "0", "R")); //Fehler
-
-    //  info.add(new Transit("0", "1", "1", "0", "R"));
-
-    //  info.add(new Transit(TS.getone(), TS.gettwo(), TS.getthree(), TS.getfour(), TS.getfive())); //Fehler
 
     RSt.setCellValueFactory(new PropertyValueFactory<Transit, String>("one"));
     RSy.setCellValueFactory(new PropertyValueFactory<Transit, String>("two"));
@@ -211,9 +202,6 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     D.setCellValueFactory(new PropertyValueFactory<Transit, String>("five"));
 
     transitionTable_txt.setEditable(true); //Tableview kann verändert werden
-    //  transitionTable_txt.getItems().addAll(TS);
-    // transitionTable_txt.getItems(info); //Fehler
-
   }
 
   // Event Handling for load and save
@@ -280,13 +268,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
               char rSymbol = transition[1].toCharArray()[0];
               String wState = transition[2];
               char wSymbol = transition[3].toCharArray()[0];
-              boolean mDirection;
-              
-              if (transition[4] == "R") {
-                mDirection = true;
-              } else {
-                mDirection = false;
-              }
+              int mDirection = Integer.parseInt(transition[4]);
 
               // saves the input of transitions in Object TM
               boolean isAdded = TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
@@ -436,13 +418,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     char rSymbol = transition[1].toCharArray()[0];
     String wState = transition[2];
     char wSymbol = transition[3].toCharArray()[0];
-    boolean mDirection;
-    
-    if (transition[4] == "R") {
-      mDirection = true;
-    } else {
-      mDirection = false;
-    }
+    int mDirection  = Integer.parseInt(transition[4]);
 
     // saves the input of transitions in Object TM
     boolean isAdded = TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
@@ -464,8 +440,6 @@ public class Controller extends TuringMachine implements ActionListener, Initial
 
     final ObservableList<Transit> info = FXCollections.observableArrayList(ts);
     transitionTable_txt.getItems().addAll(info);
-
-    actionsList_txt.appendText("\n" + temp);
   }
 
   @FXML
@@ -479,34 +453,7 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     char rSymbol = transition[1].toCharArray()[0];
     String wState = transition[2];
     char wSymbol = transition[3].toCharArray()[0];
-    boolean mDirection;
-    
-    if (transition[4] == "R") {
-      mDirection = true;
-    } else {
-      mDirection = false;
-    }
-    
-    /*
-    // saves the input of transitions in Object TM
-    TM.addTransition(rState, rSymbol, wState, wSymbol, mDirection);
-    // Transitoins auflisten
-    Transit ts = new Transit(
-      transition[0],
-      transition[1],
-      transition[2],
-      transition[3],
-      transition[4]
-      );
-      
-    actionsList_txt.setText(
-      ts.getOne() + ts.getTwo() + ts.getThree() + ts.getFour() + ts.getFive()
-      );
-
-    ObservableList<Transit> info = FXCollections.observableArrayList(ts);
-    info.add(new Transit(ts.getOne(), ts.getTwo(), ts.getThree(), ts.getFour(), ts.getFive()));
-    transitionTable_txt.setItems(info);
-    */
+    int mDirection  = Integer.parseInt(transition[4]);
   }
 
   @FXML
@@ -514,8 +461,6 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     String startState = startState_txt.getText();
     startState_txt.setText(startState);
     TM.setStartState(startState);
-
-    actionsList_txt.appendText("\n" + startState);
   }
 
   @FXML
@@ -523,9 +468,6 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     String acceptState = acceptState_txt.getText();
     acceptState_txt.setText(acceptState);
     TM.setAcceptState(acceptState);
-
-
-    actionsList_txt.appendText("\n" + acceptState);
   }
   
   @FXML
@@ -553,9 +495,11 @@ public class Controller extends TuringMachine implements ActionListener, Initial
     String input = input_txt.getText();
     boolean done = TM.launch(input);
 
-    // TM.launch(input_txt.getText());
+
+
 
     // Output state changes & steps statistics
+
     //steps_txt.setText(Integer.toString(TM.statSteps));
     //StateChanges_txt.setText(Integer.toString(TM.statChangeofstates));
     // Output Cell ID & Visits statistics ????

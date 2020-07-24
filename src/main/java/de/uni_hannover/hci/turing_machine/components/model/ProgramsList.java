@@ -32,28 +32,28 @@ public final class ProgramsList extends Program {
     newTM.setStartState("z0");
     newTM.setAcceptState("ze");
 
-    newTM.addTransition("z0", 'a', "z0", 'a', true);
-    newTM.addTransition("z0", '#', "z1", '#', true);
-    newTM.addTransition("z0", ' ', "z0", ' ', true);
-    newTM.addTransition("z1", 'b', "z1", 'b', true);
-    newTM.addTransition("z1", ' ', "z2", ' ', false); // loop here
+    newTM.addTransition("z0", 'a', "z0", 'a', 2);
+    newTM.addTransition("z0", '#', "z1", '#', 2);
+    newTM.addTransition("z0", ' ', "z0", ' ', 2);
+    newTM.addTransition("z1", 'b', "z1", 'b', 2);
+    newTM.addTransition("z1", ' ', "z2", ' ', 0); // loop here
 
-    newTM.addTransition("z2", 'b', "z2", 'b', false);
-    newTM.addTransition("z2", '#', "z2", '#', false);
-    newTM.addTransition("z2", 'a', "z2", 'a', false);
-    newTM.addTransition("z2", '+', "z2", '+', false);
-    newTM.addTransition("z2", ' ', "z3", ' ', true);
+    newTM.addTransition("z2", 'b', "z2", 'b', 0);
+    newTM.addTransition("z2", '#', "z2", '#', 0);
+    newTM.addTransition("z2", 'a', "z2", 'a', 0);
+    newTM.addTransition("z2", '+', "z2", '+', 0);
+    newTM.addTransition("z2", ' ', "z3", ' ', 2);
 
-    newTM.addTransition("z3", '+', "z3", '+', true);
-    newTM.addTransition("z3", 'a', "z4", '+', true);
-    newTM.addTransition("z4", '+', "z4", '+', true);
-    newTM.addTransition("z4", 'a', "z4", 'a', true);
-    newTM.addTransition("z4", '#', "z4", '#', true);
-    newTM.addTransition("z4", 'b', "z2", '+', false);
+    newTM.addTransition("z3", '+', "z3", '+', 2);
+    newTM.addTransition("z3", 'a', "z4", '+', 2);
+    newTM.addTransition("z4", '+', "z4", '+', 2);
+    newTM.addTransition("z4", 'a', "z4", 'a', 2);
+    newTM.addTransition("z4", '#', "z4", '#', 2);
+    newTM.addTransition("z4", 'b', "z2", '+', 0);
 
-    newTM.addTransition("z3", '#', "z5", '#', true);
-    newTM.addTransition("z5", '+', "z5", '+', true);
-    newTM.addTransition("z5", ' ', "ze", ' ', true); // muss nicht mehr bewegen
+    newTM.addTransition("z3", '#', "z5", '#', 2);
+    newTM.addTransition("z5", '+', "z5", '+', 2);
+    newTM.addTransition("z5", ' ', "ze", ' ', 1); // nicht mehr bewegen
 
     return newTM;
   }
@@ -81,46 +81,46 @@ public final class ProgramsList extends Program {
     newTM.setStartState("z0");
     newTM.setAcceptState("ze");
 
-    newTM.addTransition("z0", 'a', "z1", '+', true);
-    newTM.addTransition("z0", 'b', "z2", '+', true);
-    newTM.addTransition("z0", ' ', "z3", ' ', true);
+    newTM.addTransition("z0", 'a', "z1", '+', 2);
+    newTM.addTransition("z0", 'b', "z2", '+', 2);
+    newTM.addTransition("z0", '$', "z3", '$', 2);
 
-    newTM.addTransition("z1", 'a', "z1", 'a', true);
-    newTM.addTransition("z1", 'b', "z1", 'b', true);
-    newTM.addTransition("z1", '+', "z1", '+', true);
-    newTM.addTransition("z1", '#', "z11", '#', true);
+    newTM.addTransition("z1", 'a', "z1", 'a', 2);
+    newTM.addTransition("z1", 'b', "z1", 'b', 2);
+    newTM.addTransition("z1", '+', "z1", '+', 2);
+    newTM.addTransition("z1", '#', "z11", '#', 2);
 
-    newTM.addTransition("z2", 'a', "z2", 'a', true);
-    newTM.addTransition("z2", 'b', "z2", 'b', true);
-    newTM.addTransition("z2", '+', "z2", '+', true);
-    newTM.addTransition("z2", '#', "z22", '#', true);
+    newTM.addTransition("z2", 'a', "z2", 'a', 2);
+    newTM.addTransition("z2", 'b', "z2", 'b', 2);
+    newTM.addTransition("z2", '+', "z2", '+', 2);
+    newTM.addTransition("z2", '#', "z22", '#', 2);
 
-    newTM.addTransition("z3", '#', "z33", '#', true);
-    newTM.addTransition("z33", ' ', "ze", ' ', true); // muss nicht bewegen
+    newTM.addTransition("z3", '#', "z33", '#', 2);
+    newTM.addTransition("z33", '$', "ze", '$', 1);
 
-    newTM.addTransition("z11", 'a', "z4", '+', false);
-    newTM.addTransition("z11", '+', "z11", '+', true);
-    newTM.addTransition("z11", 'b', "z11", 'b', true);
+    newTM.addTransition("z11", 'a', "z4", '+', 0);
+    newTM.addTransition("z11", '+', "z11", '+', 2);
+    newTM.addTransition("z11", 'b', "z11", 'b', 2);
 
-    newTM.addTransition("z22", 'b', "z4", '+', false);
-    newTM.addTransition("z22", '+', "z22", '+', true);
-    newTM.addTransition("z22", 'a', "z22", 'a', true);
+    newTM.addTransition("z22", 'b', "z4", '+', 0);
+    newTM.addTransition("z22", '+', "z22", '+', 2);
+    newTM.addTransition("z22", 'a', "z22", 'a', 2);
 
-    newTM.addTransition("z4", 'a', "z4", 'a', false);
-    newTM.addTransition("z4", 'b', "z4", 'b', false);
-    newTM.addTransition("z4", '+', "z4", '+', false);
-    newTM.addTransition("z4", '#', "z4", '#', false);
-    newTM.addTransition("z4", ' ', "z0", ' ', true); // rST = ' '
+    newTM.addTransition("z4", 'a', "z4", 'a', 0);
+    newTM.addTransition("z4", 'b', "z4", 'b', 0);
+    newTM.addTransition("z4", '+', "z4", '+', 0);
+    newTM.addTransition("z4", '#', "z4", '#', 0);
+    newTM.addTransition("z4", '$', "z0", '$', 2);
 
-    newTM.addTransition("z0", '+', "z0", '+', true);
-    newTM.addTransition("z0", '#', "z5", '#', true);
+    newTM.addTransition("z0", '+', "z0", '+', 2);
+    newTM.addTransition("z0", '#', "z5", '#', 2);
 
-    newTM.addTransition("z5", '+', "z5", '+', true);
-    newTM.addTransition("z5", ' ', "ze", ' ', true); // still bleiben
+    newTM.addTransition("z5", '+', "z5", '+', 2);
+    newTM.addTransition("z5", '$', "ze", '$', 1);
 
     return newTM;
   }
-
+/*
   public static Program EqualBinaryWords() {
     Program newTM = new Program();
     newTM.addState("q1");
@@ -160,5 +160,5 @@ public final class ProgramsList extends Program {
     newTM.addTransition("q8", 'x', "q8", 'x', true);
     newTM.addTransition("q8", ' ', "qa", ' ', true);
     return newTM;
-  }
+  }*/
 }

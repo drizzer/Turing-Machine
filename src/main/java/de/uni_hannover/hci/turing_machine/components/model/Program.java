@@ -51,13 +51,13 @@ public class Program extends TuringMachine {
 
     Module.printActions("output"); // Direct console output to text file
 
-    while (!CurrentState.equals(AcceptState) && operations < 100 && !CurrentState.equals(RejectState)) {
+    while (!CurrentState.equals(AcceptState) && operations < 200 && !CurrentState.equals(RejectState)) {
       boolean foundTransition = false;
       Transition CurrentTransition = null;
       operations++;
 
       
-      if (CurrentSymbol > 0) { // add pipes to show head
+      if (CurrentSymbol > 0) {
         System.out.println(
           Tape.substring(0, CurrentSymbol) + "|" + Tape.charAt(CurrentSymbol) + "|" +
           Tape.substring(CurrentSymbol) +
@@ -119,14 +119,15 @@ public class Program extends TuringMachine {
          */
       }
 
-      if (CurrentTransition.moveDirection == true) {
+      if (CurrentTransition.moveDirection == 2) {
         CurrentSymbol++;
         statSteps++; // counts the steps in total
-      } else {
+      } else if (CurrentTransition.moveDirection == 0) {
         CurrentSymbol--;
         statSteps++; // counts the steps in total
+      } else {
+        statSteps++;
       }
-
       if (CurrentSymbol < 0) CurrentSymbol = 0;
 
       while (Tape.length() <= CurrentSymbol) {

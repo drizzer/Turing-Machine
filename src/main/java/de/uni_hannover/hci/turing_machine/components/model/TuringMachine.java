@@ -23,6 +23,7 @@ public class TuringMachine
   protected String StartState;
   /** State in which the output is accepted */
   protected String AcceptState;
+  /** State in which the output is rejected */
   protected String RejectState;
 
   /** Tape content as String with all symbols (seperator included) */
@@ -43,7 +44,7 @@ public class TuringMachine
     char readSymbol;
     String writeState;
     char writeSymbol;
-    boolean moveDirection; // true is right, false is left
+    int moveDirection; // 0 : links, 1 : nicht bewegen, 2 : rechts
 
     /**
      * This method returns the current transition into a string
@@ -179,7 +180,7 @@ public class TuringMachine
     char rSymbol,
     String wState,
     char wSymbol,
-    boolean mDirection
+    int mDirection
   ) {
     if (!StateSet.contains(rState) || !StateSet.contains(wState)) {
       return false;
