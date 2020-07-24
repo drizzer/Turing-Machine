@@ -59,7 +59,7 @@ public class Program extends TuringMachine {
       
       if (CurrentSymbol > 0) { // add pipes to show head
         System.out.println(
-          Tape.substring(0, CurrentSymbol) +
+          Tape.substring(0, CurrentSymbol) + "|" + Tape.charAt(CurrentSymbol) + "|" +
           Tape.substring(CurrentSymbol) +
           " Zu: " +
           CurrentState
