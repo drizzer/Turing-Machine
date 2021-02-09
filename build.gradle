@@ -12,6 +12,7 @@ buildscript {
 plugins {
     id 'java'
     id 'application'
+	id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
 repositories {
@@ -38,11 +39,11 @@ if (currentOS.isWindows()) {
 if (JavaVersion.current().java11Compatible) {
 	apply plugin: 'org.openjfx.javafxplugin'
     javafx {
-        version = "8"
+        version = "11.0.2"
         modules = [ 'javafx.controls', 'javafx.fxml','javafx.base','javafx.graphics']
-        sdk = System.getenv('JAVA_HOME')
+        sdk = System.getenv('PATH_TO_FX')
         if (sdk == null || sdk.isBlank()) {
-            throw new InvalidUserDataException("JAVAFX_HOME environment variable is not set. It must be set to root folder where JAVAFX SDK is located")
+            throw new InvalidUserDataException("PATH_TO_FX environment variable is not set. It must be set to root folder where JAVAFX SDK is located")
         }
 }
 }
