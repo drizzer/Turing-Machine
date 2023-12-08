@@ -4,7 +4,7 @@ A simulator for deterministic single-tape Turing machines written in Java.
 
 <img src="./src/main/resources/TM_Preview.png" alt="Program preview">
 
-------------------------------------------------------------------
+-----------------------------------------------------------------
 
 ## SDK
 
